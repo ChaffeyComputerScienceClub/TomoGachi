@@ -1,0 +1,51 @@
+
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SamsShop</title>
+    <h1>TODO list ?</h1>
+  </head>
+  <body>
+    <input type="text" class="textField" id="createItem" style="margin-left:33%">
+    <button type="submit" class="button" id="createButton" style="margin-top:30px; margin-left:35% ">Create</button>
+  </body>
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-analytics.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyCDsIup2KaJeQMPL5jvCMzMA7RTpPiPg7o",
+      authDomain: "tomotaru-bb27a.firebaseapp.com",
+      databaseURL: "https://tomotaru-bb27a-default-rtdb.firebaseio.com",
+      projectId: "tomotaru-bb27a",
+      storageBucket: "tomotaru-bb27a.appspot.com",
+      messagingSenderId: "281838524572",
+      appId: "1:281838524572:web:ee113e29d661a9c1a73559",
+      measurementId: "G-9HY07GMSFH"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+
+
+    import {getDatabase, set, get, update, remove, ref, child}
+    from "https://www.gstatic.com/firebasejs/10.14.0/firebase-database.js";
+    const db=getDatabase();
+    var createItem=document.getElementById("createItem");
+
+    function CreateItem(){
+    set(ref(db, "Groups/" + createItem.value),{
+        Item: createItem.value
+    })
+    }
+    var createButton=document.querySelector("#createButton");
+    createButton.addEventListener('click', CreateItem);
+  </script>
+</html>
