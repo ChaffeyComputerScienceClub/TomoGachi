@@ -10,7 +10,13 @@
   <body>
     <input type="text" class="textField" id="createItem" style="margin-left:33%">
     <button type="submit" class="button" id="createButton" style="margin-top:30px; margin-left:35% ">Create</button>
+    <inventory id="inventory">
+    </inventoryItem>test</inventoryItem>
+    </inventory>
   </body>
+
+  
+
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-app.js";
     import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-analytics.js";
@@ -37,7 +43,29 @@
         Item: createItem.value
     })
     }
+
+
+    function addToInventory() {
+      
+      const newItem = document.getElementById("createItem").value;
+      const inventoryItem = document.createElement("inventoryItem");
+      inventoryItem.textContent = newItem;   
+      document.getElementById("inventory").appendChild(inventoryItem);
+      document.getElementById("createItem").value = "";
+      
+    }
+
+
+
     var createButton=document.querySelector("#createButton");
     createButton.addEventListener('click', CreateItem);
+    createButton.addEventListener('click', addToInventory);
+
+
+
+
+
+
+
   </script>
 </html>

@@ -3,11 +3,11 @@
     "version": "1.00",
     "description": "You Decide",
     "background":{
-        "page": "index.html",
+        "page": "SamsShop.html",
         "persistent": false
     },
     "chrome_url_overrides":{
-        "newtab": "index.html"
+        "newtab": "SamsShop.html"
     },
     "manifest_version": 2,
     "content_security_policy": "script-src 'self' https://www.gstatic.com/ https://*.firebaseio.com https://www.googleapis.com; object-src 'self'"
