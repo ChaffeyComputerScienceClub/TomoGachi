@@ -6,13 +6,85 @@
   <head>
     <title>SamsShop</title>
     <h1>TODO list ?</h1>
+    <style>
+      /* Grid container for the shop items */
+    .shop-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    /* Individual shop item style */
+    .shop-item {
+      text-align: center;
+      border: 1px solid #ccc;
+      padding: 10px;
+      border-radius: 8px;
+    }
+
+    /* Placeholder image style */
+    .shop-item img {
+      width: 100%;
+      height: auto;
+      max-height: 200px;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+    
+    /* Buy button style */
+    .shop-item button {
+      margin-top: 10px;
+      padding: 8px 16px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .shop-item button:hover {
+      background-color: #0056b3;
+    }
+
+    .buttonBought {
+      background-color: red !important;
+    }
+    
+
+
+    </style>
+
+
   </head>
   <body>
     <input type="text" class="textField" id="createItem" style="margin-left:33%">
     <button type="submit" class="button" id="createButton" style="margin-top:30px; margin-left:35% ">Create</button>
-    <inventory id="inventory">
-    </inventoryItem>test</inventoryItem>
-    </inventory>
+
+    <div class="shop-grid">
+      <!-- Repeatable Item -->
+      <div class="shop-item">
+        <img src="ShopItemJPEGs/godot_cute.jpg" alt="Item 1" shopId="001">
+        <button id="button1">Buy</button>
+      </div>
+      
+      <div class="shop-item">
+        <img src="ShopItemJPEGs/godot_python.jpg" alt="Item 2" shopId="002">
+        <button id="button2">Buy</button>
+      </div>
+  
+      <div class="shop-item">
+        <img src="ShopItemJPEGs/godot_sandbox.jpg" alt="Item 3" shopId="003">
+        <button id="button3">Buy</button>
+      </div>
+  
+      <div class="shop-item">
+        <img src="ShopItemJPEGs/godot_tiled.jpg" alt="Item 4" shopId="004">
+        <button id="button4">Buy</button>
+      </div>
+    </div>
   </body>
 
   
@@ -36,21 +108,88 @@
     import {getDatabase, set, get, update, remove, ref, child}
     from "https://www.gstatic.com/firebasejs/10.14.0/firebase-database.js";
     const db=getDatabase();
-    var createItem=document.getElementById("createItem");
 
-    function CreateItem(){
-    set(ref(db, "Groups/" + createItem.value),{
-        Item: createItem.value
+    const shopItemCount = 4;
+
+
+
+    function CreateItem(addedItem){
+      //alert(addedItem);
+    set(ref(db, "Groups/" + "Inventory/" + addedItem), {
+        Item: addedItem
     })
+    .then(() => {
+      //alert("Data Created");
+    })
+    .catch((error) => {
+        alert(error);
+      })
+  }
+
+    function FindData(data, index) {
+      const dbref = ref(db);
+      let temp = "#button" + index.toString();
+      let button = document.querySelector(temp);
+    
+      return get(child(dbref, "Groups/" + "Inventory/" + data))
+        .then((snapshot) => {
+          //alert(temp);
+          if (snapshot.exists()){
+            UpdateButton(button, snapshot.val().Item);
+            return true;
+          } else {
+            //alert("No Data Found");
+            return false;
+          }
+        })
+        .catch((error) => {
+          alert(error);
+          return false;
+        });
     }
 
 
-    function addToInventory() {
-      
+    function UpdateData() {
+      update(ref(db, "Groups/" + enterID.value), {
+        Name: enterName.value,
+        Age: enterAge.value
+      })
+      .then(() => {
+        alert("Data Updated");
+      })
+      .catch((error) => {
+        alert(error);
+      })
+    }
+
+
+
+
+    function RemoveData() {
+      remove(ref(db, "Groups/" + enterID.value))
+      .then(() => {
+        alert("Data Removed");
+      })
+      .catch((error) => {
+        alert(error);
+      })
+    }
+
+
+    function UpdateButton(button, value){
+      button.innerHTML =  value;
+      button.classList.add('buttonBought');
+    }
+
+
+    function AddToInventory() {
+      alert('hi');
+      /* this appends but in a store nothing is added, it is added in the inventory not here 
+      simply add to the database instead */
       const newItem = document.getElementById("createItem").value;
-      const inventoryItem = document.createElement("inventoryItem");
-      inventoryItem.textContent = newItem;   
-      document.getElementById("inventory").appendChild(inventoryItem);
+      const shopItem = document.createElement("shop-item");
+      shopItem.textContent = newItem;   
+      document.getElementById("shop-grid").appendChild(shopItem);
       document.getElementById("createItem").value = "";
       
     }
@@ -58,11 +197,69 @@
 
 
     var createButton=document.querySelector("#createButton");
+    var button1=document.querySelector("#button1");
+    var button2=document.querySelector("#button2");
+    var button3=document.querySelector("#button3");
+    var button4=document.querySelector("#button4");
     createButton.addEventListener('click', CreateItem);
-    createButton.addEventListener('click', addToInventory);
+    createButton.addEventListener('click', AddToInventory);
+    
 
 
 
+    button1.addEventListener('click', async function() {
+      var shopId = this.parentElement.querySelector('img').getAttribute('shopId');
+      let index = 1;
+      let itemExists = await FindData(shopId, index);
+      if (!itemExists){
+        CreateItem(shopId);
+        UpdateButton(this, shopId);
+      }
+    });
+    button2.addEventListener('click', async function() {
+      var shopId = this.parentElement.querySelector('img').getAttribute('shopId');
+      let index = 2;
+      let itemExists = await FindData(shopId, index);
+      if (!itemExists){
+        CreateItem(shopId);
+        UpdateButton(this, shopId);
+      }
+    });
+    button3.addEventListener('click', async function() {
+      var shopId = this.parentElement.querySelector('img').getAttribute('shopId');
+      let index = 3;
+      let itemExists = await FindData(shopId, index);
+      if (!itemExists){
+        CreateItem(shopId);
+        UpdateButton(this, shopId);
+      }
+    });
+    button4.addEventListener('click', async function() {
+      var shopId = this.parentElement.querySelector('img').getAttribute('shopId');
+      let index = 4;
+      let itemExists = await FindData(shopId, index);
+      if (!itemExists){
+        CreateItem(shopId);
+        UpdateButton(this, shopId);
+      }
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+      for(let i = 1; i < shopItemCount + 1; i++) {
+        let itemIndex;
+        if(i < 10){
+          itemIndex = "00" + i.toString();
+        }
+        else if(i < 100){
+          itemIndex = "0" + i.toString();
+        }
+        else{
+          itemIndex = i.toString();
+        }
+        FindData(itemIndex, i);
+      }
+      //alert('loop completed');
+    });
 
 
 
