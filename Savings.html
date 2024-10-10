@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css">
+    <title>Tomo Taru</title>
+    <h1>Savings</h1>
+  </head>
+  <body>
+    <label for="date" style="margin-left:5%">Title:</label>
+    <input type="text" class="textField" id="titleInput" style="margin-left:1%">
+
+    <label for="date" style="margin-left:1%">Date:</label>
+    <input type="date" class="textField" id="dateInput" style="margin-left:1%">
+
+    <label for="amount" style="margin-left:1%">Amount:</label>
+    <input type="number" class="textField" id="amountInput" style="margin-left:1%">
+
+    <button type="submit" class="button" id="addButton" style="margin-top:30px; margin-left:1% ">Add</button>
+  </body>
+ 
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-app.js";
+    const firebaseConfig = {
+      apiKey: "AIzaSyCDsIup2KaJeQMPL5jvCMzMA7RTpPiPg7o",
+      authDomain: "tomotaru-bb27a.firebaseapp.com",
+      databaseURL: "https://tomotaru-bb27a-default-rtdb.firebaseio.com",
+      projectId: "tomotaru-bb27a",
+      storageBucket: "tomotaru-bb27a.appspot.com",
+      messagingSenderId: "281838524572",
+      appId: "1:281838524572:web:ee113e29d661a9c1a73559",
+      measurementId: "G-9HY07GMSFH"
+    };
+    const app = initializeApp(firebaseConfig);
+    import {getDatabase, set, get, update, remove, ref, child}
+    from "https://www.gstatic.com/firebasejs/10.14.0/firebase-database.js";
+    const db=getDatabase();
+
+    //code to add goals
+    var dateInput=document.getElementById("dateInput");
+    var amountInput=document.getElementById("amountInput");
+    var titleInput=document.getElementById("titleInput");
+
+    function CreateItem(){
+    set(ref(db, "User/" + "GoalSavings/" + titleInput.value),{
+        GoalDate: dateInput.value,
+        GoalAmount: amountInput.value
+    })
+    
+  }
+  function generate(){
+    var title = document.createElement("h2");
+    title.innerHTML = "Goal:1";
+    document.body.appendChild(title);
+    //newElement.classList.add("my-class"); // Add a CSS class
+    var meter=document.createElement("meter")
+    meter.max=10;
+    meter.min=0;
+    meter.value=2;
+    document.body.appendChild(meter);
+    
+  }
+  var addButton=document.querySelector("#addButton");
+  addButton.addEventListener('click', generate);
+  
+  </script>
+  
+</html>
