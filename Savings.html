@@ -45,12 +45,11 @@
     var amountInput=document.getElementById("amountInput");
     var titleInput=document.getElementById("titleInput");
 
-    const userName=document.getElementById("userName");
-
+    var userName=document.getElementById("userName");
+    var user=auth.currentUser;
     function CreateItem(){
       console.log(user);
-      userName.innerHTML=user.displayName;
-      set(ref(db, "User/" +user.uid+ "GoalSavings/" + titleInput.value),{
+      set(ref(db, "User/" + "GoalSavings/" + titleInput.value),{
         GoalDate: dateInput.value,
         GoalAmount: amountInput.value
     })
@@ -61,7 +60,7 @@
     title.innerHTML = "Goal:1";
     document.body.appendChild(title);
     //newElement.classList.add("my-class"); // Add a CSS class
-    var meter=document.createElement("meter")
+    var meter=document.createElement("meter");
     meter.max=10;
     meter.min=0;
     meter.value=2;
@@ -69,7 +68,7 @@
     
   }
   var addButton=document.querySelector("#addButton");
-  addButton.addEventListener('click', generate);
+  addButton.addEventListener('click', CreateItem);
 
   onAuthStateChanged(auth, (user)=>{
       if(user){
