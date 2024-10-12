@@ -6,6 +6,7 @@
     <h1>Savings</h1>
   </head>
   <body>
+    <p>Hi <span id="userName"></span></p>
     <label for="date" style="margin-left:5%">Title:</label>
     <input type="text" class="textField" id="titleInput" style="margin-left:1%">
 
@@ -35,13 +36,21 @@
     from "https://www.gstatic.com/firebasejs/10.14.0/firebase-database.js";
     const db=getDatabase();
 
+    import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-auth.js";
+  
+    const auth=getAuth();
+
     //code to add goals
     var dateInput=document.getElementById("dateInput");
     var amountInput=document.getElementById("amountInput");
     var titleInput=document.getElementById("titleInput");
 
+    const userName=document.getElementById("userName");
+
     function CreateItem(){
-    set(ref(db, "User/" + "GoalSavings/" + titleInput.value),{
+      console.log(user);
+      userName.innerHTML=user.displayName;
+      set(ref(db, "User/" +user.uid+ "GoalSavings/" + titleInput.value),{
         GoalDate: dateInput.value,
         GoalAmount: amountInput.value
     })
@@ -61,6 +70,14 @@
   }
   var addButton=document.querySelector("#addButton");
   addButton.addEventListener('click', generate);
+
+  onAuthStateChanged(auth, (user)=>{
+      if(user){
+        console.log(user);
+      }else{
+        console.log("error")
+      }
+    })
   
   </script>
   
