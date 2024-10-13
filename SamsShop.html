@@ -64,28 +64,6 @@
     <input type="text" class="textField" id="createItem" style="margin-left:33%">
     <button type="submit" class="button" id="createButton" style="margin-top:30px; margin-left:35% ">Create</button>
     <div id="bank">num</div>
-<!-- 
-    <div class="shop-grid">
-      <div class="shop-item">
-        <img src="ShopItemJPEGs/godot_cute.jpg" alt="Item 1" shopId="001">
-        <button id="button1">Buy</button>
-      </div>
-      
-      <div class="shop-item">
-        <img src="ShopItemJPEGs/godot_python.jpg" alt="Item 2" shopId="002">
-        <button id="button2">Buy</button>
-      </div>
-  
-      <div class="shop-item">
-        <img src="ShopItemJPEGs/godot_sandbox.jpg" alt="Item 3" shopId="003">
-        <button id="button3">Buy</button>
-      </div>
-  
-      <div class="shop-item">
-        <img src="ShopItemJPEGs/godot_tiled.jpg" alt="Item 4" shopId="004">
-        <button id="button4">Buy</button>
-      </div>
-    </div> -->
     <div id="product-container">s</div>
   </body>
 
@@ -114,8 +92,6 @@
     const shopItemCount = 4;
     const testingBankAmount = 100;
 
-    
-
     async function loadProducts() {
       try {
         const response = await fetch('items.json');
@@ -134,6 +110,7 @@
             `;
             productDiv.appendChild(createProductButton(item));
             container.appendChild(productDiv);
+            FindData(item);
         });
       } catch (error) {
         console.error('Error Loading Products: ', error);
@@ -141,20 +118,23 @@
     }
 
     function createProductButton(item) {
-    const button = document.createElement('button');
-    button.id = "button" + item.id.toString();
-    button.innerText = "Add to Cart";
-    button.onclick = () => CheckCanBuy(item);
-    return button;
-}
+      const button = document.createElement('button');
+      button.id = "button" + item.id.toString();
+      button.innerText = "Add to Cart";
+      button.onclick = () => CheckCanBuy(item);
+      return button;
+    }
 
 
     async function CheckCanBuy(unparsedItem) {
       console.log(unparsedItem);
       let potentialItem = unparsedItem;
       let itemExists = await FindData(potentialItem);
+      let button = "button" + potentialItem.id.toString();
+      console.log(button);
       if ((testingBankAmount >= potentialItem.price) && !itemExists){
         CreateItem(potentialItem);
+        UpdateButton(button, potentialItem);
       }
       else{
         console.log("item exists already: ", itemExists);
@@ -213,9 +193,6 @@
       })
     }
 
-
-
-
     function RemoveData() {
       remove(ref(db, "Groups/" + enterID.value))
       .then(() => {
@@ -226,9 +203,8 @@
       })
     }
 
-
-    function UpdateButton(button, value){
-      button.innerHTML = value;
+    function UpdateButton(button, item){
+      button.innerHTML = 'Bought';
       button.classList.add('buttonBought');
     }
 
@@ -242,7 +218,6 @@
       shopItem.textContent = newItem;   
       document.getElementById("shop-grid").appendChild(shopItem);
       document.getElementById("createItem").value = "";
-      
     }
 
 
@@ -258,42 +233,7 @@
 
 
 
-    // button1.addEventListener('click', async function() {
-    //   var shopId = this.parentElement.querySelector('img').getAttribute('shopId');
-    //   let index = 1;
-    //   let itemExists = await FindData(shopId, index);
-    //   if (!itemExists){
-    //     CreateItem(shopId);
-    //     UpdateButton(this, shopId);
-    //   }
-    // });
-    // button2.addEventListener('click', async function() {
-    //   var shopId = this.parentElement.querySelector('img').getAttribute('shopId');
-    //   let index = 2;
-    //   let itemExists = await FindData(shopId, index);
-    //   if (!itemExists){
-    //     CreateItem(shopId);
-    //     UpdateButton(this, shopId);
-    //   }
-    // });
-    // button3.addEventListener('click', async function() {
-    //   var shopId = this.parentElement.querySelector('img').getAttribute('shopId');
-    //   let index = 3;
-    //   let itemExists = await FindData(shopId, index);
-    //   if (!itemExists){
-    //     CreateItem(shopId);
-    //     UpdateButton(this, shopId);
-    //   }
-    // });
-    // button4.addEventListener('click', async function() {
-    //   var shopId = this.parentElement.querySelector('img').getAttribute('shopId');
-    //   let index = 4;
-    //   let itemExists = await FindData(shopId, index);
-    //   if (!itemExists){
-    //     CreateItem(shopId);
-    //     UpdateButton(this, shopId);
-    //   }
-    // });
+
 
     document.addEventListener('DOMContentLoaded', function() {
       let bankDiv = document.getElementById("bank");

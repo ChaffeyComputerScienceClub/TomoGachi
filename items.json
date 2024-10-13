@@ -28,8 +28,8 @@
         "description": "A tiled product"
     },
     {
-        "id": "004",
-        "name": "Product 4",
+        "id": "005",
+        "name": "Product 5",
         "price": 19.99,
         "img": "ShopItemJPEGs/godot_tiled.jpg",
         "description": "A tiled product"
