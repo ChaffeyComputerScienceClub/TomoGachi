@@ -1,0 +1,38 @@
+[
+    {
+        "id": "001",
+        "name": "Product 1",
+        "price": 19.99,
+        "img": "ShopItemJPEGs/godot_cute.jpg",
+        "description": "A cute product"
+    },
+    {
+        "id": "002",
+        "name": "Product 2",
+        "price": 19.99,
+        "img": "ShopItemJPEGs/godot_python.jpg",
+        "description": "A python product"
+    },
+    {
+        "id": "003",
+        "name": "Product 3",
+        "price": 19.99,
+        "img": "ShopItemJPEGs/godot_sandbox.jpg",
+        "description": "A sandbox product"
+    },
+    {
+        "id": "004",
+        "name": "Product 4",
+        "price": 19.99,
+        "img": "ShopItemJPEGs/godot_tiled.jpg",
+        "description": "A tiled product"
+    },
+    {
+        "id": "004",
+        "name": "Product 4",
+        "price": 19.99,
+        "img": "ShopItemJPEGs/godot_tiled.jpg",
+        "description": "A tiled product"
+    }
+  ]
+  

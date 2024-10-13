@@ -53,7 +53,8 @@
       background-color: red !important;
     }
     
-
+    .product { margin: 20px; border: 1px solid #ccc; padding: 10px; }
+    .product img { width: 100px; }
 
     </style>
 
@@ -62,9 +63,9 @@
   <body>
     <input type="text" class="textField" id="createItem" style="margin-left:33%">
     <button type="submit" class="button" id="createButton" style="margin-top:30px; margin-left:35% ">Create</button>
-
+    <div id="bank">num</div>
+<!-- 
     <div class="shop-grid">
-      <!-- Repeatable Item -->
       <div class="shop-item">
         <img src="ShopItemJPEGs/godot_cute.jpg" alt="Item 1" shopId="001">
         <button id="button1">Buy</button>
@@ -84,7 +85,8 @@
         <img src="ShopItemJPEGs/godot_tiled.jpg" alt="Item 4" shopId="004">
         <button id="button4">Buy</button>
       </div>
-    </div>
+    </div> -->
+    <div id="product-container">s</div>
   </body>
 
   
@@ -110,40 +112,89 @@
     const db=getDatabase();
 
     const shopItemCount = 4;
+    const testingBankAmount = 100;
+
+    
+
+    async function loadProducts() {
+      try {
+        const response = await fetch('items.json');
+        const items = await response.json();
+        const container = document.getElementById('product-container');
+
+        items.forEach(item => {
+          const productDiv = document.createElement('div');
+          const num = 1;
+          productDiv.className = 'product';
+          productDiv.innerHTML = `
+            <img src="${item.img}" alt="${item.name}">
+            <h3>${item.name}</h3>
+            <p>Price: $${item.price}</p>
+            <p>${item.description}</p>
+            `;
+            productDiv.appendChild(createProductButton(item));
+            container.appendChild(productDiv);
+        });
+      } catch (error) {
+        console.error('Error Loading Products: ', error);
+      }
+    }
+
+    function createProductButton(item) {
+    const button = document.createElement('button');
+    button.id = "button" + item.id.toString();
+    button.innerText = "Add to Cart";
+    button.onclick = () => CheckCanBuy(item);
+    return button;
+}
+
+
+    async function CheckCanBuy(unparsedItem) {
+      console.log(unparsedItem);
+      let potentialItem = unparsedItem;
+      let itemExists = await FindData(potentialItem);
+      if ((testingBankAmount >= potentialItem.price) && !itemExists){
+        CreateItem(potentialItem);
+      }
+      else{
+        console.log("item exists already: ", itemExists);
+        console.log("funds available: ", testingBankAmount >= potentialItem.price);
+      }
+    }
 
 
 
     function CreateItem(addedItem){
-      //alert(addedItem);
-    set(ref(db, "Groups/" + "Inventory/" + addedItem), {
-        Item: addedItem
+      //console.log(addedItem);
+    set(ref(db, "Groups/" + "Inventory/" + addedItem.name), {
+        Item: addedItem.name
     })
     .then(() => {
-      //alert("Data Created");
+      //console.log("Data Created");
     })
     .catch((error) => {
-        alert(error);
+        console.log(error);
       })
   }
 
-    function FindData(data, index) {
+    function FindData(item) {
       const dbref = ref(db);
-      let temp = "#button" + index.toString();
+      let temp = "#button" + item.id.toString();
       let button = document.querySelector(temp);
     
-      return get(child(dbref, "Groups/" + "Inventory/" + data))
+      return get(child(dbref, "Groups/" + "Inventory/" + item.name))
         .then((snapshot) => {
-          //alert(temp);
+          //console.log(temp);
           if (snapshot.exists()){
             UpdateButton(button, snapshot.val().Item);
             return true;
           } else {
-            //alert("No Data Found");
+            //console.log("No Data Found");
             return false;
           }
         })
         .catch((error) => {
-          alert(error);
+          console.log(error);
           return false;
         });
     }
@@ -155,10 +206,10 @@
         Age: enterAge.value
       })
       .then(() => {
-        alert("Data Updated");
+        console.log("Data Updated");
       })
       .catch((error) => {
-        alert(error);
+        console.log(error);
       })
     }
 
@@ -168,22 +219,22 @@
     function RemoveData() {
       remove(ref(db, "Groups/" + enterID.value))
       .then(() => {
-        alert("Data Removed");
+        console.log("Data Removed");
       })
       .catch((error) => {
-        alert(error);
+        console.log(error);
       })
     }
 
 
     function UpdateButton(button, value){
-      button.innerHTML =  value;
+      button.innerHTML = value;
       button.classList.add('buttonBought');
     }
 
 
     function AddToInventory() {
-      alert('hi');
+      console.log('hi');
       /* this appends but in a store nothing is added, it is added in the inventory not here 
       simply add to the database instead */
       const newItem = document.getElementById("createItem").value;
@@ -207,44 +258,48 @@
 
 
 
-    button1.addEventListener('click', async function() {
-      var shopId = this.parentElement.querySelector('img').getAttribute('shopId');
-      let index = 1;
-      let itemExists = await FindData(shopId, index);
-      if (!itemExists){
-        CreateItem(shopId);
-        UpdateButton(this, shopId);
-      }
-    });
-    button2.addEventListener('click', async function() {
-      var shopId = this.parentElement.querySelector('img').getAttribute('shopId');
-      let index = 2;
-      let itemExists = await FindData(shopId, index);
-      if (!itemExists){
-        CreateItem(shopId);
-        UpdateButton(this, shopId);
-      }
-    });
-    button3.addEventListener('click', async function() {
-      var shopId = this.parentElement.querySelector('img').getAttribute('shopId');
-      let index = 3;
-      let itemExists = await FindData(shopId, index);
-      if (!itemExists){
-        CreateItem(shopId);
-        UpdateButton(this, shopId);
-      }
-    });
-    button4.addEventListener('click', async function() {
-      var shopId = this.parentElement.querySelector('img').getAttribute('shopId');
-      let index = 4;
-      let itemExists = await FindData(shopId, index);
-      if (!itemExists){
-        CreateItem(shopId);
-        UpdateButton(this, shopId);
-      }
-    });
+    // button1.addEventListener('click', async function() {
+    //   var shopId = this.parentElement.querySelector('img').getAttribute('shopId');
+    //   let index = 1;
+    //   let itemExists = await FindData(shopId, index);
+    //   if (!itemExists){
+    //     CreateItem(shopId);
+    //     UpdateButton(this, shopId);
+    //   }
+    // });
+    // button2.addEventListener('click', async function() {
+    //   var shopId = this.parentElement.querySelector('img').getAttribute('shopId');
+    //   let index = 2;
+    //   let itemExists = await FindData(shopId, index);
+    //   if (!itemExists){
+    //     CreateItem(shopId);
+    //     UpdateButton(this, shopId);
+    //   }
+    // });
+    // button3.addEventListener('click', async function() {
+    //   var shopId = this.parentElement.querySelector('img').getAttribute('shopId');
+    //   let index = 3;
+    //   let itemExists = await FindData(shopId, index);
+    //   if (!itemExists){
+    //     CreateItem(shopId);
+    //     UpdateButton(this, shopId);
+    //   }
+    // });
+    // button4.addEventListener('click', async function() {
+    //   var shopId = this.parentElement.querySelector('img').getAttribute('shopId');
+    //   let index = 4;
+    //   let itemExists = await FindData(shopId, index);
+    //   if (!itemExists){
+    //     CreateItem(shopId);
+    //     UpdateButton(this, shopId);
+    //   }
+    // });
 
     document.addEventListener('DOMContentLoaded', function() {
+      let bankDiv = document.getElementById("bank");
+      bankDiv.innerHTML = testingBankAmount;
+      loadProducts();
+      /*
       for(let i = 1; i < shopItemCount + 1; i++) {
         let itemIndex;
         if(i < 10){
@@ -258,7 +313,8 @@
         }
         FindData(itemIndex, i);
       }
-      //alert('loop completed');
+
+      //console.log('loop completed');*/
     });
 
 
