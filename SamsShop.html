@@ -52,9 +52,7 @@
     .buttonBought {
       background-color: red !important;
     }
-    
-    .product { margin: 20px; border: 1px solid #ccc; padding: 10px; }
-    .product img { width: 100px; }
+  
 
     </style>
 
@@ -64,7 +62,7 @@
     <input type="text" class="textField" id="createItem" style="margin-left:33%">
     <button type="submit" class="button" id="createButton" style="margin-top:30px; margin-left:35% ">Create</button>
     <div id="bank">num</div>
-    <div id="product-container">s</div>
+    <div id="shop-grid">s</div>
   </body>
 
   
@@ -96,11 +94,11 @@
       try {
         const response = await fetch('items.json');
         const items = await response.json();
-        const container = document.getElementById('product-container');
+        const container = document.getElementById('shop-grid');
 
         items.forEach(item => {
           const productDiv = document.createElement('div');
-          productDiv.className = 'product';
+          productDiv.className = 'shop-item';
           productDiv.innerHTML = `
             <img src="${item.img}" alt="${item.name}">
             <h3>${item.name}</h3>
