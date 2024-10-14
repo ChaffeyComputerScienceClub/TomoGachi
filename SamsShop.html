@@ -85,7 +85,7 @@
     const app = initializeApp(firebaseConfig);
 
 
-    import {getDatabase, set, get, update, remove, ref, child}
+    import {getDatabase, set, get, update, remove, ref, child, push}
     from "https://www.gstatic.com/firebasejs/10.14.0/firebase-database.js";
     const db=getDatabase();
 
@@ -100,7 +100,6 @@
 
         items.forEach(item => {
           const productDiv = document.createElement('div');
-          const num = 1;
           productDiv.className = 'product';
           productDiv.innerHTML = `
             <img src="${item.img}" alt="${item.name}">
@@ -212,7 +211,6 @@
       button.classList.add('buttonBought');
     }
 
-
     function AddToInventory() {
       console.log('hi');
       /* this appends but in a store nothing is added, it is added in the inventory not here 
@@ -224,12 +222,11 @@
       document.getElementById("createItem").value = "";
     }
 
-
-
     document.addEventListener('DOMContentLoaded', function() {
       let bankDiv = document.getElementById("bank");
       bankDiv.innerHTML = testingBankAmount;
       loadProducts();
+      
     });
   </script>
 </html>
