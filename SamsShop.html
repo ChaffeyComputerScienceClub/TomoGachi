@@ -60,7 +60,7 @@
   </head>
   <body>
     <input type="text" class="textField" id="createItem" style="margin-left:33%">
-    <button type="submit" class="button" id="createButton" style="margin-top:30px; margin-left:35% ">Create</button>
+    <button type="submit" class="button" id="addMoneyButton" style="margin-top:30px; margin-left:35% ">Add Money</button>
     <div id="bank">num</div>
     <div id="shop-grid" class="shop-grid"></div>
   </body>
@@ -140,7 +140,7 @@
       if ((bankAmount >= potentialItem.price) && !itemExists){
         UpdateButton(button, potentialItem);
         CreateItem(potentialItem);
-        UpdateBank(potentialItem.price);
+        UpdateBankSub(potentialItem.price);
         
         console.log('bought');
       }
@@ -152,7 +152,7 @@
 
 
 //needs to be integrated into a database concept, right now it is just test values
-    async function UpdateBank(price){
+    async function UpdateBankSub(price){
       //visual
       bankAmount -= price;
       let bank = document.getElementById("bank");
@@ -161,6 +161,28 @@
       //db
       UpdateData(bankAmount);
     }
+
+
+    async function UpdateBankAdd(amount){
+      //visual
+      bankAmount += amount;
+      let bank = document.getElementById("bank");
+      bank.innerHTML = bankAmount;
+      console.log(bankAmount);
+      //db
+      UpdateData(bankAmount);
+    }
+
+
+//temp button to add money for testing
+    let addMoneyButton = document.getElementById('addMoneyButton');
+    addMoneyButton.addEventListener('click', function() {
+      UpdateBankAdd(10);
+      console.log('hello');
+
+    })
+
+
 
 
 
