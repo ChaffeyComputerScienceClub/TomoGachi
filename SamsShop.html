@@ -122,6 +122,7 @@
       button.id = "button" + item.id.toString();
       button.innerText = "Add to Cart";
       button.onclick = () => CheckCanBuy(item);
+      console.log(button.id);
       return button;
     }
 
@@ -130,11 +131,14 @@
       console.log(unparsedItem);
       let potentialItem = unparsedItem;
       let itemExists = await FindData(potentialItem);
-      let button = "button" + potentialItem.id.toString();
+      let temp = "button" + potentialItem.id.toString();
+      let button = document.getElementById(temp);
       console.log(button);
       if ((testingBankAmount >= potentialItem.price) && !itemExists){
-        CreateItem(potentialItem);
         UpdateButton(button, potentialItem);
+        CreateItem(potentialItem);
+        
+        console.log('bought');
       }
       else{
         console.log("item exists already: ", itemExists);
@@ -179,7 +183,7 @@
         });
     }
 
-
+//unused
     function UpdateData() {
       update(ref(db, "Groups/" + enterID.value), {
         Name: enterName.value,
@@ -192,7 +196,7 @@
         console.log(error);
       })
     }
-
+//unused
     function RemoveData() {
       remove(ref(db, "Groups/" + enterID.value))
       .then(() => {
@@ -222,43 +226,10 @@
 
 
 
-    var createButton=document.querySelector("#createButton");
-    var button1=document.querySelector("#button1");
-    var button2=document.querySelector("#button2");
-    var button3=document.querySelector("#button3");
-    var button4=document.querySelector("#button4");
-    createButton.addEventListener('click', CreateItem);
-    createButton.addEventListener('click', AddToInventory);
-    
-
-
-
-
-
     document.addEventListener('DOMContentLoaded', function() {
       let bankDiv = document.getElementById("bank");
       bankDiv.innerHTML = testingBankAmount;
       loadProducts();
-      /*
-      for(let i = 1; i < shopItemCount + 1; i++) {
-        let itemIndex;
-        if(i < 10){
-          itemIndex = "00" + i.toString();
-        }
-        else if(i < 100){
-          itemIndex = "0" + i.toString();
-        }
-        else{
-          itemIndex = i.toString();
-        }
-        FindData(itemIndex, i);
-      }
-
-      //console.log('loop completed');*/
     });
-
-
-
-
   </script>
 </html>
