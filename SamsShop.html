@@ -87,15 +87,20 @@
     from "https://www.gstatic.com/firebasejs/10.14.0/firebase-database.js";
     const db=getDatabase();
 
-    const shopItemCount = 4;
-    let testingBankAmount = 100;
+    const testUser = "TestUserSam";
+    let bank = null;
+    let bankAmount = null;
+    
 
     async function loadProducts() {
       try {
         const response = await fetch('items.json');
         const items = await response.json();
         const container = document.getElementById('shop-grid');
-
+        bank = await get(ref(db, testUser + "/Bank/"));
+        bankAmount = bank.child("Money").val();
+        let bankDiv = document.getElementById("bank");
+        bankDiv.innerHTML = bankAmount;
         items.forEach(item => {
           const productDiv = document.createElement('div');
           productDiv.className = 'shop-item';
@@ -131,7 +136,8 @@
       let temp = "button" + potentialItem.id.toString();
       let button = document.getElementById(temp);
       console.log(button);
-      if ((testingBankAmount >= potentialItem.price) && !itemExists){
+      console.log(bankAmount);
+      if ((bankAmount >= potentialItem.price) && !itemExists){
         UpdateButton(button, potentialItem);
         CreateItem(potentialItem);
         UpdateBank(potentialItem.price);
@@ -140,24 +146,27 @@
       }
       else{
         console.log("item exists already: ", itemExists);
-        console.log("funds available: ", testingBankAmount >= potentialItem.price);
+        console.log("funds available: ", bankAmount >= potentialItem.price);
       }
     }
 
 
 //needs to be integrated into a database concept, right now it is just test values
-    function UpdateBank(price){
-      testingBankAmount -= price;
+    async function UpdateBank(price){
+      //visual
+      bankAmount -= price;
       let bank = document.getElementById("bank");
-      bank.innerHTML = testingBankAmount;
-      console.log(testingBankAmount);
+      bank.innerHTML = bankAmount;
+      console.log(bankAmount);
+      //db
+      UpdateData(bankAmount);
     }
 
 
 
     function CreateItem(addedItem){
       //console.log(addedItem);
-    set(ref(db, "Groups/" + "Inventory/" + addedItem.name), {
+    set(ref(db, testUser + "/" + "Inventory/" + addedItem.name), {
         Item: addedItem.name
     })
     .then(() => {
@@ -191,10 +200,9 @@
     }
 
 //unused
-    function UpdateData() {
-      update(ref(db, "Groups/" + enterID.value), {
-        Name: enterName.value,
-        Age: enterAge.value
+    function UpdateData(value) {
+      update(ref(db, testUser + "/Bank/"), {
+        Money: value
       })
       .then(() => {
         console.log("Data Updated");
@@ -231,10 +239,7 @@
     }
 
     document.addEventListener('DOMContentLoaded', function() {
-      let bankDiv = document.getElementById("bank");
-      bankDiv.innerHTML = testingBankAmount;
       loadProducts();
-      
     });
   </script>
 </html>
