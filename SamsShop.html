@@ -182,7 +182,7 @@
       let temp = "#button" + item.id.toString();
       let button = document.querySelector(temp);
     
-      return get(child(dbref, "Groups/" + "Inventory/" + item.name))
+      return get(child(dbref, testUser + "/Inventory/" + item.name))
         .then((snapshot) => {
           //console.log(temp);
           if (snapshot.exists()){
@@ -199,7 +199,6 @@
         });
     }
 
-//unused
     function UpdateData(value) {
       update(ref(db, testUser + "/Bank/"), {
         Money: value
