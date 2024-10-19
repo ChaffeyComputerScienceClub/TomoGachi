@@ -2,12 +2,22 @@
 <html>
   <head>
     <title>SamsShop</title>
-    <h1>Tammy's Tamowatches</h1>
+    <h1 class="header">Tammy's Tamowatches</h1>
     <style>
     body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
+    background-color: #9169ff;
+    }
+
+    .header {
+        margin: 0;
+        width: 100%;
+        height: 70px;
+        text-align: center;
+        padding: 50px;
+        background-color: #7f51ff;
     }
 
     .sidebar {
@@ -18,71 +28,69 @@
         flex-direction: column;
     }
 
+    #option1 {
+        background-color: aqua;
+    }
+    #option2 {
+        background-color: red;
+    }
+    #option3 {
+        background-color: green;
+    }
+    #option4 {
+        background-color: purple;
+    }
+
     .sidebar-option {
         padding: 15px;
         color: white;
         cursor: pointer;
         transition: all 0.3s ease;
         background-color: #34495e;
-        border-bottom: 1px solid #2c3e50;
+        border: 4px solid #2c3e50;
+        
     }
 
     .sidebar-option:hover {
         background-color: #3b5c78;
     }
 
-    .active {
+    .sidebar-option.active {
         margin-left: 20px;
-        background-color: #1abc9c;
+        border: 0px;
     }
+  
     </style>
 
 
 </head>
 <body>
     <div class="sidebar">
-        <div class="sidebar_option" id="option1">Option1</div>
-        <div class="sidebar_option" id="option2">Option2</div>
-        <div class="sidebar_option" id="option3">Option3</div>
-        <div class="sidebar_option" id="option4">Option4</div>
+        <div class="sidebar-option" id="option1">Option1</div>
+        <div class="sidebar-option" id="option2">Option2</div>
+        <div class="sidebar-option" id="option3">Option3</div>
+        <div class="sidebar-option" id="option4">Option4</div>
     </div>
+    <div class="main-page"></div>
 </body>
 
 
 <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-app.js";
-    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-analytics.js";
-    const firebaseConfig = {
-      apiKey: "AIzaSyCDsIup2KaJeQMPL5jvCMzMA7RTpPiPg7o",
-      authDomain: "tomotaru-bb27a.firebaseapp.com",
-      databaseURL: "https://tomotaru-bb27a-default-rtdb.firebaseio.com",
-      projectId: "tomotaru-bb27a",
-      storageBucket: "tomotaru-bb27a.appspot.com",
-      messagingSenderId: "281838524572",
-      appId: "1:281838524572:web:ee113e29d661a9c1a73559",
-      measurementId: "G-9HY07GMSFH"
-    };
-    const app = initializeApp(firebaseConfig);
-
-
-    import {getDatabase, set, get, update, remove, ref, child, push}
-    from "https://www.gstatic.com/firebasejs/10.14.0/firebase-database.js";
-    const db=getDatabase();
-
-    const testUser = "TestUserSam";
-    let bank = null;
-    let bankAmount = null;
-
-
     const options = document.querySelectorAll('.sidebar-option');
 
+    const bodyColors = {
+    option1: 'aqua',  // Light beige for Option 1
+    option2: 'red',  // Blanched almond for Option 2
+    option3: 'green',  // Lavender for Option 3
+    option4: 'purple'   // Misty rose for Option 4
+    };
     options.forEach(option => {
         option.addEventListener('click', function() {
             // Remove active class from all options
             options.forEach(opt => opt.classList.remove('active'));
-
-            // Add active class to the clicked option
             this.classList.add('active');
+            this.style.backgroundColor = bodyColors[this.id];
+            document.body.style.backgroundColor = bodyColors[this.id];
     });
 });
 
