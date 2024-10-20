@@ -1,4 +1,5 @@
 const options = document.querySelectorAll('.sidebar-option');
+let activeOption = null;
 
 const mini_option1 = [
     "1test1",
@@ -32,24 +33,30 @@ options.forEach(option => {
         options.forEach(opt => opt.classList.remove('active'));
         this.classList.add('active');
         document.body.style.backgroundColor = getComputedStyle(this).backgroundColor;
-        if (this.id == 'option1'){
-            clearScreen();
-            appendMiniSidebar(this.id);
-            shopLoadProducts();
+        if (this.id == activeOption){
+            console.log('already selected');
         }
-        else if(this.id == 'option2') {
-            clearScreen();
-            appendMiniSidebar(this.id);
-            invLoadInventory();
-        }
-        else if(this.id == 'option3') {
-            clearScreen();
-            appendMiniSidebar(this.id);
-        }
-        else if(this.id == 'option4') {
-            clearScreen();
-            appendMiniSidebar(this.id);
-        }
+        else {
+            activeOption = this.id;
+            if (this.id == 'option1'){
+                clearScreen();
+                appendMiniSidebar(this.id);
+                shopLoadProducts();
+            }
+            else if(this.id == 'option2') {
+                clearScreen();
+                appendMiniSidebar(this.id);
+                invLoadInventory();
+            }
+            else if(this.id == 'option3') {
+                clearScreen();
+                appendMiniSidebar(this.id);
+            }
+            else if(this.id == 'option4') {
+                clearScreen();
+                appendMiniSidebar(this.id);
+            }
+    }
 });
 });
 
