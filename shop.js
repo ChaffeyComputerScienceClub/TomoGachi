@@ -3,7 +3,7 @@
     let bankAmount = null;
     
 
-    async function loadProducts() {
+    async function shopLoadProducts() {
       try {
         const response = await fetch('items.json');
         const items = await response.json();
@@ -21,37 +21,37 @@
             <p>Price: $${item.price}</p>
             <p>${item.description}</p>
             `;
-            productDiv.appendChild(createProductButton(item));
+            productDiv.appendChild(shopCreateProductButton(item));
             container.appendChild(productDiv);
-            FindData(item);
+            shopFindItem(item);
         });
       } catch (error) {
         console.error('Error Loading Products: ', error);
       }
     }
 
-    function createProductButton(item) {
+    function shopCreateProductButton(item) {
       const button = document.createElement('button');
       button.id = "button" + item.id.toString();
       button.innerText = "Add to Cart";
-      button.onclick = () => CheckCanBuy(item);
+      button.onclick = () => shopCheckCanBuy(item);
       console.log(button.id);
       return button;
     }
 
 
-    async function CheckCanBuy(unparsedItem) {
+    async function shopCheckCanBuy(unparsedItem) {
       console.log(unparsedItem);
       let potentialItem = unparsedItem;
-      let itemExists = await FindData(potentialItem);
+      let itemExists = await shopFindItem(potentialItem);
       let temp = "button" + potentialItem.id.toString();
       let button = document.getElementById(temp);
       console.log(button);
       console.log(bankAmount);
       if ((bankAmount >= potentialItem.price) && !itemExists){
-        UpdateButton(button, potentialItem);
-        CreateItem(potentialItem);
-        UpdateBankSub(potentialItem.price);
+        shopUpdateButton(button, potentialItem);
+        shopCreateItem(potentialItem);
+        shopUpdateBankSub(potentialItem.price);
         
         console.log('bought');
       }
@@ -63,41 +63,28 @@
 
 
 //needs to be integrated into a database concept, right now it is just test values
-    async function UpdateBankSub(price){
+    async function shopUpdateBankSub(price){
       //visual
       bankAmount -= price;
       let bank = document.getElementById("bank");
       bank.innerHTML = bankAmount;
       console.log(bankAmount);
       //db
-      UpdateData(bankAmount);
+      shopUpdateItem(bankAmount);
     }
 
 
-    async function UpdateBankAdd(amount){
+    async function shopUpdateBankAdd(amount){
       //visual
       bankAmount += amount;
       let bank = document.getElementById("bank");
       bank.innerHTML = bankAmount;
       console.log(bankAmount);
       //db
-      UpdateData(bankAmount);
+      shopUpdateItem(bankAmount);
     }
 
-
-//temp button to add money for testing
-    // let addMoneyButton = document.getElementById('addMoneyButton');
-    // addMoneyButton.addEventListener('click', function() {
-    //   UpdateBankAdd(10);
-    //   console.log('hello');
-
-    // })
-
-
-
-
-
-    function CreateItem(addedItem){
+    function shopCreateItem(addedItem){
       //console.log(addedItem);
     set(ref(db, testUser + "/" + "Inventory/" + addedItem.name), {
         Item: addedItem.name
@@ -110,7 +97,7 @@
       })
   }
 
-    function FindData(item) {
+    function shopFindItem(item) {
       const dbref = ref(db);
       let temp = "#button" + item.id.toString();
       let button = document.querySelector(temp);
@@ -119,7 +106,7 @@
         .then((snapshot) => {
           //console.log(temp);
           if (snapshot.exists()){
-            UpdateButton(button, snapshot.val().Item);
+            shopUpdateButton(button, snapshot.val().Item);
             return true;
           } else {
             //console.log("No Data Found");
@@ -132,7 +119,7 @@
         });
     }
 
-    function UpdateData(value) {
+    function shopUpdateItem(value) {
       update(ref(db, testUser + "/Bank/"), {
         Money: value
       })
@@ -144,7 +131,7 @@
       })
     }
 //unused
-    function RemoveData() {
+    function shopRemoveItem() {
       remove(ref(db, "Groups/" + enterID.value))
       .then(() => {
         console.log("Data Removed");
@@ -154,22 +141,7 @@
       })
     }
 
-    function UpdateButton(button, item){
+    function shopUpdateButton(button, item){
       button.innerHTML = 'Bought';
       button.classList.add('buttonBought');
     }
-
-    function AddToInventory() {
-      console.log('hi');
-      /* this appends but in a store nothing is added, it is added in the inventory not here 
-      simply add to the database instead */
-      const newItem = document.getElementById("createItem").value;
-      const shopItem = document.createElement("shop-item");
-      shopItem.textContent = newItem;   
-      document.getElementById("shop-grid").appendChild(shopItem);
-      document.getElementById("createItem").value = "";
-    }
-
-    document.addEventListener('DOMContentLoaded', function() {
-      console.log('imhere');
-    });
