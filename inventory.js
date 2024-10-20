@@ -1,24 +1,26 @@
 
-async function invLoadInventory() {
+async function invLoadInventory(filter) {
     try {
-      const response = await fetch('items.json');
-      const items = await response.json();
-      const container = document.getElementById('shop-grid');
-      items.forEach(async item => {
-        let hasItem = await invFindData(item);
-        console.log(hasItem);
-        if (hasItem){
-        const productDiv = document.createElement('div');
-        productDiv.className = 'shop-item';
-        productDiv.innerHTML = `
-          <img src="${item.img}" alt="${item.name}">
-          <h3>${item.name}</h3>
-          <p>Price: $${item.price}</p>
-          <p>${item.description}</p>
-          `;
-          container.appendChild(productDiv);
-        }
-      });
+      if ((item.filter == filter) || (filter == "All")) {
+        const response = await fetch('items.json');
+        const items = await response.json();
+        const container = document.getElementById('shop-grid');
+        items.forEach(async item => {
+          let hasItem = await invFindData(item);
+          console.log(hasItem);
+          if (hasItem){
+          const productDiv = document.createElement('div');
+          productDiv.className = 'shop-item';
+          productDiv.innerHTML = `
+            <img src="${item.img}" alt="${item.name}">
+            <h3>${item.name}</h3>
+            <p>Price: $${item.price}</p>
+            <p>${item.description}</p>
+            `;
+            container.appendChild(productDiv);
+          }
+        });
+      }
     } catch (error) {
       console.error('Error Loading Products: ', error);
     }

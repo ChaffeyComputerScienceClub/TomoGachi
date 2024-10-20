@@ -2,18 +2,17 @@ const options = document.querySelectorAll('.sidebar-option');
 let activeOption = null;
 let currentScreen = null;
 let switchScreen = false;
+let filter = "All";
 
 const mini_option1 = [
-    "1test1",
-    "1test2",
-    "1test3",
-    "1test4"
+    "All",
+    "Food",
+    "Cosmetic"
 ];
 const mini_option2 = [
-    "2test1",
-    "2test2",
-    "2test3",
-    "2test4"
+    "All",
+    "Food",
+    "Cosmetic"
 ];
 const mini_option3 = [
     "3test1",
@@ -51,7 +50,7 @@ options.forEach(option => {
             appendMiniSidebar(this.id);
             if (switchScreen) {
                 clearScreen();
-                shopLoadProducts();
+                shopLoadProducts('All');
             }
         }
         else if(this.id == 'option2') {
@@ -59,7 +58,7 @@ options.forEach(option => {
             appendMiniSidebar(this.id);
             if (switchScreen) {
                 clearScreen();
-                invLoadInventory();
+                invLoadInventory('All');
             }
         }
         else if(this.id == 'option3') {
@@ -112,6 +111,21 @@ function appendMiniSidebar(option) {
         mini_option.textContent = item;
         mini_sidebar.appendChild(mini_option);
     });
+    const mini_options = document.querySelectorAll('.mini-option');
+    mini_options.forEach(mini_option => {
+        mini_option.addEventListener('click', function() {
+            if (currentScreen == "option1"){
+                clearScreen();
+                shopLoadProducts(mini_option.innerHTML);
+            }
+            if (currentScreen == "option2"){
+                clearScreen();
+                invLoadInventory(mini_option.innerHTML);
+            }
+        });
+    });
     
 }
+
+
 

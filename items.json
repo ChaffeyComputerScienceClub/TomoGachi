@@ -4,35 +4,40 @@
         "name": "Product 1",
         "price": 19.99,
         "img": "ShopItemJPEGs/godot_cute.jpg",
-        "description": "A cute product"
+        "description": "A cute product",
+        "filter": "Food"
     },
     {
         "id": "002",
         "name": "Product 2",
         "price": 19.99,
         "img": "ShopItemJPEGs/godot_python.jpg",
-        "description": "A python product"
+        "description": "A python product",
+        "filter": "Food"
     },
     {
         "id": "003",
         "name": "Product 3",
         "price": 19.99,
         "img": "ShopItemJPEGs/godot_sandbox.jpg",
-        "description": "A sandbox product"
+        "description": "A sandbox product",
+        "filter": "Cosmetic"
     },
     {
         "id": "004",
         "name": "Product 4",
         "price": 19.99,
         "img": "ShopItemJPEGs/godot_tiled.jpg",
-        "description": "A tiled product"
+        "description": "A tiled product",
+        "filter": "Cosmetic"
     },
     {
         "id": "005",
         "name": "Product 5",
         "price": 19.99,
         "img": "ShopItemJPEGs/godot_tiled.jpg",
-        "description": "A tiled product"
+        "description": "A tiled product",
+        "filter": "Food"
     }
   ]
   

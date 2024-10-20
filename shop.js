@@ -3,23 +3,25 @@
     let bankAmount = null;
     
 
-    async function shopLoadProducts() {
+    async function shopLoadProducts(filter) {
       try {
         const response = await fetch('items.json');
         const items = await response.json();
         const container = document.getElementById('shop-grid');
         items.forEach(item => {
-          const productDiv = document.createElement('div');
-          productDiv.className = 'shop-item';
-          productDiv.innerHTML = `
-            <img src="${item.img}" alt="${item.name}">
-            <h3>${item.name}</h3>
-            <p>Price: $${item.price}</p>
-            <p>${item.description}</p>
-            `;
-            productDiv.appendChild(shopCreateProductButton(item));
-            container.appendChild(productDiv);
-            shopFindItem(item);
+          if ((item.filter == filter) || (filter == "All")) {
+            const productDiv = document.createElement('div');
+            productDiv.className = 'shop-item';
+            productDiv.innerHTML = `
+              <img src="${item.img}" alt="${item.name}">
+              <h3>${item.name}</h3>
+              <p>Price: $${item.price}</p>
+              <p>${item.description}</p>
+              `;
+              productDiv.appendChild(shopCreateProductButton(item));
+              container.appendChild(productDiv);
+              shopFindItem(item);
+          }
         });
       } catch (error) {
         console.error('Error Loading Products: ', error);
