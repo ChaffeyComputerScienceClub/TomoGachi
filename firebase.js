@@ -16,13 +16,14 @@ const app = initializeApp(firebaseConfig);
 import {getDatabase, set, get, update, remove, ref, child, push}
 from "https://www.gstatic.com/firebasejs/10.14.0/firebase-database.js";
 const db=getDatabase();
-
 const testUser = "TestUserSam";
+let inventory = null;
 
 //export {getDatabase, set, get, update, remove, ref, child, push};
 
 //import {getDatabase, set, get, update, remove, ref, child, push} from './firebase.js'; add to other non-module files
 window.testUser = testUser;
+window.inventory = inventory;
 window.db = db;
 window.getDatabase = getDatabase;
 window.set = set;
