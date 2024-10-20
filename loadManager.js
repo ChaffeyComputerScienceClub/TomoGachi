@@ -27,3 +27,5 @@ function clearScreen() {
     const shop_grid = document.getElementById("shop-grid");
     shop_grid.innerHTML = "";
 }
+
+
