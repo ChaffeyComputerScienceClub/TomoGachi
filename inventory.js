@@ -1,11 +1,12 @@
 
 async function invLoadInventory(filter) {
     try {
-      if ((item.filter == filter) || (filter == "All")) {
+      
         const response = await fetch('items.json');
         const items = await response.json();
         const container = document.getElementById('shop-grid');
         items.forEach(async item => {
+          if ((item.filter == filter) || (filter == "All")) {
           let hasItem = await invFindData(item);
           console.log(hasItem);
           if (hasItem){
@@ -19,8 +20,8 @@ async function invLoadInventory(filter) {
             `;
             container.appendChild(productDiv);
           }
-        });
-      }
+        }
+      });
     } catch (error) {
       console.error('Error Loading Products: ', error);
     }

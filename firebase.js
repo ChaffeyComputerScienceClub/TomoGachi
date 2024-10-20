@@ -18,12 +18,17 @@ from "https://www.gstatic.com/firebasejs/10.14.0/firebase-database.js";
 const db=getDatabase();
 const testUser = "TestUserSam";
 let inventory = null;
-
+let bank = await get(ref(db, testUser + "/Bank/"));
+let bankAmount = bank.child("Money").val();
 //export {getDatabase, set, get, update, remove, ref, child, push};
 
 //import {getDatabase, set, get, update, remove, ref, child, push} from './firebase.js'; add to other non-module files
+
+window.bank = bank;
+window.bankAmount = bankAmount;
 window.testUser = testUser;
 window.inventory = inventory;
+
 window.db = db;
 window.getDatabase = getDatabase;
 window.set = set;
