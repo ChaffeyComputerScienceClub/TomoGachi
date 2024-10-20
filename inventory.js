@@ -4,11 +4,6 @@ async function invLoadInventory() {
       const response = await fetch('items.json');
       const items = await response.json();
       const container = document.getElementById('shop-grid');
-      bank = await get(ref(db, testUser + "/Bank/"));
-      bankAmount = bank.child("Money").val();
-      inventory = get(ref(db, testUser + "/Inventory/"))
-      let bankDiv = document.getElementById("bank");
-      bankDiv.innerHTML = bankAmount;
       items.forEach(async item => {
         let hasItem = await invFindData(item);
         console.log(hasItem);

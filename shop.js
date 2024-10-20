@@ -8,10 +8,6 @@
         const response = await fetch('items.json');
         const items = await response.json();
         const container = document.getElementById('shop-grid');
-        bank = await get(ref(db, testUser + "/Bank/"));
-        bankAmount = bank.child("Money").val();
-        let bankDiv = document.getElementById("bank");
-        bankDiv.innerHTML = bankAmount;
         items.forEach(item => {
           const productDiv = document.createElement('div');
           productDiv.className = 'shop-item';
@@ -59,29 +55,6 @@
         console.log("item exists already: ", itemExists);
         console.log("funds available: ", bankAmount >= potentialItem.price);
       }
-    }
-
-
-//needs to be integrated into a database concept, right now it is just test values
-    async function shopUpdateBankSub(price){
-      //visual
-      bankAmount -= price;
-      let bank = document.getElementById("bank");
-      bank.innerHTML = bankAmount;
-      console.log(bankAmount);
-      //db
-      shopUpdateItem(bankAmount);
-    }
-
-
-    async function shopUpdateBankAdd(amount){
-      //visual
-      bankAmount += amount;
-      let bank = document.getElementById("bank");
-      bank.innerHTML = bankAmount;
-      console.log(bankAmount);
-      //db
-      shopUpdateItem(bankAmount);
     }
 
     function shopCreateItem(addedItem){
