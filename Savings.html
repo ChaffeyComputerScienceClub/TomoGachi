@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styleForMeters.css">
+    <link rel="stylesheet" href="styleSavings.css">
     <title>Tomo Taru</title>
     <h1>Savings</h1>
   </head>
   <body>
-    <p>Hi <span id="userName"></span></p>
     <label for="date" style="margin-left:5%">Title:</label>
     <input type="text" class="textField" id="titleInput" style="margin-left:1%">
 
@@ -18,51 +18,34 @@
 
     <button type="submit" class="button" id="addButton" style="margin-top:30px; margin-left:1% ">Add</button>
 
-    <h1 style="display:inline-block; margin-left:60px">Paycheck Income</h1>
-    <input type="text" id="paycheckIncome" style="margin-left:30px">
+    <h2 style="display:inline-block; margin-left:350px">$0</h2>
+    <div>
+      <h2 id="month" class="monthName">September</h2>
+
+    </div>
+    <!-- <input type="text" id="paycheckIncome" style="margin-left:30px"> -->
+
 
     <div style="margin-left:45%; margin-top: 20px;">
-      <label style="margin-left: 100px; " for="spendings">Spendings</label>
-      <label style="margin-left: 100px;" for="Budgeted">Budgeted</label>
-      <label style="margin-left: 100px;" for="Actual">Actual</label>
-      <label style="margin-left: 100px;" for="Remaining">Remaining</label>
+      <label style="margin-left: 100px; ">Spendings</label>
+      <label style="margin-left: 400px; ">Budgeted</label>
+
     </div>
     
     <div style="margin-left: 50%;">
-    <h2>Rent</h2>
-    <meter value=""></meter>
-    <input type="number" style="margin-left:80px; width:90px">
-    <input type="number" style="margin-left:50px; width:90px">
-    <input type="number" style="margin-left:60px; width:90px">
-
-    <h2>Shopping</h2>
-    <meter value=""></meter>
-    <input type="number" style="margin-left:80px; width:90px">
-    <input type="number" style="margin-left:50px; width:90px">
-    <input type="number" style="margin-left:60px; width:90px">
-
-    <h2>Insurance</h2>
-    <meter value=""></meter>
-    <input type="number" style="margin-left:80px; width:90px">
-    <input type="number" style="margin-left:50px; width:90px">
-    <input type="number" style="margin-left:60px; width:90px">
-
-    <h2>Food</h2>
-    <meter value=""></meter>
-    <input type="number" style="margin-left:80px; width:90px">
-    <input type="number" style="margin-left:50px; width:90px">
-    <input type="number" style="margin-left:60px; width:90px">
-
-    <h2>Other</h2>
-    <meter value=""></meter>
-    <input type="number" style="margin-left:80px; width:90px">
-    <input type="number" style="margin-left:50px; width:90px">
-    <input type="number" style="margin-left:60px; width:90px">
-
+      <meter id="rentMeter" class="meter" class="rent" value="5" min="0" max="10"></meter>
+      <br>
+      <meter id="shoppingMeter" class="meter2" value=""></meter>
+      <br>
+      <meter id="insuranceMeter" class="meter3" value=""></meter>
+      <br>
+      <meter id="foodMeter" class="meter4" value=""></meter>
+      <br>
+      <meter id="othertMeter" class="meter5" value=""></meter>
     </div>
     
 
-    <button type="submit" class="button" style="margin-left:65%; margin-top:20px;"id="saveButton">Save</button>
+    <button type="submit" class="button" style="margin-left:65%; margin-top:15px;"id="saveButton">Add</button>
 
   </body>
  
