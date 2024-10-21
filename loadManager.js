@@ -15,10 +15,7 @@ const mini_option2 = [
     "Cosmetic"
 ];
 const mini_option3 = [
-    "3test1",
-    "3test2",
-    "3test3",
-    "3test4"
+
 ];
 const mini_option4 = [
     "4test1",
@@ -62,9 +59,12 @@ options.forEach(option => {
             }
         }
         else if(this.id == 'option3') {
-            clearScreen();
             clearSideBar();
             appendMiniSidebar(this.id);
+            if (switchScreen) {
+                clearScreen();
+                savingLoadBudget();
+            }
         }
         else if(this.id == 'option4') {
             clearScreen();
@@ -118,9 +118,13 @@ function appendMiniSidebar(option) {
                 clearScreen();
                 shopLoadProducts(mini_option.innerHTML);
             }
-            if (currentScreen == "option2"){
+            else if (currentScreen == "option2"){
                 clearScreen();
                 invLoadInventory(mini_option.innerHTML);
+            }
+            else if (currentScreen == "option3"){
+                clearScreen();
+                savingLoadBudget();
             }
         });
     });
