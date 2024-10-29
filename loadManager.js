@@ -3,6 +3,7 @@ let activeOption = null;
 let currentScreen = null;
 let switchScreen = false;
 let filter = "All";
+const tamatemp = document.getElementsByClassName("tamagotchi");
 
 const mini_option1 = [
     "All",
