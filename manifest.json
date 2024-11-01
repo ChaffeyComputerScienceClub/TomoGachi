@@ -1,13 +1,13 @@
 {
     "name": "TomoToru",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "You Decide",
     "background":{
-        "page": "SamsShop.html",
+        "page": "testCombine.html",
         "persistent": false
     },
     "chrome_url_overrides":{
-        "newtab": "SamsShop.html"
+        "newtab": "testCombine.html"
     },
     "manifest_version": 2,
     "content_security_policy": "script-src 'self' https://www.gstatic.com/ https://*.firebaseio.com https://www.googleapis.com; object-src 'self'"
