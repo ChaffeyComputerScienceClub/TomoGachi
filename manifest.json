@@ -1,7 +1,8 @@
 {
     "name": "TomoToru",
     "version": "1.0.0",
-    "description": "You Decide",
+    "description": "Chrome extension tomogachi game",
+    "permissions": ["storage", "tabs", "alarms", "notification"],
     "background":{
         "page": "SamsShop.html",
         "persistent": false
@@ -9,6 +10,6 @@
     "chrome_url_overrides":{
         "newtab": "SamsShop.html"
     },
-    "manifest_version": 2,
+    "manifest_version": 3,
     "content_security_policy": "script-src 'self' https://www.gstatic.com/ https://*.firebaseio.com https://www.googleapis.com; object-src 'self'"
 }
