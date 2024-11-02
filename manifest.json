@@ -1,13 +1,17 @@
 {
     "name": "TomoToru",
-    "version": "1.0.0",
+    "version": "1.0.0", 
     "description": "Chrome extension tomogachi game",
-    "permissions": ["storage", "tabs", "alarms", "notification"],
+    "permissions": ["storage", "tabs", "alarms", "notification"], 
     "background":{
+        "service_worker": "background.js",
         "page": "SamsShop.html",
         "persistent": false
     },
-    "chrome_url_overrides":{
+    "action": {
+        "default_popup": "SamsShop.html"
+    },
+   "chrome_url_overrides":{
         "newtab": "SamsShop.html"
     },
     "manifest_version": 3,
