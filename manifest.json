@@ -9,11 +9,7 @@
         "persistent": false
     },
     "action": {
-        "default_popup": "SamsShop.html"
-    },
-   "chrome_url_overrides":{
-        "newtab": "SamsShop.html"
-    },
+        "default_popup": "SamsShop.html"},
     "manifest_version": 3,
     "content_security_policy": "script-src 'self' https://www.gstatic.com/ https://*.firebaseio.com https://www.googleapis.com; object-src 'self'"
 }
