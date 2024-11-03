@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    
+    <link rel="stylesheet" href="savingsStyle.css">
+    <title>Tomo Taru</title>
+    <h1>Finance and Savings</h1>
+  </head>
+  <body>
+    <!-- <label for="date" style="margin-left:5%">Title:</label>
+    <input type="text" class="textField" id="titleInput" style="margin-left:1%">
+
+    <label for="date" style="margin-left:1%">Date:</label>
+    <input type="date" class="textField" id="dateInput" style="margin-left:1%">
+
+    <label for="amount" style="margin-left:1%">Amount:</label>
+    <input type="number" class="textField" id="amountInput" style="margin-left:1%">
+
+    <button type="submit" class="button" id="addButton" style="margin-top:30px; margin-left:1% ">Add</button> -->
+
+    <h2 style="display:inline-block; margin-left:420px">$0</h2>
+    <div>
+      <h2 id="month" class="monthName">September</h2>
+    </div>
+    <!-- <input type="text" id="paycheckIncome" style="margin-left:30px"> -->
+
+
+    <div style="margin-left:8%; margin-top: 20px;">
+      <label style="margin-left: 0px; ">Spendings</label>
+      <label style="margin-left: 400px; ">Budgeted</label>
+    </div>
+    
+    <div style="margin-left: 7%;">
+      <meter id="rentMeter" class="meter" class="rent" ></meter>
+      <input type="number" id="rentBudget" class="budgetInput">
+      <br>
+      <meter id="shoppingMeter" class="meter2" value=""></meter>
+      <br>
+      <meter id="insuranceMeter" class="meter3" value=""></meter>
+      <br>
+      <meter id="foodMeter" class="meter4" value=""></meter>
+      <br>
+      <meter id="othertMeter" class="meter5" value=""></meter>
+    </div>
+    <!-- add button which opens modal -->
+    <button type="submit" class="button" style="margin-left:25%; margin-top:10px;"id="add2">Add</button>
+
+      <div class="popUp" id="popup">
+        <h1 class="headerForPopup">Add Spendings!</h1>
+    
+        <label for="spendings" style="margin-left: 45%;">Spending Options:</label>
+        <select name="options" id="selector">
+            <option value="1">Rent</option>
+            <option value="2">Shopping</option>
+            <option value="3">Insurance</option>
+            <option value="4">Food</option>
+            <option value="5">Other</option>
+        </select>
+        <label for="spent" style="margin-left: 45%;">Amount Spent:</label>
+       <input class="inputBox "type="number" id="amountAdded">
+       <br>
+       <button style="margin-left: 50%;" type="submit" id="save">Save!</button>
+      </div>
+
+    
+
+  </body>
+ 
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-app.js";
+    const firebaseConfig = {
+      apiKey: "AIzaSyCDsIup2KaJeQMPL5jvCMzMA7RTpPiPg7o",
+      authDomain: "tomotaru-bb27a.firebaseapp.com",
+      databaseURL: "https://tomotaru-bb27a-default-rtdb.firebaseio.com",
+      projectId: "tomotaru-bb27a",
+      storageBucket: "tomotaru-bb27a.appspot.com",
+      messagingSenderId: "281838524572",
+      appId: "1:281838524572:web:ee113e29d661a9c1a73559",
+      measurementId: "G-9HY07GMSFH"
+    };
+    const app = initializeApp(firebaseConfig);
+    import {getDatabase, set, get, update, remove, ref, child}
+    from "https://www.gstatic.com/firebasejs/10.14.0/firebase-database.js";
+    const db=getDatabase();
+    const auth=getAuth();
+
+    import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-auth.js";
+  
+    
+
+    //code to add goals
+    var dateInput=document.getElementById("dateInput");
+    var amountInput=document.getElementById("amountInput");
+    var titleInput=document.getElementById("titleInput");
+    var userName=document.getElementById("userName");
+    
+    function CreateItem(){
+      var user=auth.currentUser;
+      console.log(user);
+      generate(amountInput.value, titleInput.value, dateInput.value);
+      set(ref(db, "User/" + user.displayName + "/GoalSavings/" + titleInput.value),{
+        GoalDate: dateInput.value,
+        GoalAmount: amountInput.value
+    })
+  }
+
+  function generate(amountValue, titleInput, dateInput){
+    var title = document.createElement("h2");
+    title.innerHTML = titleInput;
+    document.body.appendChild(title);
+
+    var current=document.createElement("h3");
+    current.innerHTML=0;
+    document.body.appendChild(current);
+
+    var goal=document.createElement("h3");
+    goal.innerHTML=amountValue;
+    document.body.appendChild(goal);
+
+    var meter=document.createElement("meter");
+    meter.max=amountValue;
+    meter.min=0;
+    meter.value=0;
+    document.body.appendChild(meter);
+    //newElement.classList.add("my-class"); // Add a CSS class
+  }
+
+  
+  /*var addButton=document.querySelector("#addButton");
+  addButton.addEventListener('click', CreateItem);*/
+
+  var add2=document.getElementById("add2");
+  add2.addEventListener('click', openPopup);
+
+  var addButton3=document.getElementById("save");
+  save.addEventListener('click', Save);
+
+  var popup=document.getElementById("popup");
+
+  function openPopup(){
+    popup.style.display="block";
+  }
+
+    var selector=document.getElementById("selector");
+    var amountAdded=document.getElementById("amountAdded");
+
+    var rentMeter=document.getElementById("rentMeter");
+    
+    function Save(){
+      var user=auth.currentUser;
+      console.log(user);
+      
+      updateMeter(selector.value, amountAdded.value, user);
+      popup.style.display="none";
+    }
+
+    function updateMeter(category, amount, user){
+        if(category==1){
+            var newVal=+rentMeter.value + +amount;
+            rentMeter.value=newVal;
+            update(ref(db, "User/" + user.displayName + "/GoalSavings/" + "/Rent"),{
+              Rent:newVal
+      })
+            
+        }
+    }
+
+//update(ref(db, "User/" + user.displayName + "/GoalSavings/" + category.value),{ })
+
+
+
+  onAuthStateChanged(auth, (user)=>{
+      if(user){
+        console.log(user);
+      }else{
+        console.log("error")
+      }
+    })
+  </script>
+  
+</html>
