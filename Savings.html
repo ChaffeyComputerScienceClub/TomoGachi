@@ -33,7 +33,7 @@
     </div>
     
     <div style="margin-left: 50%;">
-      <meter id="rentMeter" class="meter" class="rent" value="5" min="0" max="10"></meter>
+      <meter id="rentMeter" class="meter" class="rent" ></meter>
       <br>
       <meter id="shoppingMeter" class="meter2" value=""></meter>
       <br>
@@ -43,9 +43,27 @@
       <br>
       <meter id="othertMeter" class="meter5" value=""></meter>
     </div>
-    
+    <!-- add button which open modal -->
+    <button type="submit" class="button" style="margin-left:65%; margin-top:15px;"id="add2">Add</button>
 
-    <button type="submit" class="button" style="margin-left:65%; margin-top:15px;"id="saveButton">Add</button>
+      <div class="popUp" id="popup">
+        <h1 class="headerForPopup">Add Spendings!</h1>
+    
+        <label for="spendings" style="margin-left: 45%;">Spending Options:</label>
+        <select name="options" id="selector">
+            <option value="1">Rent</option>
+            <option value="2">Shopping</option>
+            <option value="3">Insurance</option>
+            <option value="4">Food</option>
+            <option value="5">Other</option>
+        </select>
+        <label for="spent" style="margin-left: 45%;">Amount Spent:</label>
+       <input class="inputBox "type="number" id="amountAdded">
+       <br>
+       <button style="margin-left: 50%;" type="submit" id="save">Save!</button>
+      </div>
+
+    
 
   </body>
  
@@ -108,13 +126,47 @@
     //newElement.classList.add("my-class"); // Add a CSS class
   }
 
-  function updateMeter(){
-
-
-  }
-
+  
   var addButton=document.querySelector("#addButton");
   addButton.addEventListener('click', CreateItem);
+
+  var add2=document.getElementById("add2");
+  add2.addEventListener('click', openPopup);
+
+  var addButton3=document.getElementById("save");
+  save.addEventListener('click', Save);
+
+  var popup=document.getElementById("popup");
+  function openPopup(){
+    popup.style.display="block";
+  }
+
+    var selector=document.getElementById("selector");
+    var amountAdded=document.getElementById("amountAdded");
+
+    
+    
+    function Save(){
+      var user=auth.currentUser;
+      console.log(user);
+      // updateMeter(amountInput.value, titleInput.value, dateInput.value);
+      popup.style.display="none";
+    }
+
+    function updateMeter(category, amount, user){
+        if(category.value==1){
+            var rentMeter=document.getElementById("rentMeter");
+            var newVal=rentMeter.value+amount;
+            Rent:newVal
+        }
+        update(ref(db, "User/" + user.displayName + "/GoalSavings/" + category.value),{
+        
+    })
+    }
+
+
+
+
 
   onAuthStateChanged(auth, (user)=>{
       if(user){
