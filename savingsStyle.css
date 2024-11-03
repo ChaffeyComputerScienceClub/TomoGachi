@@ -61,6 +61,7 @@
     width:200px;
     margin-left:60%;
     text-align: center;
+    border-radius: 5px;
 }
   
 .headerForPopup{
@@ -82,4 +83,7 @@
 .inputBox{
     width:80px;
     /* inputbox for amount spent */
+}
+body{
+  background-color: #52B7A9;
 }
