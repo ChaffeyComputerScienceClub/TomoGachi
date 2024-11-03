@@ -13,6 +13,6 @@ chrome.alarms.onAlarm.addListener((alarm) =>
                 tomogachi.happiness -= 1; 
 
             }
-        }
-    }
-});
+        });
+    };
+})
