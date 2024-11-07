@@ -2,7 +2,7 @@
     "name": "TomoToru",
     "version": "1.0.0", 
     "description": "Chrome extension tomogachi game",
-    "permissions": ["storage", "tabs", "alarms", "notification"], 
+    "permissions": ["storage", "tabs", "alarms", "notifications"], 
     "background":{
         "service_worker": "background.js"},
     "action": {
