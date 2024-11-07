@@ -4,12 +4,10 @@
     "description": "Chrome extension tomogachi game",
     "permissions": ["storage", "tabs", "alarms", "notification"], 
     "background":{
-        "service_worker": "background.js",
-        "page": "SamsShop.html",
-        "persistent": false
-    },
+        "service_worker": "background.js"},
     "action": {
         "default_popup": "testCombine.html"},
     "manifest_version": 3,
-    "content_security_policy": "script-src 'self' https://www.gstatic.com/ https://*.firebaseio.com https://www.googleapis.com; object-src 'self'"
+    "content_security_policy":{
+    "extension_pages": "script-src 'self' https://www.gstatic.com/ https://*.firebaseio.com https://www.googleapis.com; object-src 'self'"}
 }
