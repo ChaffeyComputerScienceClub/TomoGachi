@@ -31,5 +31,23 @@
     <script src="shop.js"></script>
     <script src="inventory.js"></script>
     <script src="savings.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.14.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.14.0/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.14.0/firebase-database.js"></script>
+
+    <script>
+        const firebaseConfig = {
+          apiKey: "AIzaSyCDsIup2KaJeQMPL5jvCMzMA7RTpPiPg7o",
+          authDomain: "tomotaru-bb27a.firebaseapp.com",
+          databaseURL: "https://tomotaru-bb27a-default-rtdb.firebaseio.com",
+          projectId: "tomotaru-bb27a",
+          storageBucket: "tomotaru-bb27a.appspot.com",
+          messagingSenderId: "281838524572",
+          appId: "1:281838524572:web:ee113e29d661a9c1a73559",
+          measurementId: "G-9HY07GMSFH"
+        };
+        const app = firebase.initializeApp(firebaseConfig);
+        const db = firebase.database();
+      </script>
 </body>
 </html>
