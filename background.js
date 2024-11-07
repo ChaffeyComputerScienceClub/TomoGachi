@@ -9,7 +9,7 @@ let tomogachi_state =
 
 chrome.storage.local.set({ tomogachi: tomogachi_state}); // saves initial state to local
 
-chrome.alarms.create("tomogachi_feed", {period_in_minutes: 60}); // sets alarm to activate every hour, reducing pets hunger by -1 and happiness by -1
+chrome.alarms.create("tomogachi_feed", {PeriodInMinutes: 60}); // sets alarm to activate every hour, reducing pets hunger by -1 and happiness by -1
 
 function hunger_management(tomogachi) 
 {
