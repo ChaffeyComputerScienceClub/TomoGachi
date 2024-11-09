@@ -1,16 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="style.css">
-    <h1 style="margin-left: 45%;">Tomo Taru</h1>
+    <link rel="stylesheet" href="signUpStyle.css">
+    <h1 style="margin-left: 50px;">Tomo Taru</h1>
   </head>
-  <button id="signInButton" style="margin-left: 45%;">Create Account / Sign In </button>
-  <button id="signOutButton" style="margin-left: 45%;">Sign Out</button>
-  <button id="nextpg">next page</button>
-  <div id="message">
-    <p>You have signed in as <span id="userName"></span></p>
-  </div>
 
+  <body>
+    <button id="signInButton" >Create Account / Sign In </button>
+    <br>
+    <button id="signOutButton" >Sign Out</button>
+    <br>
+    <button id="nextpg">next page</button>
+  
+    <div id="message">
+      <p>You have signed in as <span id="userName"></span></p>
+    </div>
+
+  </body>
+  
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-app.js";
     const firebaseConfig = {
@@ -78,7 +85,7 @@
   }
 
   function NextPage(){
-    window.location.href = "Savings.html"; 
+    window.location.href = "Finance.html"; 
   }
   signInButton.addEventListener('click', userSignIn);
   signOutButton.addEventListener('click', userSignOut);

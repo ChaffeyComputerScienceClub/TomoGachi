@@ -42,17 +42,25 @@
   }
   
   
-  .meter::-webkit-meter-bar {
+  .meter::-webkit-meter-bar,
+  .meter2::-webkit-meter-bar,
+  .meter3::-webkit-meter-bar,
+  .meter4::-webkit-meter-bar,
+  .meter5::-webkit-meter-bar{
     background: #FCE8F1;
     border: 3px solid #C64189;
   }
   
   /* .meter::-moz-meter-bar {
     background: rgb(150, 96, 96);
-  } */
+  }  */
   
-  .meter::-webkit-meter-optimum-value {
-    background: #F15D9B;
+  .meter::-webkit-meter-optimum-value,
+  .meter2::-webkit-meter-optimum-value,
+  .meter3::-webkit-meter-optimum-value,
+  .meter4::-webkit-meter-optimum-value,
+  .meter5::-webkit-meter-optimum-value{
+    background: #db9fbd;
   }
 
 .monthName{
@@ -66,30 +74,69 @@
   
 .headerForPopup{
     text-align: center;
+    margin-top: 7px;
 }
 .popUp{
-    background-color: #B391C4;
+    background-color: #ABE1F9;
     height:200px;
-    width:230px;
+    width:240px;
     position: fixed;
     top: 50%;
-    left: 50%;
+    left: 20%;
     transform: translate(-50%, -50%);
     padding: 20px;
-    border: 3px solid #ABE1F9;
+    border: 3px solid #cf3f8e;
     display:none;
 
 }
 .inputBox{
     width:80px;
+    margin-top: 15px;
     /* inputbox for amount spent */
 }
 body{
   background-color: #52B7A9;
 }
 .budgetInput{
-  float: right; 
-  margin-right: 69%;
-  margin-top: 40px;
-  width:50px;
+  /* float: right;  */
+  margin-left: 85px;
+  width:60px;
+  height: 30px;
+  border-radius: 5px;
+  border: 3px solid #ABE1F9;
+  background-color: #52B7A9;
+  outline:none;
+  font-family: cheri;
+  transform: translate(0%,-160%);
 }
+
+.saveButton{
+  width:50px;
+  height: 30px;
+  border-radius: 5px;
+  background-color: #f2e4e7;
+  border: 3px solid #db9fbd;
+  transform: translate(0%,-200%);
+  font-family: cheri;
+  visibility: hidden;
+}
+
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+button{
+  margin-left: 50px;
+  background-color: #f2e4e7;
+  border: 3px solid #db9fbd;
+  border-radius: 5px;
+  font-family: cheri;
+}
+button:hover{
+  background-color: #db9fbd;
+  border: 3px solid #cf3f8e;
+}
+html{
+  font-family: cheri;
+}
+
