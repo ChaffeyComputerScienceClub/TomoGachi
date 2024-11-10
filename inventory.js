@@ -33,8 +33,6 @@ async function invLoadInventory(filter) {
   function invFindData(item) {
     console.log(item);
     const dbref = ref(db);
-    let temp = "#button" + item.id.toString();
-    let button = document.querySelector(temp);
   
     return get(child(dbref, testUser + "/Inventory/" + item.name))
       .then((snapshot) => {
