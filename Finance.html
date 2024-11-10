@@ -130,14 +130,16 @@
   var otherBudget=document.getElementById("otherBudget");
   var otherButton=document.getElementById("otherButton");
   
+  var rentMax=0;
   
   rentBudget.onkeyup=function(){
     if(rentBudget.value.length>0){
       rentButton.style.visibility="visible";
       rentButton.onclick=function(){
-        var rentMax=rentBudget.value;
+        rentMax=rentBudget.value;
         rentMeter.setAttribute('max', rentMax)
         rentButton.style.visibility="hidden";
+        console.log(rentMax);
         set(ref(db, "User/" + user.displayName + "/Finance/" + "/Rent"),{
         RentMax:rentMax
       }) 
@@ -147,6 +149,36 @@
       rentButton.style.visibility="hidden";
     }
   }
+
+
+  function financeInvFindData(category) {
+    const dbref = ref(db);
+    var budget=document.getElementById(category);
+    return get(child(dbref, "User/" + user.displayName + "/Finance/" + category))
+      .then((snapshot) => {
+        console.log(budget);
+        if (snapshot.exists()){
+          console.log(snapshot.value());
+          budget.innerHTML=snapshot.value();
+          return true;
+        } else {
+          return false;
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        return false;
+      });
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+      for(var i=0; i<array.length; i++){
+        financeInvFindData(array[i]);
+      }
+    });
+
+var array=["rentBudget", "shoppingBudget", "insuranceBudget", "foodBudget", "otherBudget"];
+var array2=["rentMeter", "shoppingMeter", "insuranceMeter", "foodMeter", "otherMeter"];
 
   function openPopup(){
     popup.style.display="block";
@@ -161,7 +193,7 @@
     console.log(user);
     updateMeter(selector.value, amountAdded.value, user);
     popup.style.display="none";
-    }
+  }
 
     
   function updateMeter(category, amount, user){
