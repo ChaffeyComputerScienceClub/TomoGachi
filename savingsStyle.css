@@ -85,7 +85,8 @@
     left: 20%;
     transform: translate(-50%, -50%);
     padding: 20px;
-    border: 3px solid #cf3f8e;
+    border: 5px solid #cf3f8e;
+    border-radius: 8px;
     display:none;
 
 }
@@ -114,7 +115,7 @@ body{
   width:50px;
   height: 30px;
   border-radius: 5px;
-  background-color: #f2e4e7;
+  background-color: #FCE8F1;
   border: 3px solid #db9fbd;
   transform: translate(0%,-200%);
   font-family: cheri;
@@ -127,7 +128,7 @@ input[type=number]::-webkit-inner-spin-button {
 
 button{
   margin-left: 50px;
-  background-color: #f2e4e7;
+  background-color: #FCE8F1;
   border: 3px solid #db9fbd;
   border-radius: 5px;
   font-family: cheri;
