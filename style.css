@@ -21,12 +21,23 @@ body {
 
   .tamagotchi {
     display: flex;
+    flex-direction: column;
     width: 100%;
     height: 100vh;
     background-color: rgba(52, 73, 94, 0.2);
     align-items: center;
     justify-content: center;
   }
+
+  .stats-container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(52, 73, 94, 0.2);
+    align-items: center;
+    justify-content: center;
+  }
+
   .vert-container {
     display: flex;
     width: 40%;
@@ -38,11 +49,29 @@ body {
     width: 70%;
     height: auto;
   }
+  .meter-container {
+    width: 100vh; /* You can adjust this width to fit your layout */
+    height: 100vh;
+    display: flex; /* Using flex to allow meter to be in rows */
+    justify-content: center; /* Centers meter horizontally */
+    margin-top: 50px;
+  }
+
+  /* The meter itself */
+  meter {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 300px; /* Set your desired width */
+    height: 100px; /* Set your desired height */
+    border-radius: 5px; /* Rounded corners */
+    transform: rotate(270deg);
+  }
 
   .sidebar {
       width: 200px;
       height: 100vh;
-      background-color: #2c3e50;
+      background-color: #0a3e4c;
       display: flex;
       flex-direction: column;
   }
