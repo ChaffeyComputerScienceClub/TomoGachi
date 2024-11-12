@@ -6,7 +6,7 @@
     "background":{
         "service_worker": "background.js"},
     "action": {
-        "default_popup": "testCombine.html"},
+        "default_popup": "signup.html"},
     "manifest_version": 3,
     "content_security_policy":{
     "extension_pages": "script-src 'self'; object-src 'self'"}
