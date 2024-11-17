@@ -41,7 +41,7 @@ body {
   .vert-container {
     display: flex;
     width: 40%;
-    height: 100vh;
+    height: 100%;
     flex-direction: column;
     
   }
@@ -50,22 +50,36 @@ body {
     height: auto;
   }
   .meter-container {
-    width: 100vh; /* You can adjust this width to fit your layout */
-    height: 100vh;
+    width: 100%; /* You can adjust this width to fit your layout */
+    height: 100%;
     display: flex; /* Using flex to allow meter to be in rows */
     justify-content: center; /* Centers meter horizontally */
     margin-top: 50px;
   }
-
+  .icon-vert-container {
+     width: 100%; /* You can adjust this width to fit your layout */
+     height: 100%;
+     display: flex; /* Using flex to allow meter to be in rows */
+     flex-direction: column;
+     align-items: center;
+     
+  }
   /* The meter itself */
   meter {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    width: 300px; /* Set your desired width */
-    height: 100px; /* Set your desired height */
+    width: 200%; /* Set your desired width */
+    height: 20%; /* Set your desired height */
     border-radius: 5px; /* Rounded corners */
-    transform: rotate(270deg);
+    transform: rotate(-90deg);
+  }
+  meter::-webkit-meter-bar{
+    background: #FCE8F1;
+    border: 3px solid #C64189;
+  }
+  meter::-webkit-meter-optimum-value{
+    background: #db9fbd;
   }
 
   .sidebar {
