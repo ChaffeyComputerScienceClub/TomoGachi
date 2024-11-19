@@ -72,7 +72,7 @@ body {
     width: 200%; /* Set your desired width */
     height: 20%; /* Set your desired height */
     border-radius: 5px; /* Rounded corners */
-    transform: rotate(-90deg);
+    /*transform: rotate(-90deg);*/
   }
   meter::-webkit-meter-bar{
     background: #FCE8F1;
