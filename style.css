@@ -49,6 +49,12 @@ body {
     width: 70%;
     height: auto;
   }
+  .image-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+  }
   .meter-container {
     width: 100%; /* You can adjust this width to fit your layout */
     height: 100%;
@@ -72,7 +78,7 @@ body {
     width: 200%; /* Set your desired width */
     height: 20%; /* Set your desired height */
     border-radius: 5px; /* Rounded corners */
-    /*transform: rotate(-90deg);*/
+    transform: rotate(-90deg);
   }
   meter::-webkit-meter-bar{
     background: #FCE8F1;
