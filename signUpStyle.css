@@ -25,6 +25,7 @@ button{
     border: 3px solid #db9fbd;
     border-radius: 5px;
     font-family: cheri;
+    
 }
 button:hover{
     background-color: #db9fbd;
