@@ -34,7 +34,7 @@ async function invLoadInventory(filter) {
     const button = document.createElement('button');
     button.id = "button" + item.id.toString();
     button.innerText = "Use Item";
-    button.onclick = () => shopCheckCanBuy(item);
+    button.onclick = () => invUseItem(button, item);
     console.log(button.id);
     return button;
   }
@@ -61,7 +61,30 @@ async function invLoadInventory(filter) {
   }
 
 
-  function invUpdateButton(button, item){
+  function invUseItem(button, item) {
+    console.log(item.filter);
+    invUpdateButton(button);
+    invUpdateMeter(item.filter, item.value);
+    
+  }
+
+
+
+  function invUpdateButton(button){
     button.innerHTML = 'Used Item';
     button.classList.add('buttonBought');
+  }
+
+  function invUpdateMeter(filter, amount) {
+    let meterTemp;
+    if (filter == "Food"){
+      meterTemp = "hunger-meter";
+    }
+    if (filter == "Cosmetic"){
+      meterTemp = "cosmetic-meter";
+    }
+    const temp = document.getElementById(meterTemp);
+    const happytemp = document.getElementById("happiness-meter");
+    temp.value += amount;
+    happytemp.value += amount;
   }

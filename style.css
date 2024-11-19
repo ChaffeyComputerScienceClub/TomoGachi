@@ -65,7 +65,7 @@ body {
      
   }
   /* The meter itself */
-  meter {
+  .meter {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -74,11 +74,11 @@ body {
     border-radius: 5px; /* Rounded corners */
     transform: rotate(-90deg);
   }
-  meter::-webkit-meter-bar{
+  .meter::-webkit-meter-bar{
     background: #FCE8F1;
     border: 3px solid #C64189;
   }
-  meter::-webkit-meter-optimum-value{
+  .meter::-webkit-meter-optimum-value{
     background: #db9fbd;
   }
 
