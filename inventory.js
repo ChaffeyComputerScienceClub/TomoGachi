@@ -18,6 +18,7 @@ async function invLoadInventory(filter) {
             <p>Price: $${item.price}</p>
             <p>${item.description}</p>
             `;
+            productDiv.appendChild(invCreateProductButton(item));
             container.appendChild(productDiv);
           }
         }
@@ -29,12 +30,20 @@ async function invLoadInventory(filter) {
 
 
 
+  function invCreateProductButton(item) {
+    const button = document.createElement('button');
+    button.id = "button" + item.id.toString();
+    button.innerText = "Use Item";
+    button.onclick = () => shopCheckCanBuy(item);
+    console.log(button.id);
+    return button;
+  }
+
+
 
   function invFindData(item) {
     console.log(item);
     const dbref = ref(db);
-    let temp = "#button" + item.id.toString();
-    let button = document.querySelector(temp);
   
     return get(child(dbref, testUser + "/Inventory/" + item.name))
       .then((snapshot) => {
@@ -49,4 +58,10 @@ async function invLoadInventory(filter) {
         console.log(error);
         return false;
       });
+  }
+
+
+  function invUpdateButton(button, item){
+    button.innerHTML = 'Used Item';
+    button.classList.add('buttonBought');
   }
