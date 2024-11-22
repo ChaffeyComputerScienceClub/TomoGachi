@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="toDoStyle.css">
+    <title>To Do List</title>
+</head>
+<body>
+    <h1>To Do List :3 </h1>
+    <div style="display: flex;">
+        <input type="checkbox" id="cb" class="cbStyle">
+        <input type="text" id="tb" class="textField"> 
+        <br/>
+    </div>
+    <br/>
+    <button type="submit" class="button" id="addButton" style="margin-top: 10px;">+</button>
+    
+
+</body>
+
+<script type="module">
+    
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+    const firebaseConfig = {
+      apiKey: "AIzaSyCDsIup2KaJeQMPL5jvCMzMA7RTpPiPg7o",
+      authDomain: "tomotaru-bb27a.firebaseapp.com",
+      databaseURL: "https://tomotaru-bb27a-default-rtdb.firebaseio.com",
+      projectId: "tomotaru-bb27a",
+      storageBucket: "tomotaru-bb27a.appspot.com",
+      messagingSenderId: "281838524572",
+      appId: "1:281838524572:web:ee113e29d661a9c1a73559",
+      measurementId: "G-9HY07GMSFH"
+    };
+
+    import {getDatabase, set, get, update, remove, ref, child}
+    from "https://www.gstatic.com/firebasejs/10.14.0/firebase-database.js";
+    const db=getDatabase();
+    const app = initializeApp(firebaseConfig);
+    
+    var createButton=document.getElementById("createButton");
+    createButton.addEventListener('click', CreateItem);
+
+    function CreateItem(){
+    set(ref(db, "User/" + user.displayName + "/toDoList/"),{
+        
+    })
+}
+  
+  </script>
+</html>
