@@ -1,10 +1,14 @@
+@font-face {
+  font-family: silly;
+  src: url(ShopItemJPEGs/Archeologicaps.ttf);
+}
 body {
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
+  font-family: silly;
   background-color: #9169ff;
   }
-
+/*font-family: Arial, sans-serif;*/
   .header {
       margin: 0;
       width: 100%;
