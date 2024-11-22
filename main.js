@@ -1,12 +1,21 @@
 const gifHolder = document.getElementById("tamaGif");
-
-
-function swapGifs() {
-    const gif1 = "ShopItemJPEGs/donald-trump-potus.gif";
-    const gif2 = "ShopItemJPEGs/racoon-raccoon.gif";
-    
-    gifHolder.src = gifHolder.src.includes(gif1) ? gif2 : gif1;
-
+const gif1 = "ShopItemJPEGs/donald-trump-potus.gif";
+function swapGifs(gif2) {
+    console.log("open");
+    if (gifHolder.src.includes(gif1)) {
+        gifHolder.src = gif2;
+        setTimeout(resetGif, 3000);
+    }
+    else {
+        console.log("help");
+    }
 }
 
-gifHolder.addEventListener('click', swapGifs);
+
+function resetGif() {
+    gifHolder.src = gif1;
+}
+
+gifHolder.addEventListener('click', function () {
+    swapGifs("ShopItemJPEGs/racoon-raccoon.gif");
+});

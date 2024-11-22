@@ -62,17 +62,24 @@ async function invLoadInventory(filter) {
 
 
   function invUseItem(button, item) {
-    console.log(item.filter);
-    invUpdateButton(button);
-    invUpdateMeter(item.filter, item.value);
-    
+    if (gifHolder.src.includes(gif1)) {
+      invUpdateButton(button, 'Used Item', true);
+      invUpdateMeter(item.filter, item.value);
+      invGifPlayer(item.gif);
+      setTimeout(function() {
+        invUpdateButton(button, 'Use Item', false);
+      }, 3000);
+    }
   }
 
-
-
-  function invUpdateButton(button){
-    button.innerHTML = 'Used Item';
-    button.classList.add('buttonBought');
+  function invUpdateButton(button, text, add){
+    button.innerHTML = text;
+    if (add) {
+      button.classList.add('buttonBought');
+    }
+    else {
+      button.classList.remove('buttonBought');
+    }
   }
 
   function invUpdateMeter(filter, amount) {
@@ -88,3 +95,8 @@ async function invLoadInventory(filter) {
     temp.value += amount;
     happytemp.value += amount;
   }
+
+  function invGifPlayer(gif) {
+    swapGifs(gif);
+  }
+

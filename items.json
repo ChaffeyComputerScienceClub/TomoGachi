@@ -4,6 +4,7 @@
         "name": "Product 1",
         "price": 19.99,
         "img": "ShopItemJPEGs/godot_cute.jpg",
+        "gif": "ShopItemJPEGs/hahaha-haha.gif",
         "description": "A cute product",
         "value": 10,
         "filter": "Food"
@@ -13,6 +14,7 @@
         "name": "Product 2",
         "price": 19.99,
         "img": "ShopItemJPEGs/godot_python.jpg",
+        "gif": "ShopItemJPEGs/laughing-om-nom.gif",
         "description": "A python product",
         "value": 15,
         "filter": "Food"
@@ -22,6 +24,7 @@
         "name": "Product 3",
         "price": 19.99,
         "img": "ShopItemJPEGs/godot_sandbox.jpg",
+        "gif": "ShopItemJPEGs/szitinpantsachqwerasd.gif",
         "description": "A sandbox product",
         "value": 20,
         "filter": "Cosmetic"
@@ -31,6 +34,7 @@
         "name": "Product 4",
         "price": 19.99,
         "img": "ShopItemJPEGs/godot_tiled.jpg",
+        "gif": "ShopItemJPEGs/ha-ha-ha-hahaha.gif",
         "description": "A tiled product",
         "value": 10,
         "filter": "Cosmetic"
@@ -40,6 +44,7 @@
         "name": "Product 5",
         "price": 19.99,
         "img": "ShopItemJPEGs/godot_tiled.jpg",
+        "gif": "ShopItemJPEGs/hahaha-haha.gif",
         "description": "A tiled product",
         "value": 5,
         "filter": "Food"
