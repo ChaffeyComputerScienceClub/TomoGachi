@@ -1,10 +1,14 @@
+@font-face {
+  font-family: silly;
+  src: url(ShopItemJPEGs/Archeologicaps.ttf);
+}
 body {
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
+  font-family: silly;
   background-color: #9169ff;
   }
-
+/*font-family: Arial, sans-serif;*/
   .header {
       margin: 0;
       width: 100%;
@@ -49,12 +53,17 @@ body {
     width: 70%;
     height: auto;
   }
+  .image-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+  }
   .meter-container {
     width: 100%; /* You can adjust this width to fit your layout */
     height: 100%;
     display: flex; /* Using flex to allow meter to be in rows */
     justify-content: center; /* Centers meter horizontally */
-    margin-top: 50px;
   }
   .icon-vert-container {
      width: 100%; /* You can adjust this width to fit your layout */
@@ -64,21 +73,22 @@ body {
      align-items: center;
      
   }
+  meterContainer {
+    display:grid;
+    justify-items: center;
+  }
   /* The meter itself */
-  .meter {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    width: 200%; /* Set your desired width */
-    height: 20%; /* Set your desired height */
-    border-radius: 5px; /* Rounded corners */
+  meter {
+    width: 500%;
+    padding-left: 110px;
+    height: 7rem; /* Set your desired height */
     transform: rotate(-90deg);
   }
-  .meter::-webkit-meter-bar{
+  meter::-webkit-meter-bar{
     background: #FCE8F1;
     border: 3px solid #C64189;
   }
-  .meter::-webkit-meter-optimum-value{
+  meter::-webkit-meter-optimum-value{
     background: #db9fbd;
   }
 
