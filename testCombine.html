@@ -17,7 +17,8 @@
       <div id="shop-grid" class="shop-grid"></div>
       <div class="vert-container">
         <div class="tamagotchi">
-          <img id="tamaGif" src="ShopItemJPEGs\donald-trump-potus.gif" />
+          <img id="tamaBG" src="ShopItemJPEGs/blue_square.jpg" style="z-index: 1; position: absolute;"/>
+          <img id="tamaGif" src="ShopItemJPEGs\donald-trump-potus.gif" style="z-index: 2; position: absolute;"/>
         </div>
         <div class="stats-container">
           <div class="meter-container" style="overflow:auto;max-width: 100%;">
@@ -28,7 +29,7 @@
                     style="height: 5rem"
                     alt="food"
                   />
-                  <meter id="meter" max="100" value="70"></meter>
+                  <meter id="friendship-meter" class="meter" max="100" value="70"></meter>
                 </meterContainer>
                 <meterContainer>
                   <!--  meter 2 -->
@@ -37,7 +38,7 @@
                     style="width: 5rem"
                     alt="food"
                   />
-                  <meter id="meter" max="100" value="70"></meter>
+                  <meter id="happiness-meter" class="meter" max="100" value="70"></meter>
                 </meterContainer>
                 <meterContainer>
                   <!--  meter 3 -->
@@ -46,7 +47,8 @@
                     style="width: 5rem"
                     alt="food"
                   />
-                  <meter id="meter" max="100" value="70"></meter>
+                  <meter id="hunger-meter" class="meter" max="100" value="70"></meter>
+                </meterContainer>
         </div>
       </div>
     </div>
@@ -56,23 +58,5 @@
     <script src="shop.js"></script>
     <script src="inventory.js"></script>
     <script src="savings.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.14.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.14.0/firebase-analytics.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.14.0/firebase-database.js"></script>
-
-    <script>
-      const firebaseConfig = {
-        apiKey: "AIzaSyCDsIup2KaJeQMPL5jvCMzMA7RTpPiPg7o",
-        authDomain: "tomotaru-bb27a.firebaseapp.com",
-        databaseURL: "https://tomotaru-bb27a-default-rtdb.firebaseio.com",
-        projectId: "tomotaru-bb27a",
-        storageBucket: "tomotaru-bb27a.appspot.com",
-        messagingSenderId: "281838524572",
-        appId: "1:281838524572:web:ee113e29d661a9c1a73559",
-        measurementId: "G-9HY07GMSFH",
-      };
-      const app = firebase.initializeApp(firebaseConfig);
-      const db = firebase.database();
-    </script>
   </body>
 </html>

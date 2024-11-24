@@ -63,8 +63,13 @@ async function invLoadInventory(filter) {
 
   function invUseItem(button, item) {
     if (gifHolder.src.includes(gif1)) {
+      if (item.filter == "Cosmetic") {
+        invUpdateTamaBG(item);
+      }
+      else {
+        invUpdateMeter(item.filter, item.value);
+      }
       invUpdateButton(button, 'Used Item', true);
-      invUpdateMeter(item.filter, item.value);
       invGifPlayer(item.gif);
       setTimeout(function() {
         invUpdateButton(button, 'Use Item', false);
@@ -82,14 +87,17 @@ async function invLoadInventory(filter) {
     }
   }
 
+  function invUpdateTamaBG(item) {
+    const temp = document.getElementById("tamaBG");
+    temp.src = item.bgimg;
+  }
+
   function invUpdateMeter(filter, amount) {
-    let meterTemp;
+    let meterTemp = "";
     if (filter == "Food"){
       meterTemp = "hunger-meter";
     }
-    if (filter == "Cosmetic"){
-      meterTemp = "cosmetic-meter";
-    }
+    
     const temp = document.getElementById(meterTemp);
     const happytemp = document.getElementById("happiness-meter");
     temp.value += amount;

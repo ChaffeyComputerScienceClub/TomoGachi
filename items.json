@@ -5,9 +5,10 @@
         "price": 19.99,
         "img": "ShopItemJPEGs/godot_cute.jpg",
         "gif": "ShopItemJPEGs/hahaha-haha.gif",
+        "bgimg": "ShopItemJPEGs/blue_square.jpg",
         "description": "A cute product",
         "value": 10,
-        "filter": "Food"
+        "filter": "Cosmetic"
     },
     {
         "id": "002",
@@ -25,6 +26,7 @@
         "price": 19.99,
         "img": "ShopItemJPEGs/godot_sandbox.jpg",
         "gif": "ShopItemJPEGs/szitinpantsachqwerasd.gif",
+        "bgimg": "ShopItemJPEGs/red_square.jpg",
         "description": "A sandbox product",
         "value": 20,
         "filter": "Cosmetic"
@@ -34,7 +36,8 @@
         "name": "Product 4",
         "price": 19.99,
         "img": "ShopItemJPEGs/godot_tiled.jpg",
-        "gif": "ShopItemJPEGs/ha-ha-ha-hahaha.gif",
+        "gif": "ShopItemJPEGs/funny-lol.gif",
+        "bgimg": "ShopItemJPEGs/white_square.jpg",
         "description": "A tiled product",
         "value": 10,
         "filter": "Cosmetic"
