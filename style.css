@@ -51,7 +51,8 @@ body {
   flex-direction: column;
 }
 .tamagotchi img {
-  width: 70%;
+  width: 50%;
+  justify-content: center;
   height: auto;
 }
 .image-container {
