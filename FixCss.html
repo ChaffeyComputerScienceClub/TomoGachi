@@ -16,21 +16,29 @@
     <flexContainer>
       <!--Left Sidebar Options-->
       <flexContainer>
-      <sidebar style="width: 10vw;min-width: 146px;">
-        <sidebar class="option" id="option1" style="background-color: #77d3f9;">Option1</sidebar>
-        <sidebar class="option" id="option2" style="background-color: #eb93bd;">Option2</sidebar>
-        <sidebar class="option" id="option3" style="background-color: #52b7a9;">Option3</sidebar>
-        <sidebar class="option" id="option4" style="background-color: #b391c4;">Option4</sidebar>
-      </sidebar>
-      <!--Sub Options-->
-      <sidebar id="mini-sidebar"></sidebar>
+        <sidebar style="width: 10vw; min-width: 146px">
+          <sidebar class="option" id="option1" style="background-color: #77d3f9"
+            >Option1</sidebar
+          >
+          <sidebar class="option" id="option2" style="background-color: #eb93bd"
+            >Option2</sidebar
+          >
+          <sidebar class="option" id="option3" style="background-color: #52b7a9"
+            >Option3</sidebar
+          >
+          <sidebar class="option" id="option4" style="background-color: #b391c4"
+            >Option4</sidebar
+          >
+        </sidebar>
+        <!--Sub Options-->
+        <sidebar id="mini-sidebar"></sidebar>
       </flexContainer>
       <!--Main Section-->
       <!--Shop grid-->
       <div id="shop-grid" class="shop-grid"></div>
 
       <!--Right Side Bar-->
-      <div class="vert-container">
+      <vertContainer>
         <div class="tamagotchi">
           <img
             id="tamaBG"
@@ -82,7 +90,7 @@
             />
           </div>
         </div>
-      </div>
+      </vertContainer>
     </flexContainer>
     <script src="firebase.js" type="module"></script>
     <script src="loadManager.js"></script>

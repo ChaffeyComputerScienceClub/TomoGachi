@@ -1,202 +1,195 @@
 @font-face {
-    font-family: silly;
-    src: url(ShopItemJPEGs/Archeologicaps.ttf);
-  }
-  body {
-    margin: 0;
-    padding: 0;
-    font-family: silly;
-    background-color: #9169ff;
-  }
-  /*font-family: Arial, sans-serif;*/
-  .header {
-    margin: 0;
-    width: 100%;
-    height: 70px;
-    text-align: center;
-    padding-top: 30px;
-    background-color: rgba(52, 73, 94, 0.2);
-    /* background-color: #abe1f9; */
-  }
-  /*Css For Containers*/
-  flexContainer {
-    display: flex;
-  }
+  font-family: silly;
+  src: url(ShopItemJPEGs/Archeologicaps.ttf);
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: silly;
+  background-color: #9169ff;
+}
+/*font-family: Arial, sans-serif;*/
+.header {
+  margin: 0;
+  width: 100%;
+  height: 70px;
+  text-align: center;
+  padding-top: 30px;
+  background-color: rgba(52, 73, 94, 0.2);
+  /* background-color: #abe1f9; */
+}
+/*Css For Containers*/
+flexContainer {
+  display: flex;
+}
+vertContainer {
+  display: flex;
+  width: 40%;
+  height: 100%;
+  flex-direction: column;
+}
 
-  /*Css For Sidebar*/
-  sidebar {
-    width: 10vw;
-    min-width: 110px;
-    height: 10vh;
-    background-color: #0a3e4c;
-    display: flex;
-    flex-direction: column;
-  }
-  sidebar.option {
-    padding: 15px;
-    color: white;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    background-color: #34495e;
-    border: 4px solid #2c3e50;
-  }
-  
-  sidebar.option:hover {
-    border-color: #a3a3a3;
-    min-width: 110px;
-  }
-  
-  sidebar.option.active {
-    margin-left: 20px;
-    border: 0px;
-  }
-  #mini-sidebar {
-    min-width: 200px;
-    height: fit-content;
-    background-color: rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .mini-option {
-    padding: 10px;
-    color: white;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    background-color: rgba(52, 73, 94, 0.2);
-    border: 4px solid #2c3e50;
-  }
-  .mini-option:hover {
-    background-color: #000000;
-    border-color: #c7c7c7;
-  }
-  .mini-option.active {
-    margin-left: 20px;
-    border: 0px;
-  }
-
-  /*Css For Classes*/
-  .tamagotchi {
-    /*display: flex;
+/*Css For Classes*/
+.tamagotchi {
+  /*display: flex;
     margin: auto;*/
-    flex-direction: column;
-    position: relative;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(52, 73, 94, 0.2);
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .stats-container {
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    height: 50vh;
-    background-color: rgba(52, 73, 94, 0.2);
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .vert-container {
-    display: flex;
-    width: 40%;
-    height: 100%;
-    flex-direction: column;
-  }
-  .tamagotchi img {
-    width: 50%;
-    justify-content: center;
-    height: auto;
-  }
-  .image-container {
-    display: flex;
-    width: 100%;
-    height: 100%;
-    flex-direction: column;
-  }
-  .meter-container {
-    width: 100%;
-    display: inline-flex;
-    justify-content: center;
-    transform: rotate(-90deg);
-    flex-direction: column;
-    align-items: flex-end;
-  }
-  .icon-vert-container {
-    width: 100%; /* You can adjust this width to fit your layout */
-    height: 100%;
-    display: flex; /* Using flex to allow meter to be in rows */
-    flex-direction: column;
-    align-items: center;
-  }
-  /* The meter itself */
-  meter {
-    width: 30rem;
-    max-width: 80%;
-    /*padding-left: 80px;*/
-    min-width: 50%rem;
-    height: 6rem; /* Set your desired height */
-  }
-  meter::-webkit-meter-bar {
-    background: #fce8f1;
-    border: 3px solid #c64189;
-  }
-  meter::-webkit-meter-optimum-value {
-    background: #db9fbd;
-  }
-  
-  
-  
-  
-  
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(52, 73, 94, 0.2);
+  align-items: center;
+  justify-content: center;
+}
 
-  
-  
-  /* shop stuff */
-  .shop-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  
-  /* Individual shop item style */
-  .shop-item {
-    text-align: center;
-    border: 1px solid #ccc;
-    padding: 10px;
-    border-radius: 8px;
-  }
-  
-  /* Placeholder image style */
-  .shop-item img {
-    width: 100%;
-    height: auto;
-    max-height: 200px;
-    object-fit: cover;
-    border-radius: 4px;
-  }
-  
-  /* Buy button style */
-  .shop-item button {
-    margin-top: 10px;
-    padding: 8px 16px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .shop-item button:hover {
-    background-color: #0056b3;
-  }
-  
-  .buttonBought {
-    background-color: red !important;
-  }
-  
+.stats-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 50vh;
+  background-color: rgba(52, 73, 94, 0.2);
+  align-items: center;
+  justify-content: center;
+}
+
+
+.tamagotchi img {
+  width: 50%;
+  justify-content: center;
+  height: auto;
+}
+.image-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+}
+.meter-container {
+  width: 100%;
+  display: inline-flex;
+  justify-content: center;
+  transform: rotate(-90deg);
+  flex-direction: column;
+  align-items: flex-end;
+}
+.icon-vert-container {
+  width: 100%; /* You can adjust this width to fit your layout */
+  height: 100%;
+  display: flex; /* Using flex to allow meter to be in rows */
+  flex-direction: column;
+  align-items: center;
+}
+/*Meter Css*/
+meter {
+  width: 30rem;
+  max-width: 80%;
+  /*padding-left: 80px;*/
+  min-width: 50%rem;
+  height: 6rem; /* Set your desired height */
+}
+meter::-webkit-meter-bar {
+  background: #fce8f1;
+  border: 3px solid #c64189;
+}
+meter::-webkit-meter-optimum-value {
+  background: #db9fbd;
+}
+
+/*Css For Sidebar*/
+sidebar {
+  width: 10vw;
+  min-width: 110px;
+  height: 10vh;
+  background-color: #0a3e4c;
+  display: flex;
+  flex-direction: column;
+}
+sidebar.option {
+  padding: 15px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: #34495e;
+  border: 4px solid #2c3e50;
+}
+
+sidebar.option:hover {
+  border-color: #a3a3a3;
+  min-width: 110px;
+}
+
+sidebar.option.active {
+  margin-left: 20px;
+  border: 0px;
+}
+#mini-sidebar {
+  min-width: 200px;
+  height: fit-content;
+  background-color: rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.mini-option {
+  padding: 10px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: rgba(52, 73, 94, 0.2);
+  border: 4px solid #2c3e50;
+}
+.mini-option:hover {
+  background-color: #000000;
+  border-color: #c7c7c7;
+}
+.mini-option.active {
+  margin-left: 20px;
+  border: 0px;
+}
+
+/*Css For Shop*/
+.shop-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Individual shop item style */
+.shop-item {
+  text-align: center;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+/* Placeholder image style */
+.shop-item img {
+  width: 100%;
+  height: auto;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+/* Buy button style */
+.shop-item button {
+  margin-top: 10px;
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.shop-item button:hover {
+  background-color: #0056b3;
+}
+
+.buttonBought {
+  background-color: red !important;
+}
