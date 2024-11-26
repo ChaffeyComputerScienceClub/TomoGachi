@@ -8,9 +8,8 @@
 </head>
 <body>
     <h1>To Do List :3 </h1>
-    <div style="display: flex; margin-left: 1rem;" id="div">
+    <div style="display: flex; margin-left: 1rem; visibility: hidden;" id="div">
         <input type="checkbox" id="cb" class="cbStyle">
-        <!-- <h2 contenteditable="true" placeholder="untitled" id="tb1" ></h2> -->
         <input type="text" placeholder="Untitled" id="tb">
         <br/>
     </div>
@@ -44,24 +43,38 @@
     var addButton=document.getElementById("addButton");
     addButton.addEventListener('click', NewItem);
 
-    var ITEM_AMOUNT=1;
+    var ITEM_AMOUNT=0;
 
     function CreateItem(inputText){
       var input = document.createElement("input");
       input.type="text";
       var div=document.getElementById("div");
-      input.placeholder="test";
+      input.placeholder="untitled";
+      var br=document.createElement("<br>");
+      document.body.appendChild(br);
+      
       // var num=2;
       // input.id="tb"+num.toString();
-      div.appendChild(input);
+      
     // set(ref(db, "User/" + user.displayName + "/toDoList/"),{
         
     // })
     }
 
-    function NewItem(){
+    var div=document.getElementById("div");
+    var ITEM_AMOUNT=0;
 
+    function NewItem(){
+      var user=auth.currentUser;
+      const clone=div.cloneNode(true);
+      document.body.appendChild(clone);
+      clone.style.visibility="visible";
+      ITEM_AMOUNT +=1;
+      set(ref(db, "User/" + user.displayName + "/toDoList/" + "/itemAmount/"),{
+        amount:ITEM_AMOUNT
+      })
     }
+
     
     var tb=document.getElementById("tb");
     tb.addEventListener('focusout', save);
@@ -84,7 +97,7 @@
       get(ref(db, "User/" + user.displayName + "/toDoList/" + name))
       .then((snapshot) => {
         if (snapshot.exists()){
-          for(let i = 0; i < Object.keys(snapshot.val()).length; i++) {
+          for(let i = 0; i < Object.keys(snapshot.val()).length-1; i++) {
             CreateItem(snapshot.val());
           }
           return true;
@@ -94,10 +107,6 @@
         console.log(error);
       });
 
-
-      // for(var i=0; i<5; i++){
-        
-      // }
     };
 
     onAuthStateChanged(auth, (user)=>{
