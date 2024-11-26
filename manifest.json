@@ -1,34 +1,15 @@
 {
-    "name": "TomoToru",
-    "version": "1.0.0", 
-    "description": "Chrome extension tomogachi game",
-    "permissions": ["storage", "tabs", "alarms", "notifications"], 
-    "background":{
-        "service_worker": "background.js"},
-    "content_scripts": [
-        {
-         "matches": ["<all_urls>"],
-         "css": ["style.css"],
-         "js": ["inventory.js"]
-        }
-    ],
-    "action": {
-        "default_popup": "testCombine.html"},
+    "name": "signInWithPopup Demo",
+    "version": "1.0",
     "manifest_version": 3,
-    "content_security_policy":{  "extension_pages": "script-src 'self' https://*.firebaseio.com https://www.googleapis.com; object-src 'self'; connect-src 'self' wss://*.firebaseio.com;" } 
-}
-"name": "TomoToru",
-    "version": "1.0.1",
-    "description": "You Decide",
-    "version": "1.0.0", 
-    "description": "Chrome extension tomogachi game",
-
-"background":{
-    "page": "testCombine.html",
-    "persistent": false
-},
-"chrome_url_overrides":{
-    "newtab": "testCombine.html"
-},
-"manifest_version": 2,
-"content_security_policy": "script-src 'self' https://www.gstatic.com/ https://*.firebaseio.com https://www.googleapis.com; object-src 'self'"
+    "background": {
+      "service_worker": "background.js"
+    },
+    "action": {
+        "default_popup": "testCombine.html"
+    },
+    "permissions": [
+      "offscreen"
+    ]
+  }
+  
