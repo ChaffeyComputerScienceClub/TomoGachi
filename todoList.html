@@ -8,20 +8,21 @@
 </head>
 <body>
     <h1>To Do List :3 </h1>
-    <div style="display: flex;">
+    <div style="display: flex; margin-left: 1rem;" id="div2">
         <input type="checkbox" id="cb" class="cbStyle">
-        <input type="text" id="tb" class="textField"> 
+        <!-- <h2 contenteditable="true" placeholder="untitled" id="tb1" ></h2> -->
+        <input type="text" placeholder="Untitled" id="tb">
         <br/>
     </div>
     <br/>
-    <button type="submit" class="button" id="addButton" style="margin-top: 10px;">+</button>
+    <button type="submit" class="button" id="addButton" style="margin-top: 10px; margin-left: 1.3rem;">+</button>
     
 
 </body>
 
 <script type="module">
     
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-app.js";
     const firebaseConfig = {
       apiKey: "AIzaSyCDsIup2KaJeQMPL5jvCMzMA7RTpPiPg7o",
       authDomain: "tomotaru-bb27a.firebaseapp.com",
@@ -32,20 +33,38 @@
       appId: "1:281838524572:web:ee113e29d661a9c1a73559",
       measurementId: "G-9HY07GMSFH"
     };
-
+    const app = initializeApp(firebaseConfig);
     import {getDatabase, set, get, update, remove, ref, child}
     from "https://www.gstatic.com/firebasejs/10.14.0/firebase-database.js";
     const db=getDatabase();
-    const app = initializeApp(firebaseConfig);
+    const auth=getAuth();
+
+    import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-auth.js";
     
-    var createButton=document.getElementById("createButton");
-    createButton.addEventListener('click', CreateItem);
+    var addButton=document.getElementById("addButton");
+    addButton.addEventListener('click', CreateItem);
 
     function CreateItem(){
-    set(ref(db, "User/" + user.displayName + "/toDoList/"),{
+      var input = document.createElement("input");
+      input.type="text";
+      var div2=document.getElementById("div2");
+
+      // var num=2;
+      // input.id="tb"+num.toString();
+      div2.appendChild(input);
+    // set(ref(db, "User/" + user.displayName + "/toDoList/"),{
         
-    })
-}
+    // })
+    }
+    
+    var tb=document.getElementById("tb");
+    tb.addEventListener('focusout', save);
+    function save(){
+      console.log("hi");
+      // set(ref(db, "User/" + user.displayName + "/toDoList/"),{
+        
+      // })
+    }
   
   </script>
 </html>

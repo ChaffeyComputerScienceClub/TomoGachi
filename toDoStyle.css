@@ -11,8 +11,8 @@ input[type="checkbox"]{
     margin-left: 7px;
 }
 input[type="checkbox"]:hover{
-    border:3px solid #C64189;
-    background-color: #db9fbd;
+    border:3px solid #9bf0e4;
+    background-color: #b390c4;
     height:20px;
     width:20px;
     position: relative;
@@ -27,31 +27,37 @@ input[type="checkbox"]:checked{
     margin-left: 7px;
 }
 
-.textField,
-.textField:focus{
-    margin-left: 10px;
-    border:3px solid #336d6f;
-    outline:none;
-    background-color: #52B7A9;
-    font-family: cheri;
-    /* height: 20px; */
-}
-
-
-
 button{
     margin-left: 5px;
     background-color: #4bb8b2;
     border: 3px solid #336d6f;
     border-radius: 5px;
     /* font-family: cheri; */
-    
-    
-  }
-  button:hover{
+}
+button:hover{
     background-color: #9bf0e4;
     border: 3px solid #4bb8b2;
-  }
-  html{
+}
+html{
     font-family: cheri;
-  }
+}
+
+input[type="text"],
+input[type="text"]:focus{
+    outline: 0px solid transparent;
+    background-color: transparent;
+    border: transparent;
+    margin-left: .7rem;
+    font-family: cheri;
+}
+
+[placeholder]:empty:before{
+    content: attr(placeholder);
+    color: blue;
+    opacity: 0.5;
+    cursor: text;
+    background-color: transparent;
+    font-family: cheri;
+}
+
+
