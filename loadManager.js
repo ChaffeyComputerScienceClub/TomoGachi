@@ -1,4 +1,4 @@
-const options = document.querySelectorAll('.sidebar-option');
+const options = document.querySelectorAll('.option');
 let activeOption = null;
 let currentScreen = null;
 let switchScreen = false;
