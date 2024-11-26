@@ -37,6 +37,7 @@ body {
 
 .stats-container {
   display: flex;
+  flex-wrap: wrap;
   width: 100%;
   height: 100vh;
   background-color: rgba(52, 73, 94, 0.2);
@@ -62,10 +63,13 @@ body {
   flex-direction: column;
 }
 .meter-container {
-  width: 100%; /* You can adjust this width to fit your layout */
+  width: 100%;
   height: 100%;
-  display: inline-flex; /* Using flex to allow meter to be in rows */
-  justify-content: center; /* Centers meter horizontally */
+  display: inline-flex;
+  justify-content: center;
+  transform: rotate(-90deg);
+  flex-direction: column;
+  align-items: flex-end;
 }
 .icon-vert-container {
   width: 100%; /* You can adjust this width to fit your layout */
@@ -75,15 +79,16 @@ body {
   align-items: center;
 }
 meterContainer {
-  display: grid;
-  justify-items: center;
+  /*display: grid;
+  justify-items: center;*/
 }
 /* The meter itself */
 meter {
-  width: 500%;
-  padding-left: 110px;
-  height: 7rem; /* Set your desired height */
-  transform: rotate(-90deg);
+  width: 30rem;
+  max-width: 80%;
+  /*padding-left: 80px;*/
+  min-width: 50%rem;
+  height: 6rem; /* Set your desired height */
 }
 meter::-webkit-meter-bar {
   background: #fce8f1;
