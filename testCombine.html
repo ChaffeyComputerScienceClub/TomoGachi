@@ -17,16 +17,16 @@
       <div id="shop-grid" class="shop-grid"></div>
       <div class="vert-container">
         <div class="tamagotchi">
-          <img id="tamaBG" src="ShopItemJPEGs/blue_square.jpg" style="z-index: 1; position: absolute;"/>
-          <img id="tamaGif" src="ShopItemJPEGs\donald-trump-potus.gif" style="z-index: 2; position: absolute;"/>
+          <img id="tamaBG" src="ShopItemJPEGs/blue_square.jpg" style="z-index: 1; position: relative; margin: auto;"/>
+          <img id="tamaGif" src="ShopItemJPEGs\donald-trump-potus.gif" style="z-index: 2; position: relative; bottom: 50%;"/>
         </div>
         <div class="stats-container">
-          <div class="meter-container" style="overflow:auto;max-width: 100%;">
+          <div class="meter-container" style="overflow:hidden;max-width: 100%;">
                 <meterContainer>
                   <!--  meter 1 -->
                   <img
                     src="ShopItemJPEGs/bread copy.png"
-                    style="height: 5rem"
+                    style="height: 5rem;padding-bottom: 5rem;"
                     alt="food"
                   />
                   <meter id="friendship-meter" class="meter" max="100" value="90"></meter>
@@ -35,7 +35,7 @@
                   <!--  meter 2 -->
                   <img
                     src="ShopItemJPEGs/bread copy.png"
-                    style="width: 5rem"
+                    style="width: 5rem;padding-bottom: 5rem;"
                     alt="food"
                   />
                   <meter id="happiness-meter" class="meter" max="100" value="90"></meter>
@@ -44,7 +44,7 @@
                   <!--  meter 3 -->
                   <img
                     src="ShopItemJPEGs/bread copy.png"
-                    style="width: 5rem"
+                    style="width: 5rem;padding-bottom: 5rem;"
                     alt="food"
                   />
                   <meter id="hunger-meter" class="meter" max="100" value="90"></meter>
