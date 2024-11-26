@@ -1,0 +1,166 @@
+.meter,
+.meter2,
+.meter3,
+.meter4,
+.meter5{
+    width: 400px;
+    height: 110px;
+  }
+  .meter::after{
+    content: "Rent";
+    position: relative;
+    top:-65px;
+    left:10px;
+  }
+
+  .meter2::after{
+    content: "Shopping";
+    position: relative;
+    top:-65px;
+    left:10px;
+  }
+
+  .meter3::after{
+    content: "Insurance";
+    position: relative;
+    top:-65px;
+    left:10px;
+  }
+
+  .meter4::after{
+    content: "Food";
+    position: relative;
+    top:-65px;
+    left:10px;
+  }
+
+  .meter5::after{
+    content: "Other";
+    position: relative;
+    top:-65px;
+    left:10px;
+  }
+  
+  
+  .meter::-webkit-meter-bar,
+  .meter2::-webkit-meter-bar,
+  .meter3::-webkit-meter-bar,
+  .meter4::-webkit-meter-bar,
+  .meter5::-webkit-meter-bar{
+    background: #FCE8F1;
+    border: 3px solid #C64189;
+  }
+  
+  /* .meter::-moz-meter-bar {
+    background: rgb(150, 96, 96);
+  }  */
+  
+  .meter::-webkit-meter-optimum-value,
+  .meter2::-webkit-meter-optimum-value,
+  .meter3::-webkit-meter-optimum-value,
+  .meter4::-webkit-meter-optimum-value,
+  .meter5::-webkit-meter-optimum-value{
+    background: #db9fbd;
+  }
+
+.monthName{
+    background-color: #ABE1F9;
+    border-radius: 5px;
+    width:200px;
+    margin-left:330px;
+    text-align: center;
+    border-radius: 5px;
+}
+  
+.headerForPopup{
+    text-align: center;
+    margin-top: 7px;
+}
+.popUp{
+    background-color: #ABE1F9;
+    height:200px;
+    width:240px;
+    position: fixed;
+    top: 50%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    border: 5px solid #cf3f8e;
+    border-radius: 8px;
+    display:none;
+
+}
+.inputBox{
+    width:80px;
+    margin-top: 15px;
+    /* inputbox for amount spent */
+}
+body{
+  background-color: #52B7A9;
+}
+.budgetInput{
+  /* float: right;  */
+  margin-left: 85px;
+  width:60px;
+  height: 30px;
+  border-radius: 5px;
+  border: 3px solid #ABE1F9;
+  background-color: #52B7A9;
+  outline:none;
+  font-family: cheri;
+  transform: translate(0%,-160%);
+}
+
+.saveButton{
+  width:50px;
+  height: 30px;
+  border-radius: 5px;
+  background-color: #FCE8F1;
+  border: 3px solid #db9fbd;
+  transform: translate(0%,-200%);
+  font-family: cheri;
+  visibility: hidden;
+}
+
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+button{
+  margin-left: 50px;
+  background-color: #FCE8F1;
+  border: 3px solid #db9fbd;
+  border-radius: 5px;
+  font-family: cheri;
+}
+button:hover{
+  background-color: #db9fbd;
+  border: 3px solid #cf3f8e;
+}
+html{
+  font-family: cheri;
+}
+
+/* #C64189;
+#db9fbd; */
+
+.incomeInput,
+.incomeInput:focus{
+    outline: 0px solid transparent;
+    background-color: transparent;
+    border: transparent;
+    margin-left: .5rem;
+    font-family: cheri;
+    height: 2rem;
+    width: 3rem;
+    margin-top: 1rem;
+}
+
+[placeholder]:empty:before{
+    content: attr(placeholder);
+    color: black;
+    opacity: 0.5;
+    cursor: text;
+    background-color: transparent;
+    font-family: cheri;
+}

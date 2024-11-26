@@ -8,11 +8,11 @@
   <body>
     <button id="signInButton" >Create Account / Sign In </button>
     <br>
-    <button id="signOutButton" >Sign Out</button>
+    <button id="signOutButton" style="margin-left: 100px;">Sign Out</button>
     <br>
-    <button id="nextpg">next page</button>
+    <button id="nextpg" style="margin-left: 90px;">Home Page</button>
   
-    <div id="message">
+    <div id="message" style="margin-left: 30px;">
       <p>You have signed in as <span id="userName"></span></p>
     </div>
 
@@ -85,7 +85,7 @@
   }
 
   function NextPage(){
-    window.location.href = "Finance.html"; 
+    window.location.href = "Finance.html"; //change this to the home page html file!!
   }
   signInButton.addEventListener('click', userSignIn);
   signOutButton.addEventListener('click', userSignOut);

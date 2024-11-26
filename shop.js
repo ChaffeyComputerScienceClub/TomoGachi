@@ -77,7 +77,7 @@ function shopFindItem(item) {
     .then((snapshot) => {
       //console.log(temp);
       if (snapshot.exists()){
-        shopUpdateButton(button, snapshot.val().Item);
+        shopUpdateButton(button);
         return true;
       } else {
         //console.log("No Data Found");
@@ -112,7 +112,7 @@ function shopRemoveItem() {
   })
 }
 
-function shopUpdateButton(button, item){
+function shopUpdateButton(button){
   button.innerHTML = 'Bought';
   button.classList.add('buttonBought');
 }

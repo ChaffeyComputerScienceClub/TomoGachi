@@ -1,13 +1,15 @@
 {
-    "name": "TomoToru",
-    "version": "1.0.0", 
-    "description": "Chrome extension tomogachi game",
-    "permissions": ["storage", "tabs", "alarms", "notifications"], 
-    "background":{
-        "service_worker": "background.js"},
-    "action": {
-        "default_popup": "signup.html"},
+    "name": "signInWithPopup Demo",
+    "version": "1.0",
     "manifest_version": 3,
-    "content_security_policy":{
-    "extension_pages": "script-src 'self'; object-src 'self'"} 
-}
+    "background": {
+      "service_worker": "background.js"
+    },
+    "action": {
+        "default_popup": "testCombine.html"
+    },
+    "permissions": [
+      "offscreen"
+    ]
+  }
+  
