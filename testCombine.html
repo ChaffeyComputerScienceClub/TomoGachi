@@ -1,54 +1,41 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>SamsShop</title>
-    <h1 class="header">Tammy's Tamowatches</h1>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div class="container">
-      <div class="sidebar">
-        <div class="sidebar-option" id="option1">Option1</div>
-        <div class="sidebar-option" id="option2">Option2</div>
-        <div class="sidebar-option" id="option3">Option3</div>
-        <div class="sidebar-option" id="option4">Option4</div>
+
+<head>
+  <title>SamsShop</title>
+  <h1 class="header">Tammy's Tamowatches</h1>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <div class="sidebar-option" id="option1">Option1</div>
+      <div class="sidebar-option" id="option2">Option2</div>
+      <div class="sidebar-option" id="option3">Option3</div>
+      <div class="sidebar-option" id="option4">Option4</div>
+    </div>
+    <div class="sidebar" id="mini-sidebar"></div>
+    <div id="shop-grid" class="shop-grid"></div>
+    <div class="vert-container">
+      <div class="tamagotchi">
+        <img id="tamaBG" src="ShopItemJPEGs/blue_square.jpg" style="z-index: 1; position: relative; margin: auto;" />
+        <img id="tamaGif" src="ShopItemJPEGs\donald-trump-potus.gif"
+          style="z-index: 2; position: relative; bottom: 50%;" />
       </div>
-      <div class="sidebar" id="mini-sidebar"></div>
-      <div id="shop-grid" class="shop-grid"></div>
-      <div class="vert-container">
-        <div class="tamagotchi">
-          <img id="tamaBG" src="ShopItemJPEGs/blue_square.jpg" style="z-index: 1; position: relative; margin: auto;"/>
-          <img id="tamaGif" src="ShopItemJPEGs\donald-trump-potus.gif" style="z-index: 2; position: relative; bottom: 50%;"/>
+      <div class="stats-container">
+        <div style="display: flex; justify-content: space-between;">
+          <img src="ShopItemJPEGs/bread copy.png" style="height: 5rem;" alt="food" />
+          <img src="ShopItemJPEGs/bread copy.png" style="height: 5rem;" alt="food" />
+          <img src="ShopItemJPEGs/bread copy.png" style="height: 5rem;" alt="food" />
         </div>
-        <div class="stats-container">
-          <div class="meter-container" style="overflow:hidden;max-width: 100%;">
-                <meterContainer>
-                  <!--  meter 1 -->
-                  <img
-                    src="ShopItemJPEGs/bread copy.png"
-                    style="height: 5rem;padding-bottom: 5rem;"
-                    alt="food"
-                  />
-                  <meter id="friendship-meter" class="meter" max="100" value="70"></meter>
-                </meterContainer>
-                <meterContainer>
-                  <!--  meter 2 -->
-                  <img
-                    src="ShopItemJPEGs/bread copy.png"
-                    style="width: 5rem;padding-bottom: 5rem;"
-                    alt="food"
-                  />
-                  <meter id="happiness-meter" class="meter" max="100" value="70"></meter>
-                </meterContainer>
-                <meterContainer>
-                  <!--  meter 3 -->
-                  <img
-                    src="ShopItemJPEGs/bread copy.png"
-                    style="width: 5rem;padding-bottom: 5rem;"
-                    alt="food"
-                  />
-                  <meter id="hunger-meter" class="meter" max="100" value="70"></meter>
-                </meterContainer>
+        <div class="meter-container">
+            <!--  meter 1 -->
+            <meter id="friendship-meter" class="meter" max="100" value="70"></meter>
+            <!--  meter 2 -->
+            <meter id="happiness-meter" class="meter" max="100" value="70"></meter>
+            <!--  meter 3 -->
+            <meter id="hunger-meter" class="meter" max="100" value="70"></meter>
         </div>
       </div>
     </div>
@@ -58,5 +45,6 @@
     <script src="shop.js"></script>
     <script src="inventory.js"></script>
     <script src="savings.js"></script>
-  </body>
+</body>
+
 </html>
