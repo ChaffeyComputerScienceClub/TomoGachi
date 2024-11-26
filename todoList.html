@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="toDoStyle.css">
+    <title>To Do List</title>
+</head>
+<body>
+    <h1>To Do List :3 </h1>
+    <div style="display: flex; margin-left: 1rem; visibility: hidden;" id="div">
+        <input type="checkbox" id="cb" class="cbStyle">
+        <input type="text" placeholder="Untitled" id="tb">
+        <br/>
+    </div>
+    <br/>
+    <button type="submit" class="button" id="addButton" style="margin-top: 10px; margin-left: 1.3rem;">+</button>
+    
+
+</body>
+
+<script type="module">
+    
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-app.js";
+    const firebaseConfig = {
+      apiKey: "AIzaSyCDsIup2KaJeQMPL5jvCMzMA7RTpPiPg7o",
+      authDomain: "tomotaru-bb27a.firebaseapp.com",
+      databaseURL: "https://tomotaru-bb27a-default-rtdb.firebaseio.com",
+      projectId: "tomotaru-bb27a",
+      storageBucket: "tomotaru-bb27a.appspot.com",
+      messagingSenderId: "281838524572",
+      appId: "1:281838524572:web:ee113e29d661a9c1a73559",
+      measurementId: "G-9HY07GMSFH"
+    };
+    const app = initializeApp(firebaseConfig);
+    import {getDatabase, set, get, update, remove, ref, child}
+    from "https://www.gstatic.com/firebasejs/10.14.0/firebase-database.js";
+    const db=getDatabase();
+    const auth=getAuth();
+
+    import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-auth.js";
+    
+    var addButton=document.getElementById("addButton");
+    addButton.addEventListener('click', NewItem);
+
+    var ITEM_AMOUNT=0;
+
+    function CreateItem(inputText){
+      var input = document.createElement("input");
+      input.type="text";
+      var div=document.getElementById("div");
+      input.placeholder="untitled";
+      var br=document.createElement("<br>");
+      document.body.appendChild(br);
+      
+      // var num=2;
+      // input.id="tb"+num.toString();
+      
+    // set(ref(db, "User/" + user.displayName + "/toDoList/"),{
+        
+    // })
+    }
+
+    var div=document.getElementById("div");
+    var ITEM_AMOUNT=0;
+
+    function NewItem(){
+      var user=auth.currentUser;
+      const clone=div.cloneNode(true);
+      document.body.appendChild(clone);
+      clone.style.visibility="visible";
+      ITEM_AMOUNT +=1;
+      set(ref(db, "User/" + user.displayName + "/toDoList/" + "/itemAmount/"),{
+        amount:ITEM_AMOUNT
+      })
+    }
+
+    
+    var tb=document.getElementById("tb");
+    tb.addEventListener('focusout', save);
+
+    function save(){
+      var user=auth.currentUser;
+      var name=event.target.id;
+      console.log(name);
+      var item=event.target.value;
+      console.log(item);
+      set(ref(db, "User/" + user.displayName + "/toDoList/" + name),{
+        Item:item
+      })
+    }
+
+    
+  
+    function PageLoad() {
+      var user=auth.currentUser;
+      get(ref(db, "User/" + user.displayName + "/toDoList/" + name))
+      .then((snapshot) => {
+        if (snapshot.exists()){
+          for(let i = 0; i < Object.keys(snapshot.val()).length-1; i++) {
+            CreateItem(snapshot.val());
+          }
+          return true;
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+    };
+
+    onAuthStateChanged(auth, (user)=>{
+      if(user){
+        console.log(user);
+        PageLoad();
+      }else{
+        console.log("error")
+      }
+    })
+  </script>
+</html>

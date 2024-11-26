@@ -1,0 +1,26 @@
+.popUp{
+    background-color: #ABE1F9;
+    border: 10px solid #cf3f8e;
+    height:300px;
+    width:300px;
+    text-align: center;
+    border-radius: 8px;
+}
+
+button{
+    margin-left: 50px;
+    background-color: #eb93bd;
+    border: 3px solid #cf3f8e;
+    border-radius: 5px;
+    font-family: cheri;
+}
+
+button:hover{
+    background-color: #f7b8d3;
+    border: 3px solid #cf3f8e;
+}
+
+h1,
+p{
+    color: #0a3e4c;
+}
