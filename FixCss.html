@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>SamsShop</title>
+  <h1 class="header">Tammy's Tamowatches</h1>
+  <link rel="stylesheet" href="base.css" />
+</head>
+
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <div class="sidebar-option" id="option1">Option1</div>
+      <div class="sidebar-option" id="option2">Option2</div>
+      <div class="sidebar-option" id="option3">Option3</div>
+      <div class="sidebar-option" id="option4">Option4</div>
+    </div>
+    <div class="sidebar" id="mini-sidebar"></div>
+    <div id="shop-grid" class="shop-grid"></div>
+    <div class="vert-container">
+      <div class="tamagotchi">
+        <img id="tamaBG" src="ShopItemJPEGs/blue_square.jpg" style="z-index: 1; position: relative; margin: auto;" />
+        <img id="tamaGif" src="ShopItemJPEGs\donald-trump-potus.gif"
+          style="z-index: 2; position: relative; bottom: 50%;" />
+      </div>
+        <div class="meter-container">
+          <!--  meter 1 -->
+          <div>
+            <meter id="friendship-meter" class="meter" max="100" value="70"></meter>
+            <img src="ShopItemJPEGs/bread copy.png" style="height: 5rem; transform: rotate(90deg);" alt="food" />
+          </div>
+          <!--  meter 2 -->
+          <div>
+            <meter id="happiness-meter" class="meter" max="100" value="70"></meter>
+            <img src="ShopItemJPEGs/bread copy.png" style="height: 5rem; transform: rotate(90deg);" alt="food" />
+          </div>
+          <!--  meter 3 -->
+          <div>
+            <meter id="hunger-meter" class="meter" max="100" value="70"></meter>
+            <img src="ShopItemJPEGs/bread copy.png" style="height: 5rem; transform: rotate(90deg);" alt="food" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="firebase.js" type="module"></script>
+    <script src="loadManager.js"></script>
+    <script src="main.js"></script>
+    <script src="shop.js"></script>
+    <script src="inventory.js"></script>
+    <script src="savings.js"></script>
+</body>
+
+</html>
