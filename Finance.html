@@ -8,16 +8,18 @@
   </head>
   <body>
 
-    <h2 style="display:inline-block; margin-left:420px">$0</h2>
+    <div style="display: flex;">
+      <h2 style="display:inline-block; margin-left:420px">$</h2>
+      <input type="number" placeholder="0" id="monthlyIncome" class="incomeInput">
+    </div>
     <div>
       <h2 id="month" class="monthName"></h2>
     </div>
-    <!-- <input type="text" id="paycheckIncome" style="margin-left:30px"> -->
 
 
     <div style="margin-left:8%; margin-top: 20px;">
       <label style="margin-left: 0px; ">Spendings</label>
-      <label style="margin-left: 385px; ">Budgeted</label>
+      <label style="margin-left: 407px; ">Budgeted</label>
     </div>
     
     <div style="margin-left: 7%;">
@@ -128,7 +130,16 @@
   var otherBudget=document.getElementById("otherBudget");
   var otherButton=document.getElementById("otherButton");
   
-  
+  var monthlyIncome=document.getElementById("monthlyIncome");
+  monthlyIncome.addEventListener('focusout', MonthlyIncome);
+  function MonthlyIncome(){
+    var user=auth.currentUser;
+    var val=Number(event.target.value);
+    console.log(val);
+    set(ref(db, "User/" + user.displayName + "/Finance/" + "/monthlyIncome/"),{
+       MonthlyIncome:val
+    })
+  }
 
   rentBudget.onkeyup=function(){
     var user=auth.currentUser;
@@ -225,6 +236,15 @@
   function financeInvFindData(inputBox, meter, category, user) {
     var budget=document.getElementById(inputBox);
     var meter=document.getElementById(meter);
+    get(ref(db, "User/" + user.displayName + "/Finance/" + "/monthlyIncome/"))
+      .then((snapshot) => {
+        if (snapshot.exists()){
+          monthlyIncome.value=snapshot.val().MonthlyIncome;
+          return true;
+        } else {
+          monthlyIncome.value=0;
+        }
+      })
     
     get(ref(db, "User/" + user.displayName + "/Finance/" + category))
       .then((snapshot) => {
@@ -302,6 +322,11 @@ var array3=["rentMeter", "shoppingMeter", "insuranceMeter", "foodMeter", "otherM
 
     
   function updateMeter(category, amount, user){
+    var newmonthlyIncome=+monthlyIncome.value- +amount;
+    monthlyIncome.value=newmonthlyIncome;
+    update(ref(db, "User/" + user.displayName + "/Finance/" + "/monthlyIncome/"),{
+       MonthlyIncome:newmonthlyIncome
+    })
     if(category==1){
       var newVal1=+rentMeter.value + +amount;
       rentMeter.value=newVal1;

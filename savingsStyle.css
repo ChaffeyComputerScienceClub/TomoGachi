@@ -143,3 +143,24 @@ html{
 
 /* #C64189;
 #db9fbd; */
+
+.incomeInput,
+.incomeInput:focus{
+    outline: 0px solid transparent;
+    background-color: transparent;
+    border: transparent;
+    margin-left: .5rem;
+    font-family: cheri;
+    height: 2rem;
+    width: 3rem;
+    margin-top: 1rem;
+}
+
+[placeholder]:empty:before{
+    content: attr(placeholder);
+    color: black;
+    opacity: 0.5;
+    cursor: text;
+    background-color: transparent;
+    font-family: cheri;
+}
