@@ -64,7 +64,7 @@ options.forEach(option => {
             appendMiniSidebar(this.id);
             if (switchScreen) {
                 clearScreen();
-                savingLoadBudget();
+                todoPageLoad();
             }
         }
         else if(this.id == 'option4') {

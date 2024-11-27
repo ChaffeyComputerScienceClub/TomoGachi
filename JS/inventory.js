@@ -29,7 +29,6 @@ async function invLoadInventory(filter) {
   }
 
 
-
   function invCreateProductButton(item) {
     const button = document.createElement('button');
     button.id = "button" + item.id.toString();

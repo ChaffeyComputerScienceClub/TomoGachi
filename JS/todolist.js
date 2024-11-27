@@ -50,7 +50,7 @@ function save(){
 
 
 
-function PageLoad() {
+function todoPageLoad() {
   var user=auth.currentUser;
   get(ref(db, "User/" + user.displayName + "/toDoList/" + name))
   .then((snapshot) => {
