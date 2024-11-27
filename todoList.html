@@ -20,26 +20,7 @@
 </body>
 
 <script type="module">
-    
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-app.js";
-    const firebaseConfig = {
-      apiKey: "AIzaSyCDsIup2KaJeQMPL5jvCMzMA7RTpPiPg7o",
-      authDomain: "tomotaru-bb27a.firebaseapp.com",
-      databaseURL: "https://tomotaru-bb27a-default-rtdb.firebaseio.com",
-      projectId: "tomotaru-bb27a",
-      storageBucket: "tomotaru-bb27a.appspot.com",
-      messagingSenderId: "281838524572",
-      appId: "1:281838524572:web:ee113e29d661a9c1a73559",
-      measurementId: "G-9HY07GMSFH"
-    };
-    const app = initializeApp(firebaseConfig);
-    import {getDatabase, set, get, update, remove, ref, child}
-    from "https://www.gstatic.com/firebasejs/10.14.0/firebase-database.js";
-    const db=getDatabase();
-    const auth=getAuth();
 
-    import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-auth.js";
-    
     var addButton=document.getElementById("addButton");
     addButton.addEventListener('click', NewItem);
 
