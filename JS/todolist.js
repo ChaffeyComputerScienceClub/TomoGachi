@@ -28,7 +28,7 @@ function CreateItem(inputText){
     // })
 
   })
-  set(ref(db, "User/" + "lizzymak" + "/toDoList/" + ITEM_AMOUNT),{
+  set(ref(db, "User/" + user.displayName + "/toDoList/" + ITEM_AMOUNT),{
     Item: inputText
   })
   ITEM_AMOUNT += 1;
@@ -41,7 +41,7 @@ function deleteItem(id, text){
 function save(id, text){
   console.log("saving");
   var user=auth.currentUser;
-  set(ref(db, "User/" + "lizzymak" + "/toDoList/" + id),{
+  set(ref(db, "User/" + user.displayName + "/toDoList/" + id),{
     Item: text
   })
 }
@@ -56,7 +56,7 @@ function todoPageLoad() {
   });
   container.append(addButton);
   var user=auth.currentUser;
-  get(ref(db, "User/" + "lizzymak" + "/toDoList/"))
+  get(ref(db, "User/" + user.displayName + "/toDoList/"))
   .then((snapshot) => {
     if (snapshot.exists()){
       for(let i = 1; i <= Object.keys(snapshot.val()).length; i++) {
@@ -74,7 +74,7 @@ function todoPageLoad() {
 };
 
 onAuthStateChanged(auth, (user)=>{
-  if(true){
+  if(user){
     console.log(user);
     PageLoad();
   }else{

@@ -61,5 +61,8 @@ input[type="text"]:focus{
     background-color: transparent;
     font-family: cheri;
 }
+/* [placeholder]:empty:focus:before{
+    content: "";
+} */
 
 
