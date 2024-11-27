@@ -1,7 +1,7 @@
-import { initializeApp } from "./firebase-sdk/firebase-app.js";
-import { getAnalytics } from "./firebase-sdk/firebase-analytics.js";
-import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from "./firebase-sdk/firebase-auth.js";
-import {getDatabase, set, get, update, remove, ref, child, push} from "./firebase-sdk/firebase-database.js";
+import { initializeApp } from "../firebase-sdk/firebase-app.js";
+import { getAnalytics } from "../firebase-sdk/firebase-analytics.js";
+import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from "../firebase-sdk/firebase-auth.js";
+import {getDatabase, set, get, update, remove, ref, child, push} from "../firebase-sdk/firebase-database.js";
 const firebaseConfig = {
   apiKey: "AIzaSyCDsIup2KaJeQMPL5jvCMzMA7RTpPiPg7o",
   authDomain: "tomotaru-bb27a.firebaseapp.com",
