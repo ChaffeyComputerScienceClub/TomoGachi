@@ -1,5 +1,7 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-app.js";
-import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-analytics.js";
+import { initializeApp } from "../firebase-sdk/firebase-app.js";
+import { getAnalytics } from "../firebase-sdk/firebase-analytics.js";
+import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from "../firebase-sdk/firebase-auth.js";
+import {getDatabase, set, get, update, remove, ref, child, push} from "../firebase-sdk/firebase-database.js";
 const firebaseConfig = {
   apiKey: "AIzaSyCDsIup2KaJeQMPL5jvCMzMA7RTpPiPg7o",
   authDomain: "tomotaru-bb27a.firebaseapp.com",
@@ -11,11 +13,10 @@ const firebaseConfig = {
   measurementId: "G-9HY07GMSFH"
 };
 const app = initializeApp(firebaseConfig);
-
-
-import {getDatabase, set, get, update, remove, ref, child, push}
-from "https://www.gstatic.com/firebasejs/10.14.0/firebase-database.js";
 const db=getDatabase();
+const auth=getAuth();
+const provider=new GoogleAuthProvider();
+
 const testUser = "TestUserSam";
 let inventory = null;
 let bank = await get(ref(db, testUser + "/Bank/"));
@@ -29,7 +30,17 @@ window.bankAmount = bankAmount;
 window.testUser = testUser;
 window.inventory = inventory;
 
+window.app = app;
 window.db = db;
+window.auth = auth;
+window.provider = provider;
+
+window.getAuth = getAuth;
+window.GoogleAuthProvider = GoogleAuthProvider;
+window.signInWithPopup = signInWithPopup;
+window.signOut = signOut;
+window.onAuthStateChanged = onAuthStateChanged;
+
 window.getDatabase = getDatabase;
 window.set = set;
 window.get = get;

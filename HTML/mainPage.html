@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SamsShop</title>
+    <h1 class="header">Tammy's Tamowatches</h1>
+    <link rel="stylesheet" href="/CSS/style.css" />
+    <link rel="stylesheet" href="/CSS/toDoStyle.css"/>
+  </head>
+  <body>
+    <div class="container">
+      <div class="sidebar">
+        <div class="sidebar-option" id="option1">Option1</div>
+        <div class="sidebar-option" id="option2">Option2</div>
+        <div class="sidebar-option" id="option3">Option3</div>
+        <div class="sidebar-option" id="option4">Option4</div>
+      </div>
+      <div class="sidebar" id="mini-sidebar"></div>
+      <div id="shop-grid" class="shop-grid"></div>
+      <div class="vert-container">
+        <div class="tamagotchi">
+          <img id="tamaBG" src="/ShopItemJPEGs/blue_square.jpg" style="z-index: 1; position: relative; margin: auto;"/>
+          <img id="tamaGif" src="/ShopItemJPEGs\donald-trump-potus.gif" style="z-index: 2; position: relative; bottom: 50%;"/>
+        </div>
+        <div class="stats-container">
+          <div class="meter-container" style="overflow:hidden;max-width: 100%;">
+                <meterContainer>
+                  <!--  meter 1 -->
+                  <img
+                    src="/ShopItemJPEGs/bread copy.png"
+                    style="height: 5rem;padding-bottom: 5rem;"
+                    alt="food"
+                  />
+                  <meter id="friendship-meter" class="meter" max="100" value="90"></meter>
+                </meterContainer>
+                <meterContainer>
+                  <!--  meter 2 -->
+                  <img
+                    src="/ShopItemJPEGs/bread copy.png"
+                    style="width: 5rem;padding-bottom: 5rem;"
+                    alt="food"
+                  />
+                  <meter id="happiness-meter" class="meter" max="100" value="90"></meter>
+                </meterContainer>
+                <meterContainer>
+                  <!--  meter 3 -->
+                  <img
+                    src="/ShopItemJPEGs/bread copy.png"
+                    style="width: 5rem;padding-bottom: 5rem;"
+                    alt="food"
+                  />
+                  <meter id="hunger-meter" class="meter" max="100" value="90"></meter>
+                </meterContainer>
+        </div>
+      </div>
+    </div>
+    <script src="/JS/firebase.js" type="module"></script>
+    <script src="/JS/loadManager.js"></script>
+    <script src="/JS/main.js"></script>
+    <script src="/JS/shop.js"></script>
+    <script src="/JS/inventory.js"></script>
+    <script src="/JS/savings.js"></script>
+    <script src="/JS/todolist.js"></script>
+  </body>
+</html>

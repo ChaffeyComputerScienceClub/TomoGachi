@@ -2,7 +2,7 @@
 async function invLoadInventory(filter) {
     try {
       
-        const response = await fetch('items.json');
+        const response = await fetch('../items.json');
         const items = await response.json();
         const container = document.getElementById('shop-grid');
         items.forEach(async item => {
@@ -27,7 +27,6 @@ async function invLoadInventory(filter) {
       console.error('Error Loading Products: ', error);
     }
   }
-
 
 
   function invCreateProductButton(item) {

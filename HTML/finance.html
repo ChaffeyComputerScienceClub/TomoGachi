@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    
+    <link rel="stylesheet" href="/CSS/savingsStyle.css">
+    <title>Tomo Taru</title>
+    <h1>Finance</h1>
+  </head>
+  <body>
+
+    <div style="display: flex;">
+      <h2 style="display:inline-block; margin-left:420px">$</h2>
+      <input type="number" placeholder="0" id="monthlyIncome" class="incomeInput">
+    </div>
+    <div>
+      <h2 id="month" class="monthName"></h2>
+    </div>
+
+
+    <div style="margin-left:8%; margin-top: 20px;">
+      <label style="margin-left: 0px; ">Spendings</label>
+      <label style="margin-left: 407px; ">Budgeted</label>
+    </div>
+    
+    <div style="margin-left: 7%;">
+      <meter id="rentMeter" class="meter" class="rent" max="100"></meter>
+      <input type="number" id="rentBudget" class="budgetInput">
+      <button id="rentButton" class="saveButton">Save</button>
+      <br>
+      <meter id="shoppingMeter" class="meter2" value=""></meter>
+      <input type="number" id="shoppingBudget" class="budgetInput">
+      <button id="shoppingButton" class="saveButton">Save</button>
+      <br>
+      <meter id="insuranceMeter" class="meter3" value=""></meter>
+      <input type="number" id="insuranceBudget" class="budgetInput">
+      <button id="insuranceButton" class="saveButton">Save</button>
+      <br>
+      <meter id="foodMeter" class="meter4" value=""></meter>
+      <input type="number" id="foodBudget" class="budgetInput">
+      <button id="foodButton" class="saveButton">Save</button>
+      <br>
+      <meter id="otherMeter" class="meter5" value=""></meter>
+      <input type="number" id="otherBudget" class="budgetInput">
+      <button id="otherButton" class="saveButton">Save</button>
+    </div>
+
+    <!-- add button which opens modal -->
+    <button type="submit" class="button" style="margin-left:25%; margin-top:12px;" id="add">Add</button>
+
+      <div class="popUp" id="popup">
+        <button id="exit" style="border-radius: 50%; margin-left: 90%; ">X</button>
+        <br>
+        <h1 class="headerForPopup">Add Spendings!</h1>
+    
+        <label for="spendings" style="margin-left: 10px; margin-top: 15px;">Spending Options:</label>
+        <select name="options" id="selector">
+            <option value="1">Rent</option>
+            <option value="2">Shopping</option>
+            <option value="3">Insurance</option>
+            <option value="4">Food</option>
+            <option value="5">Other</option>
+        </select>
+      
+      <label for="spent" style="margin-left: 10px; margin-top: 15px;">Amount Spent:</label>
+      <input class="inputBox "type="number" id="amountAdded">
+      <br>
+      <button style="margin-left: 40%; margin-top: 20px;" type="submit" id="save">Save!</button>
+      
+      </div>
+      <script src="/JS/finance.js"></script>
+  </body>
+ 
+  
+  
+</html>

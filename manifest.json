@@ -1,15 +1,20 @@
 {
-    "name": "signInWithPopup Demo",
-    "version": "1.0",
-    "manifest_version": 3,
-    "background": {
-      "service_worker": "background.js"
-    },
-    "action": {
-        "default_popup": "testCombine.html"
-    },
-    "permissions": [
-      "offscreen"
-    ]
+  "manifest_version": 3,
+  "name": "My Firebase Extension",
+  "version": "1.0",
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "https://*.firebaseio.com/"
+  ],
+  "background": {
+    "service_worker": "JS/background.js"
+  },
+  "action": {
+    "default_popup": "HTML/mainPage.html"
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self';"
   }
-  
+}
