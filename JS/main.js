@@ -1,5 +1,5 @@
 const gifHolder = document.getElementById("tamaGif");
-const gif1 = "ShopItemJPEGs/donald-trump-potus.gif";
+const gif1 = "/ShopItemJPEGs/donald-trump-potus.gif";
 const happinessMeter = document.getElementById("happiness-meter");
 const hungerMeter = document.getElementById("hunger-meter");
 const friendshipMeter = document.getElementById("friendship-meter");
@@ -22,7 +22,7 @@ function resetGif() {
 }
 
 gifHolder.addEventListener('click', function() {
-    swapGifs("ShopItemJPEGs/racoon-raccoon.gif");
+    swapGifs("/ShopItemJPEGs/racoon-raccoon.gif");
     friendshipMeter.value += 10;
 });
 
