@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/testingpopupideas.css">
+    <title>To Do List</title>
+</head>
+<body>
+    <div class="vert-cont" style="display: flex; flex-direction: column;">
+        <div class="hori-cont" style="display: flex; flex-direction: row; height: 75px; width: 400px; background-color: green;">
+            <div class="option" style="width: calc(100% / 3)">test</div>
+            <div class="option" style="width: calc(100% / 3)">test</div>
+            <div class="option" style="width: calc(100% / 3)">test</div>
+        </div>
+        <div class="hori-cont" style="display: flex; flex-direction: row; height: 400px; width: 400px; background-color: blue;">
+            <img src="/ShopItemJPEGs/bread copy.png" style="width: 80%; height: auto;">
+            <meter style="transform: rotate(-90deg); width: 100%; height: 10%" max="100" value="30"></meter>
+        </div>
+        <div class="hori-cont" style="display: flex; flex-direction: row; height: 75px; width: 400px; background-color: red;">
+            <div class="sidebar-option" id="option1" style="width: calc(100% / 3)"></div>
+            <div class="sidebar-option" id="option2" style="width: calc(100% / 3)"></div>
+            <div class="sidebar-option" id="option3" style="width: calc(100% / 3)"></div>
+        </div>
+    </div>
+    <script src="/JS/firebase.js" type="module"></script>
+    <script src="/JS/loadManager.js"></script>
+    <script src="/JS/main.js"></script>
+    <script src="/JS/shop.js"></script>
+    <script src="/JS/inventory.js"></script>
+    <script src="/JS/savings.js"></script>
+    <script src="/JS/todolist.js"></script>
+</body>
+
+
+</html>
