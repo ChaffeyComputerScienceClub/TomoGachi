@@ -4,6 +4,7 @@ let currentScreen = null;
 let switchScreen = false;
 let filter = "All";
 const tamatemp = document.getElementsByClassName("tamagotchi");
+const shopGrid = document.getElementById("shop-grid");
 
 const mini_option1 = [
     "All",
@@ -48,6 +49,7 @@ options.forEach(option => {
             appendMiniSidebar(this.id);
             if (switchScreen) {
                 clearScreen();
+                shopGrid.classList.add('grid');
                 shopLoadProducts('All');
             }
         }
@@ -56,6 +58,7 @@ options.forEach(option => {
             appendMiniSidebar(this.id);
             if (switchScreen) {
                 clearScreen();
+                shopGrid.classList.add('grid');
                 invLoadInventory('All');
             }
         }
@@ -64,13 +67,18 @@ options.forEach(option => {
             appendMiniSidebar(this.id);
             if (switchScreen) {
                 clearScreen();
-                todoPageLoad();
+                shopGrid.classList.remove('grid');
+                financeLoadPage();
             }
         }
         else if(this.id == 'option4') {
-            clearScreen();
             clearSideBar();
             appendMiniSidebar(this.id);
+            if (switchScreen) {
+                clearScreen();
+                shopGrid.classList.remove('grid');
+                todoPageLoad();
+            }
         }   
         switchScreen = false;
     }

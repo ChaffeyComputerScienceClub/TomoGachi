@@ -152,11 +152,14 @@ meter::-webkit-meter-optimum-value {
 /* shop stuff */
 .shop-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   width: 800px;
   margin: 0 auto;
   padding: 20px;
+}
+
+.shop-grid.grid {
+  grid-template-columns: repeat(3, 1fr);
 }
 
 /* Individual shop item style */
