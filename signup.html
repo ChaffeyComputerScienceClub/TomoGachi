@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="signUpStyle.css">
+    <h1 style="margin-left: 50px;">Tomo Taru</h1>
+  </head>
+
+  <body>
+    <button id="signInButton" >Create Account / Sign In </button>
+    <br>
+    <button id="signOutButton" style="margin-left: 100px;">Sign Out</button>
+    <br>
+    <button id="nextpg" style="margin-left: 90px;">Home Page</button>
+  
+    <div id="message" style="margin-left: 30px;">
+      <p>You have signed in as <span id="userName"></span></p>
+    </div>
+
+  </body>
+  
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-app.js";
+    const firebaseConfig = {
+      apiKey: "AIzaSyCDsIup2KaJeQMPL5jvCMzMA7RTpPiPg7o",
+      authDomain: "tomotaru-bb27a.firebaseapp.com",
+      databaseURL: "https://tomotaru-bb27a-default-rtdb.firebaseio.com",
+      projectId: "tomotaru-bb27a",
+      storageBucket: "tomotaru-bb27a.appspot.com",
+      messagingSenderId: "281838524572",
+      appId: "1:281838524572:web:ee113e29d661a9c1a73559",
+      measurementId: "G-9HY07GMSFH"
+    };
+    const app = initializeApp(firebaseConfig);
+    import {getDatabase, set, get, update, remove, ref, child}
+    from "https://www.gstatic.com/firebasejs/10.14.0/firebase-database.js";
+    import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-auth.js";
+    const db=getDatabase();
+    const auth=getAuth();
+    const provider=new GoogleAuthProvider();
+
+    //code to add users
+    const signInButton=document.getElementById("signInButton");
+    const signOutButton=document.getElementById("signOutButton");
+
+    const nextpg=document.getElementById("nextpg");
+
+    const message=document.getElementById("message");
+    const userName=document.getElementById("userName");
+    signOutButton.style.display="none";
+    message.style.display="none";
+
+    const userSignIn=async()=>{
+        signInWithPopup(auth, provider)
+        .then((result)=>{
+            const user=result.user
+        }).catch((error)=>{
+            const errorCode=error.errorCode
+            const errorMessage=error.message
+        })
+    }
+
+    const userSignOut=async()=>{
+        signOut(auth).then(()=>{
+            alert("You have signed out successfully!")
+        })
+    }
+
+    onAuthStateChanged(auth, (user)=>{
+      if(user){
+        signOutButton.style.display="block";
+        message.style.display="block";
+        userName.innerHTML=user.displayName;
+      }else{
+        signOutButton.style.display="none";
+        message.style.display="none";
+      }
+    })
+
+    function CreateUser(){
+    set(ref(db, user.displayName),{
+        UserName: user.displayName
+    }).catch((error)=>{
+
+    })
+  }
+
+  function NextPage(){
+    window.location.href = "Finance.html"; //change this to the home page html file!!
+  }
+  signInButton.addEventListener('click', userSignIn);
+  signOutButton.addEventListener('click', userSignOut);
+  nextpg.addEventListener('click', NextPage);
+  
+  </script>
+
+</html>
