@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="toDoStyle.css">
+    <title>To Do List</title>
+</head>
+<body>
+    <h1>To Do List :3 </h1>
+    <div id="container"></div>
+    <br/>
+    <button type="submit" class="button" id="addButton" style="margin-top: 10px; margin-left: 1.3rem;">+</button>
+    
+
+</body>
+
+<script type="module">
+    
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-app.js";
+    const firebaseConfig = {
+      apiKey: "AIzaSyCDsIup2KaJeQMPL5jvCMzMA7RTpPiPg7o",
+      authDomain: "tomotaru-bb27a.firebaseapp.com",
+      databaseURL: "https://tomotaru-bb27a-default-rtdb.firebaseio.com",
+      projectId: "tomotaru-bb27a",
+      storageBucket: "tomotaru-bb27a.appspot.com",
+      messagingSenderId: "281838524572",
+      appId: "1:281838524572:web:ee113e29d661a9c1a73559",
+      measurementId: "G-9HY07GMSFH"
+    };
+    const app = initializeApp(firebaseConfig);
+    import {getDatabase, set, get, update, remove, ref, child, push}
+    from "https://www.gstatic.com/firebasejs/10.14.0/firebase-database.js";
+    const db=getDatabase();
+    const auth=getAuth();
+
+    import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-auth.js";
+    
+    var addButton=document.getElementById("addButton");
+    addButton.addEventListener('click', () => {
+      CreateItem("Untitled");
+    });
+
+    var items=[];
+
+    function CreateItem(){
+      var user=auth.currentUser;
+      const container = document.getElementById("container");
+      const toDoDiv = document.createElement('div'); 
+      toDoDiv.style ="display: flex; margin-left: 1rem;";
+      toDoDiv.id = "div";
+      toDoDiv.innerHTML = `
+        <input type="checkbox" class="cbStyle">
+        <input type="text" placeholder="Untitled" class="tb">
+        `;
+      
+      container.appendChild(toDoDiv);
+      const elements = document.querySelectorAll(".tb");
+      const cb = document.querySelectorAll(".cbStyle");
+      
+        elements.forEach((element) => {
+            element.addEventListener('focusout', () => {
+            console.log("test");
+            save(element.id, element.value);
+        })
+        })
+
+        cb.forEach((element) => {
+            element.addEventListener('click', () => {
+            console.log(element);
+            deleteItem(element.id);
+        })
+        })
+
+    }
+
+
+    function deleteItem(id){
+      var user=auth.currentUser;
+      console.log("deleted");
+      items.splice(id,1);
+      console.log(id);
+      remove(ref(db, "User/" + user.displayName + "/toDoList/" + id));
+      
+    }
+
+    function save(id, text){
+      console.log("saving");
+      items.push(text.value);
+      var id=((items.length)).toString();
+      console.log(id);
+      var user=auth.currentUser;
+      set(ref(db, "User/" + user.displayName + "/toDoList/" + id),{
+        Item: text
+      })
+    }
+
+
+    function generateItems(text, id){
+        const container = document.getElementById("container");
+        const toDoDiv = document.createElement('div'); 
+        toDoDiv.style ="display: flex; margin-left: 1rem;";
+        toDoDiv.id = "div";
+        toDoDiv.innerHTML = `
+        <input type="checkbox" class="cb" class="cbStyle">
+        <input type="text" value="${text}" id=${id} class="tb">
+        `;
+        container.appendChild(toDoDiv);
+    }
+  
+    function PageLoad() {
+      var user=auth.currentUser;
+      get(ref(db, "User/" + user.displayName + "/toDoList/"))
+      .then((snapshot) => {
+        if (snapshot.exists()){
+            console.log(Object.keys(snapshot.val()).length);
+          for(let i = 1; i <= Object.keys(snapshot.val()).length; i++) {
+            generateItems(snapshot.child(i.toString()).val().Item, i);
+            items.push(snapshot.child(i.toString()).val().Item)
+            console.log(items);
+          }
+          return true;
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    };
+
+
+    onAuthStateChanged(auth, (user)=>{
+      if(user){
+        console.log(user);
+        PageLoad();
+      }else{
+        console.log("error")
+      }
+    })
+  </script>
+</html>
