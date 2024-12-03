@@ -109,14 +109,15 @@ meter::-webkit-meter-optimum-value {
 
 /*Css For Sidebar*/
 sidebar {
-  width: 10vw;
+  width: 7vw;
   min-width: 110px;
   height: 10vh;
-  background-color: #0a3e4c;
+  /* background-color: #0a3e4c; */
   display: flex;
   flex-direction: column;
 }
 sidebar.option {
+  margin: 5px;
   padding: 15px;
   color: white;
   cursor: pointer;
@@ -126,13 +127,14 @@ sidebar.option {
 }
 
 sidebar.option:hover {
-  border-color: #a3a3a3;
+  border-color: #babbbb;
   min-width: 110px;
 }
 
 sidebar.option.active {
-  margin-left: 20px;
-  border: 0px;
+  /* margin-left: 20px; */
+  border: 4px;
+  border-color: rgb(124, 54, 51);
 }
 #mini-sidebar {
   min-width: 200px;
