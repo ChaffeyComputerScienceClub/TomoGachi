@@ -66,11 +66,12 @@ vertContainer {
 }
 .meter-container {
   width: 100%;
-  display: inline-flex;
+  display: flex;
   justify-content: center;
   transform: rotate(-90deg);
   flex-direction: column;
-  align-items: flex-end;
+  align-items: stretch;
+  padding: 1rem;
 }
 .icon-vert-container {
   width: 100%; /* You can adjust this width to fit your layout */
