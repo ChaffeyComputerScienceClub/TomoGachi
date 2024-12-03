@@ -36,7 +36,7 @@ vertContainer {
   flex-direction: column;
   position: relative;
   width: 100%;
-  height: 100%;
+  height: 40vh;
   background-color: rgba(52, 73, 94, 0.2);
   align-items: center;
   justify-content: center;
@@ -53,10 +53,13 @@ vertContainer {
 }
 
 
-.tamagotchi img {
-  width: 50%;
-  justify-content: center;
+.tamagotchi-img {
+  width: 90%;
   height: auto;
+  margin: 1rem;
+  position: absolute;
+  top:0px;
+  left:0px;
 }
 .image-container {
   display: flex;
@@ -79,11 +82,16 @@ vertContainer {
   align-items: center;
 }
 /*Meter Css*/
+meterBox{
+  display: flex; 
+  align-items: center; 
+  height: 10vw;
+}
 meter {
   width: 30rem;
   max-width: 80%;
   /*padding-left: 80px;*/
-  min-width: 50%rem;
+  min-width: 50%;
   height: 6rem; /* Set your desired height */
 }
 meter::-webkit-meter-bar {
