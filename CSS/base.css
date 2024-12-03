@@ -28,18 +28,25 @@ vertContainer {
   height: 100%;
   flex-direction: column;
 }
+.container {
+  display: flex;
+  height: 100vh;
+}
+.vert-container {
+  display: flex;
+  width: 40%;
+  height: 100%;
+  flex-direction: column;
+}
 
 /*Css For Classes*/
 .tamagotchi {
-  /*display: flex;
-    margin: auto;*/
-  flex-direction: column;
+  margin: auto;
   position: relative;
   width: 100%;
-  height: 40vh;
+  height: 45vh;
   background-color: rgba(52, 73, 94, 0.2);
-  align-items: center;
-  justify-content: center;
+  margin-inline: auto;
 }
 
 .stats-container {
@@ -54,9 +61,7 @@ vertContainer {
 
 
 .tamagotchi-img {
-  width: 90%;
-  height: auto;
-  margin: 1rem;
+  width: 80%;
   position: absolute;
   top:0px;
   left:0px;
@@ -172,7 +177,9 @@ sidebar.option.active {
   padding: 10px;
   border-radius: 8px;
 }
-
+.shop-grid.grid {
+  grid-template-columns: repeat(3, 1fr);
+}
 /* Placeholder image style */
 .shop-item img {
   width: 100%;
