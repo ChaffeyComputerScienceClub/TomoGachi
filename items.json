@@ -8,7 +8,7 @@
         "bgimg": "/ShopItemJPEGs/blue_square.jpg",
         "description": "Replenishes some hunger",
         "value": 20,
-        "filter": "Cosmetic"
+        "filter": "Food"
     },
     {
         "id": "002",
@@ -33,24 +33,24 @@
     },
     {
         "id": "004",
-        "name": "Product 4",
-        "price": 19.99,
+        "name": "Case",
+        "price": 1000,
         "img": "/ShopItemJPEGs/godot_tiled.jpg",
         "gif": "/ShopItemJPEGs/funny-lol.gif",
         "bgimg": "/ShopItemJPEGs/white_square.jpg",
-        "description": "A tiled product",
+        "description": "Used to change case design",
         "value": 10,
         "filter": "Cosmetic"
     },
     {
         "id": "005",
-        "name": "Product 5",
-        "price": 19.99,
+        "name": "Room",
+        "price": 1000,
         "img": "/ShopItemJPEGs/godot_tiled.jpg",
         "gif": "/ShopItemJPEGs/hahaha-haha.gif",
-        "description": "A tiled product",
+        "description": "Used to change room design",
         "value": 5,
-        "filter": "Food"
+        "filter": "Cosmetic"
     }
   ]
   
