@@ -1,69 +1,23 @@
 import { initializeApp } from "../firebase-sdk/firebase-app.js";
+import { getAnalytics } from "../firebase-sdk/firebase-analytics.js";
 import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from "../firebase-sdk/firebase-auth.js";
 import {getDatabase, set, get, update, remove, ref, child, push} from "../firebase-sdk/firebase-database.js";
 const firebaseConfig = {
-    apiKey: "AIzaSyCDsIup2KaJeQMPL5jvCMzMA7RTpPiPg7o",
-    authDomain: "tomotaru-bb27a.firebaseapp.com",
-    databaseURL: "https://tomotaru-bb27a-default-rtdb.firebaseio.com",
-    projectId: "tomotaru-bb27a",
-    storageBucket: "tomotaru-bb27a.appspot.com",
-    messagingSenderId: "281838524572",
-    appId: "1:281838524572:web:ee113e29d661a9c1a73559",
-    measurementId: "G-9HY07GMSFH"
-  };
-  // swapping window.value = value to localStorage.setItem("value", JSON.stringify(value));
+  apiKey: "AIzaSyCDsIup2KaJeQMPL5jvCMzMA7RTpPiPg7o",
+  authDomain: "tomotaru-bb27a.firebaseapp.com",
+  databaseURL: "https://tomotaru-bb27a-default-rtdb.firebaseio.com",
+  projectId: "tomotaru-bb27a",
+  storageBucket: "tomotaru-bb27a.appspot.com",
+  messagingSenderId: "281838524572",
+  appId: "1:281838524572:web:ee113e29d661a9c1a73559",
+  measurementId: "G-9HY07GMSFH"
+};
+let user = null;
+const app = initializeApp(firebaseConfig);
+const db=getDatabase();
+const auth=getAuth();
+const provider=new GoogleAuthProvider();
 
-  const app = initializeApp(firebaseConfig);
-  const auth=getAuth();
-  const provider=new GoogleAuthProvider();
-  let user = null;
-  
-  localStorage.setItem("app", JSON.stringify(app));
-  window.app = JSON.parse(localStorage.getItem("app"));
-  
-  localStorage.setItem("user", JSON.stringify(user));
-  window.user = JSON.parse(localStorage.getItem("user"));
-//   localStorage.setItem("getAuth", JSON.stringify(getAuth));
-//   window.getAuth = JSON.parse(localStorage.getItem("getAuth"));
-
-//   localStorage.setItem("GoogleAuthProvider", JSON.stringify(GoogleAuthProvider));
-//   window.GoogleAuthProvider = JSON.parse(localStorage.getItem("GoogleAuthProvider"));
-
-  localStorage.setItem("provider", JSON.stringify(provider));
-  window.provider = JSON.parse(localStorage.getItem("provider"));
-
-//   localStorage.setItem("signInWithPopup", JSON.stringify(signInWithPopup));
-//   window.signInWithPopup = JSON.parse(localStorage.getItem("signInWithPopup"));
-  
-//   localStorage.setItem("signOut", JSON.stringify(signOut));
-//   window.signOut = JSON.parse(localStorage.getItem("signOut"));
-  
-//   localStorage.setItem("onAuthStateChanged", JSON.stringify(onAuthStateChanged));
-//   window.onAuthStateChanged = JSON.parse(localStorage.getItem("onAuthStateChanged"));
-  
-  localStorage.setItem("auth", JSON.stringify(auth));
-  window.auth = JSON.parse(localStorage.getItem("auth"));
-  
-//   localStorage.setItem("set", JSON.stringify(set));
-//   window.set = JSON.parse(localStorage.getItem("set"));
-  
-//   localStorage.setItem("get", JSON.stringify(get));
-//   window.get = JSON.parse(localStorage.getItem("get"));
-  
-//   localStorage.setItem("update", JSON.stringify(update));
-//   window.update = JSON.parse(localStorage.getItem("update"));
-  
-//   localStorage.setItem("remove", JSON.stringify(remove));
-//   window.remove = JSON.parse(localStorage.getItem("remove"));
-  
-//   localStorage.setItem("ref", JSON.stringify(ref));
-//   window.ref = JSON.parse(localStorage.getItem("ref"));
-  
-//   localStorage.setItem("child", JSON.stringify(child));
-//   window.child = JSON.parse(localStorage.getItem("child"));
-  
-//   localStorage.setItem("push", JSON.stringify(push));
-//   window.push = JSON.parse(localStorage.getItem("push"));
   
 
 const signInButton=document.getElementById("signInButton");
@@ -96,7 +50,9 @@ const userSignOut=async()=>{
 }
 
 onAuthStateChanged(auth, (user)=>{
+    console.log("state changed");
     if(user){
+        console.log(user.displayName);
     signOutButton.style.display="block";
     message.style.display="block";
     userName.innerHTML=user.displayName;
@@ -116,9 +72,11 @@ set(ref(db, user.displayName),{
 }
 
 function NextPage(){
+    alert(user);
     if(user){
-        console.log(user);
-        window.location.href = "mainPage.html";
+        
+        window.location.href = "mainPage.html?user=" + encodeURIComponent(JSON.stringify(user));
+
     }
     else {
         console.log("user is not defined");
