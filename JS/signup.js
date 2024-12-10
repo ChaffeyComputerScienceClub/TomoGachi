@@ -49,15 +49,16 @@ const userSignOut=async()=>{
     })
 }
 
-onAuthStateChanged(auth, (user)=>{
+onAuthStateChanged(auth, (newUser)=>{
     console.log("state changed");
-    if(user){
-        console.log(user.displayName);
+    if(newUser){
+        console.log(newUser.displayName);
     signOutButton.style.display="block";
     message.style.display="block";
-    userName.innerHTML=user.displayName;
+    userName.innerHTML=newUser.displayName;
+    user = newUser;
     }else{
-        console.log("eror");
+        console.log("no user");
     signOutButton.style.display="none";
     message.style.display="none";
     }
@@ -72,14 +73,13 @@ set(ref(db, user.displayName),{
 }
 
 function NextPage(){
-    alert(user);
     if(user){
         
         window.location.href = "mainPage.html?user=" + encodeURIComponent(JSON.stringify(user));
 
     }
     else {
-        console.log("user is not defined");
+        console.log("user isn't defined");
     }
 
 }
