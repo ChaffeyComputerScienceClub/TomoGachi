@@ -7,7 +7,8 @@
     "storage"
   ],
   "host_permissions": [
-    "https://*.firebaseio.com/"
+    "https://*.firebaseio.com/",
+    "https://apis.google.com/js/api.js"
   ],
   "background": {
     "service_worker": "/JS/background.js"
@@ -15,9 +16,15 @@
   "action": {
     "default_title": "Open Signup Page"
   },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["JS/signup.js"]
+    }
+  ],
   "sandbox": {
     "pages": [
-      "HTML/sandbox.html"
+      "HTML/signup.html"
     ]
   },
   "content_security_policy": {

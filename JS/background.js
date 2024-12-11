@@ -2,7 +2,12 @@
 chrome.action.onClicked.addListener(() => {
     chrome.tabs.create({ url: chrome.runtime.getURL("/HTML/signup.html") });
   });
-  
+  chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+    chrome.scripting.executeScript({
+      target: { tabId: tabs[0].id },
+      func: loadGoogleAPI
+    });
+  });
 
 // let tomogachi_state = 
 // {

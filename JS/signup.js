@@ -12,6 +12,25 @@ const firebaseConfig = {
   appId: "1:281838524572:web:ee113e29d661a9c1a73559",
   measurementId: "G-9HY07GMSFH"
 };
+
+    console.log("Extension installed");
+  
+    // Inject script into the active tab
+    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+      chrome.scripting.executeScript({
+        target: { tabId: tabs[0].id },
+        func: loadGoogleAPI
+      });
+    });
+
+  
+  const loadGoogleAPI = () => {
+    const script = document.createElement("script");
+    script.src = "https://apis.google.com/js/api.js";
+    script.onload = () => console.log("Google API loaded");
+    document.head.appendChild(script);
+  };
+  loadGoogleAPI()
 let user = null;
 const app = initializeApp(firebaseConfig);
 const db=getDatabase();
