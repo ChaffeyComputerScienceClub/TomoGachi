@@ -174,7 +174,7 @@ meter::-webkit-meter-optimum-value {
 .shop-item img {
   width: 100%;
   height: auto;
-  max-height: 200px;
+  max-height: 210px;
   object-fit: cover;
   border-radius: 4px;
 }
@@ -183,17 +183,22 @@ meter::-webkit-meter-optimum-value {
 .shop-item button {
   margin-top: 10px;
   padding: 8px 16px;
-  background-color: #007bff;
+  background-color: #db9fbd;
   color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  height:60px;
+  width:80px;
+  margin-left: 1rem;
 }
 
 .shop-item button:hover {
-  background-color: #0056b3;
+  background-color: #db9fbd;
+  border: 3px solid #cf3f8e;
 }
 
 .buttonBought {
   background-color: red !important;
 }
+
