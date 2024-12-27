@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="/CSS/signUpStyle.css">
-    <h1 style="margin-left: 50px;">Tomo Taru</h1>
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' https://apis.google.com; object-src 'self';">
+    <link rel="stylesheet" href="/CSS/signUpStyle.css"> 
   </head>
 
   <body>
+    <h1 style="margin-left: 50px;">Tomo Taru</h1>
     <button id="signInButton" >Create Account / Sign In </button>
     <br>
     <button id="signOutButton" style="margin-left: 100px;">Sign Out</button>
@@ -15,6 +16,7 @@
     <div id="message" style="margin-left: 30px;">
       <p>You have signed in as <span id="userName"></span></p>
     </div>
+    <script src="https://apis.google.com/js/api.js" onload="console.log('Google API loaded')"></script>
     <script src="/JS/signup.js" type="module"></script>
   </body>
 </html>

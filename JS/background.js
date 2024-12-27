@@ -1,13 +1,36 @@
 //allows game.js to run in the background
 chrome.action.onClicked.addListener(() => {
-    chrome.tabs.create({ url: chrome.runtime.getURL("/HTML/signup.html") });
-  });
-  chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-    chrome.scripting.executeScript({
-      target: { tabId: tabs[0].id },
-      func: loadGoogleAPI
+  // Open the signup page
+  chrome.tabs.create({ url: chrome.runtime.getURL("HTML/signup.html") }, (tab) => {
+    // Wait for the new tab to fully load
+    chrome.tabs.onUpdated.addListener(function listener(tabId, info) {
+      if (tabId === tab.id && info.status === "complete") {
+        // Ensure the tab is not a restricted page
+        chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+          if (!tabs[0] || tabs[0].url.startsWith("chrome://")) {
+            console.error("Cannot inject script into this page.");
+            return;
+          }
+
+          // Inject the script
+          chrome.scripting.executeScript({
+            target: { tabId: tabs[0].id },
+            func: () => {
+              const script = document.createElement("script");
+              script.src = "https://apis.google.com/js/api.js";
+              script.onload = () => console.log("Google API loaded");
+              document.head.appendChild(script);
+            },
+          });
+        });
+
+        // Remove the listener to avoid duplicate execution
+        chrome.tabs.onUpdated.removeListener(listener);
+      }
     });
   });
+});
+
 
 // let tomogachi_state = 
 // {
