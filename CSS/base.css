@@ -1,7 +1,4 @@
-@font-face {
-  font-family: cheri;
-  src: url(../ShopItemJPEGs/CHERI.REGULAR.TTF);
-}
+/*Made By Luna with help from Lizzy and Sam*/
 
 /*#region Variables/Colors*/
 :root {
@@ -19,11 +16,15 @@
   --hoverButtonBackground: #db9fbd;
   --meterBorder: #C64189;
   --hoverButtonBorder: #C64189;
-  --hoverButtonBorder: rgba(52, 73, 94, 0.2);
+  --black: rgba(52, 73, 94, 0.2);
 }
 /*#endregion*/
 
 /*#region Main*/
+@font-face {
+  font-family: cheri;
+  src: url(../ShopItemJPEGs/CHERI.REGULAR.TTF);
+}
 html,
 body {
   margin: 0;
@@ -34,6 +35,7 @@ body {
 * {
   box-sizing: border-box;
 }
+
 /*#endregion*/
 
 /*#region Media Queries*/
@@ -49,8 +51,8 @@ body {
   height: 70px;
   text-align: center;
   padding-top: 30px;
-  background-color: rgba(52, 73, 94, 0.2);
-  /* background-color: #abe1f9; */
+  background-color: var(--black);
+ 
 }
 /*#endregion*/
 
@@ -110,23 +112,17 @@ vertContainer {
   height: 100%;
   flex-direction: column;
 }
-.container {
+containerFH {
   display: flex;
   height: 100vh;
 }
-.vert-container {
-  display: flex;
-  width: 40%;
-  height: 100%;
-  flex-direction: column;
-}
-.image-container {
+imageContainer {
   display: flex;
   width: 100%;
   height: 100%;
   flex-direction: column;
 }
-
+/*Don't know what this is for*/
 .icon-vert-container {
   width: 100%; /* You can adjust this width to fit your layout */
   height: 100%;
@@ -181,7 +177,7 @@ vertContainer {
   align-items: center;
   justify-content: center;
 }
-.tamagotchi img {
+.tamagotchiImg {
   width: 70%;
   height: auto;
 }
@@ -205,12 +201,10 @@ sidebar.option {
   background-color: #34495e;
   border: 4px solid #2c3e50;
 }
-
 sidebar.option:hover {
   border-color: #babbbb;
   min-width: 110px;
 }
-
 sidebar.option.active {
   /* margin-left: 20px; */
   border: 4px;
@@ -224,7 +218,6 @@ sidebar.option.active {
   display: flex;
   flex-direction: column;
 }
-
 .mini-option {
   padding: 10px;
   color: white;
@@ -275,7 +268,6 @@ sidebar.option.active {
   object-fit: cover;
   border-radius: 4px;
 }
-
 /* Buy button style */
 .shop-item button {
   margin-top: 10px;
@@ -286,11 +278,9 @@ sidebar.option.active {
   border-radius: 4px;
   cursor: pointer;
 }
-
 .shop-item button:hover {
   background-color: #0056b3;
 }
-
 .buttonBought {
   background-color: red !important;
 }
@@ -305,7 +295,6 @@ sidebar.option.active {
   background-color: transparent;
   font-family: cheri;
 }
-
 /*#endregion*/
 
 /*#region Input - Finance*/
@@ -362,7 +351,7 @@ input[type="text"]:focus{
 /*#endregion*/
 
 /*#region To-do list*/
-.todobutton{
+.toDoButton{
   height: 100px;
   width: 100px;
   margin-left: 5px;
@@ -371,7 +360,7 @@ input[type="text"]:focus{
   border-radius: 15px;
   /* font-family: cheri; */
 }
-.todobutton:hover{
+.toDoButton:hover{
   background-color: #9bf0e4;
   border: 3px solid #4bb8b2;
 }
@@ -462,36 +451,30 @@ input[type="text"]:focus{
     top:-65px;
     left:10px;
   }
-
   .meter2::after{
     content: "Shopping";
     position: relative;
     top:-65px;
     left:10px;
   }
-
   .meter3::after{
     content: "Insurance";
     position: relative;
     top:-65px;
     left:10px;
   }
-
   .meter4::after{
     content: "Food";
     position: relative;
     top:-65px;
     left:10px;
   }
-
   .meter5::after{
     content: "Other";
     position: relative;
     top:-65px;
     left:10px;
   }
-  
-  
   .meter1::-webkit-meter-bar,
   .meter2::-webkit-meter-bar,
   .meter3::-webkit-meter-bar,
@@ -500,11 +483,9 @@ input[type="text"]:focus{
     background: #FCE8F1;
     border: 3px solid #C64189;
   }
-  
   /* .meter::-moz-meter-bar {
     background: rgb(150, 96, 96);
   }  */
-  
   .meter1::-webkit-meter-optimum-value,
   .meter2::-webkit-meter-optimum-value,
   .meter3::-webkit-meter-optimum-value,
