@@ -46,18 +46,21 @@ async function shopCheckCanBuy(unparsedItem) {
     shopUpdateButton(button, potentialItem);
     shopCreateItem(potentialItem);
     shopUpdateBankSub(potentialItem.price);
+    shopUpdateItem(bankAmount - potentialItem.price);
     
     console.log('bought');
   }
   else{
     console.log("item exists already: ", itemExists);
     console.log("funds available: ", bankAmount >= potentialItem.price);
+    shopUpdateItem(100);
   }
 }
 
 function shopCreateItem(addedItem){
   //console.log(addedItem);
-set(ref(db, testUser + "/" + "Inventory/" + addedItem.name), {
+
+set(ref(db, "User/" + user.displayName + "/Inventory/" + addedItem.name), {
     Item: addedItem.name
 })
 .then(() => {
@@ -73,7 +76,7 @@ function shopFindItem(item) {
   let temp = "#button" + item.id.toString();
   let button = document.querySelector(temp);
 
-  return get(child(dbref, testUser + "/Inventory/" + item.name))
+  return get(child(dbref, "User/" + user.displayName + "/Inventory/" + item.name))
     .then((snapshot) => {
       //console.log(temp);
       if (snapshot.exists()){
@@ -91,7 +94,8 @@ function shopFindItem(item) {
 }
 
 function shopUpdateItem(value) {
-  update(ref(db, testUser + "/Bank/"), {
+  bankAmount = value;
+  update(ref(db, "User/" + user.displayName + "/Bank/"), {
     Money: value
   })
   .then(() => {
