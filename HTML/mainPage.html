@@ -3,11 +3,13 @@
   <head>
     <title>SamsShop</title>
     <link rel="stylesheet" href="/CSS/base.css" />
-
+    <!--To be deleted-->
     <link rel="stylesheet" href="/CSS/style.css" />
-
     <link rel="stylesheet" href="/CSS/toDoStyle.css" />
     <link rel="stylesheet" href="/CSS/finance.css" />
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
   </head>
   <header>
     <h1 class="header">Tammy's Tamowatches</h1>
@@ -42,7 +44,7 @@
       <!--#endregion-->
       <!--Right Side Bar-->
       <vertContainer style="background-color: rgba(52, 73, 94, 0.2)">
-        <!--Tamagotchi-->
+        <!--#region Tamagotchi-->
         <div class="tamagotchi">
           <img
             id="tamaBG"
@@ -67,7 +69,8 @@
             "
           />
         </div>
-        <!--Stats-->
+        <!--#endregion-->
+        <!--#region Stats-->
         <div style="height: 65vh">
           <div class="meter-container" style="margin-top: 4rem">
             <!--  meter 1 -->
@@ -99,6 +102,7 @@
             </meterBox>
           </div>
         </div>
+        <!--#endregion-->
       </vertContainer>
     </flexContainer>
     <script src="/JS/firebase.js" type="module"></script>
