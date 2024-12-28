@@ -5,13 +5,21 @@
 
 /*#region Variables/Colors*/
 :root {
-  --color1: #F72585;
-  --color2: #7209B7;
-  --color3: #3A0CA3;
-  --color4: #4361EE;
-  --color5: #4CC9F0;
-  --black: #1e1425;
-  --white: #f5f5f5;
+  --shopBlue: #77d3f9;
+  --financePopupBackground: #77d3f9;
+  --budgetInputBorder: #77d3f9;
+  --inventoryPink: #db9fbd;
+  --financeGreen: #52b7a9;
+  --budgetInputBackground: #52b7a9;
+  --todoPurple: #b391c4;
+  --meterBackground: #FCE8F1;
+  --buttonBackground: #FCE8F1;
+  --buttonBorder: #db9fbd;
+  --filledmeterBackground: #db9fbd;
+  --hoverButtonBackground: #db9fbd;
+  --meterBorder: #C64189;
+  --hoverButtonBorder: #C64189;
+  --hoverButtonBorder: rgba(52, 73, 94, 0.2);
 }
 /*#endregion*/
 
