@@ -1,6 +1,6 @@
 @font-face {
-  font-family: silly;
-  src: url(ShopItemJPEGs/Archeologicaps.ttf);
+  font-family: cheri;
+  src: url(../ShopItemJPEGs/CHERI.REGULAR.TTF);
 }
 
 /*#region Variables/Colors*/
@@ -77,6 +77,19 @@ meter::-webkit-meter-bar {
 meter::-webkit-meter-optimum-value {
   background: #db9fbd;
 }
+.homemeter{
+  width: 500%;
+  padding-left: 110px;
+  height: 7rem; /* Set your desired height */
+  transform: rotate(-90deg);
+}
+.homemeter::-webkit-meter-bar {
+  background: #fce8f1;
+  border: 3px solid #c64189;
+}
+.homemeter::-webkit-meter-optimum-value {
+  background: #db9fbd;
+}
 /*#endregion*/
 
 /*#region Containers*/
@@ -116,6 +129,7 @@ vertContainer {
 /*#endregion*/
 
 /*#region Tamagotchi pet side bar*/
+/* Lunas old code
 .tamagotchi {
   margin: auto;
   position: relative;
@@ -132,12 +146,36 @@ vertContainer {
   background-color: rgba(52, 73, 94, 0.2);
   align-items: center;
   justify-content: center;
-}
+}  
 .tamagotchi-img {
   width: 80%;
   position: absolute;
   top:0px;
   left:0px;
+}
+*/
+.tamagotchi {
+  /*display: flex;
+  margin: auto;*/
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(52, 73, 94, 0.2);
+  align-items: center;
+  justify-content: center;
+}
+.stats-container {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(52, 73, 94, 0.2);
+  align-items: center;
+  justify-content: center;
+}
+.tamagotchi img {
+  width: 70%;
+  height: auto;
 }
 /*#endregion*/
 
