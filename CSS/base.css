@@ -3,12 +3,25 @@
   src: url(ShopItemJPEGs/Archeologicaps.ttf);
 }
 /*#region Main*/
+html,
 body {
   margin: 0;
   padding: 0;
   font-family: silly;
   background-color: #9169ff;
 }
+* {
+  box-sizing: border-box;
+}
+/*#endregion*/
+
+/*#region Media Queries*/
+@media (max-width: 768px) {
+  
+}
+/*#endregion*/
+
+/*#region Header*/
 .header {
   margin: 0;
   width: 100%;
@@ -20,7 +33,7 @@ body {
 }
 /*#endregion*/
 
-/*#region Meter*/
+/*#region Meter stuff*/
 meterBox{
   display: flex; 
   align-items: center; 
@@ -32,6 +45,13 @@ meter {
   /*padding-left: 80px;*/
   min-width: 50%;
   height: 6rem; /* Set your desired height */
+}
+.meter-container {
+  display: flex;
+  justify-content: center;
+  transform: rotate(-90deg);
+  flex-direction: column;
+  align-items: stretch;
 }
 meter::-webkit-meter-bar {
   background: #fce8f1;
@@ -62,9 +82,23 @@ vertContainer {
   height: 100%;
   flex-direction: column;
 }
+.image-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+}
+
+.icon-vert-container {
+  width: 100%; /* You can adjust this width to fit your layout */
+  height: 100%;
+  display: flex; /* Using flex to allow meter to be in rows */
+  flex-direction: column;
+  align-items: center;
+}
 /*#endregion*/
 
-/*#region Classes*/
+/*#region Tamagotchi pet side bar*/
 .tamagotchi {
   margin: auto;
   position: relative;
@@ -73,7 +107,6 @@ vertContainer {
   background-color: rgba(52, 73, 94, 0.2);
   margin-inline: auto;
 }
-
 .stats-container {
   display: flex;
   flex-wrap: wrap;
@@ -83,33 +116,11 @@ vertContainer {
   align-items: center;
   justify-content: center;
 }
-
-
 .tamagotchi-img {
   width: 80%;
   position: absolute;
   top:0px;
   left:0px;
-}
-.image-container {
-  display: flex;
-  width: 100%;
-  height: 100%;
-  flex-direction: column;
-}
-.meter-container {
-  display: flex;
-  justify-content: center;
-  transform: rotate(-90deg);
-  flex-direction: column;
-  align-items: stretch;
-}
-.icon-vert-container {
-  width: 100%; /* You can adjust this width to fit your layout */
-  height: 100%;
-  display: flex; /* Using flex to allow meter to be in rows */
-  flex-direction: column;
-  align-items: center;
 }
 /*#endregion*/
 
