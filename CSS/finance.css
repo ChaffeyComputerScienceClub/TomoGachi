@@ -67,7 +67,7 @@
     background-color: #ABE1F9;
     border-radius: 5px;
     width:200px;
-    margin-left:330px;
+    margin-left:320px;
     text-align: center;
     border-radius: 5px;
 }
@@ -126,14 +126,17 @@ input[type=number]::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
 
-button{
+.popupButton{
   margin-left: 50px;
   background-color: #FCE8F1;
   border: 3px solid #db9fbd;
   border-radius: 5px;
   font-family: cheri;
+  height:50px;
+  width:70px;
+  
 }
-button:hover{
+.popupButton:hover{
   background-color: #db9fbd;
   border: 3px solid #cf3f8e;
 }

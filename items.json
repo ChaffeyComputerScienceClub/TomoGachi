@@ -1,56 +1,56 @@
 [
     {
         "id": "001",
-        "name": "Product 1",
-        "price": 19.99,
-        "img": "/ShopItemJPEGs/godot_cute.jpg",
+        "name": "Milk",
+        "price": 100,
+        "img": "/images/milk.png",
         "gif": "/ShopItemJPEGs/hahaha-haha.gif",
         "bgimg": "/ShopItemJPEGs/blue_square.jpg",
-        "description": "A cute product",
-        "value": 10,
-        "filter": "Cosmetic"
+        "description": "Replenishes some hunger",
+        "value": 20,
+        "filter": "Food"
     },
     {
         "id": "002",
-        "name": "Product 2",
-        "price": 19.99,
-        "img": "/ShopItemJPEGs/godot_python.jpg",
+        "name": "Cake",
+        "price": 200,
+        "img": "/images/cake.png",
         "gif": "/ShopItemJPEGs/laughing-om-nom.gif",
-        "description": "A python product",
-        "value": 15,
+        "description": "Replenishes alot of hunger",
+        "value": 50,
         "filter": "Food"
     },
     {
         "id": "003",
-        "name": "Product 3",
-        "price": 19.99,
-        "img": "/ShopItemJPEGs/godot_sandbox.jpg",
+        "name": "Flu shot",
+        "price": 500,
+        "img": "/images/syringe.png",
         "gif": "/ShopItemJPEGs/szitinpantsachqwerasd.gif",
         "bgimg": "/ShopItemJPEGs/red_square.jpg",
-        "description": "A sandbox product",
-        "value": 20,
+        "description": "Improves pet's health",
+        "value": 50,
         "filter": "Cosmetic"
     },
     {
         "id": "004",
-        "name": "Product 4",
-        "price": 19.99,
+        "name": "Case",
+        "price": 1000,
         "img": "/ShopItemJPEGs/godot_tiled.jpg",
         "gif": "/ShopItemJPEGs/funny-lol.gif",
         "bgimg": "/ShopItemJPEGs/white_square.jpg",
-        "description": "A tiled product",
+        "description": "Used to change case design",
         "value": 10,
         "filter": "Cosmetic"
     },
     {
         "id": "005",
-        "name": "Product 5",
-        "price": 19.99,
+        "name": "Room",
+        "price": 1000,
         "img": "/ShopItemJPEGs/godot_tiled.jpg",
         "gif": "/ShopItemJPEGs/hahaha-haha.gif",
-        "description": "A tiled product",
+        "description": "Used to change room design",
         "value": 5,
-        "filter": "Food"
+        "filter": "Cosmetic"
     }
   ]
   

@@ -1,22 +1,23 @@
 <!DOCTYPE html>
 <html>
-  <!--Head section-->
-
   <head>
     <title>SamsShop</title>
-    <link rel="stylesheet" href="base.css" />
+    <link rel="stylesheet" href="/CSS/base.css" />
+    <!--
+    <link rel="stylesheet" href="/CSS/style.css" />
+    -->
+    <link rel="stylesheet" href="/CSS/toDoStyle.css" />
+    <link rel="stylesheet" href="/CSS/finance.css" />
   </head>
-  <!--header section-->
   <header>
     <h1 class="header">Tammy's Tamowatches</h1>
   </header>
-  <!--main section-->
 
   <body>
     <flexContainer>
       <!--Left Sidebar Options-->
-      <flexContainer>
-        <sidebar style="width: 10vw; min-width: 146px">
+      <flexContainer style="width: 50vw;">
+        <sidebar style="width: 10vw; min-width: 146px;max-width: 200px;">
           <sidebar class="option" id="option1" style="background-color: #77d3f9"
             >Option1</sidebar
           >
@@ -38,65 +39,65 @@
       <div id="shop-grid" class="shop-grid"></div>
 
       <!--Right Side Bar-->
-      <vertContainer>
+      <vertContainer style="background-color: rgba(52, 73, 94, 0.2)">
+        <!--Tamagotchi-->
         <div class="tamagotchi">
+          <div style="left: 50%; transform: translate(10%, 0%);">
           <img
             id="tamaBG"
-            src="ShopItemJPEGs/blue_square.jpg"
-            style="z-index: 1; position: relative; margin: auto"
+            class="tamagotchi-img"
+            src="/ShopItemJPEGs/blue_square.jpg"
+            style="z-index: 1;"
           />
           <img
             id="tamaGif"
-            src="ShopItemJPEGs\donald-trump-potus.gif"
-            style="z-index: 2; position: relative; bottom: 50%"
+            class="tamagotchi-img"
+            src="/ShopItemJPEGs/donald-trump-potus.gif"
+            style="z-index: 2;"
           />
         </div>
-        <div class="meter-container">
-          <!--  meter 1 -->
-          <div>
-            <meter
-              id="friendship-meter"
-              class="meter"
-              max="100"
-              value="70"
-            ></meter>
-            <img
-              src="ShopItemJPEGs/bread copy.png"
-              style="height: 5rem; transform: rotate(90deg)"
-              alt="food"
-            />
-          </div>
-          <!--  meter 2 -->
-          <div>
-            <meter
-              id="happiness-meter"
-              class="meter"
-              max="100"
-              value="70"
-            ></meter>
-            <img
-              src="ShopItemJPEGs/bread copy.png"
-              style="height: 5rem; transform: rotate(90deg)"
-              alt="food"
-            />
-          </div>
-          <!--  meter 3 -->
-          <div>
-            <meter id="hunger-meter" class="meter" max="100" value="70"></meter>
-            <img
-              src="ShopItemJPEGs/bread copy.png"
-              style="height: 5rem; transform: rotate(90deg)"
-              alt="food"
-            />
+        </div>
+        <!--Stats-->
+        <div style="height: 65vh">
+          <div class="meter-container" style="margin-top: 4rem">
+            <!--  meter 1 -->
+            <meterBox>
+              <meter id="friendship-meter" max="100" value="70"></meter>
+              <img
+                src="/ShopItemJPEGs/bread copy.png"
+                style="height: 5rem; transform: rotate(90deg)"
+                alt="food"
+              />
+            </meterBox>
+            <!--  meter 2 -->
+            <meterBox>
+              <meter id="happiness-meter" max="100" value="70"></meter>
+              <img
+                src="/ShopItemJPEGs/bread copy.png"
+                style="height: 5rem; transform: rotate(90deg)"
+                alt="food"
+              />
+            </meterBox>
+            <!--  meter 3 -->
+            <meterBox>
+              <meter id="hunger-meter" max="100" value="70"></meter>
+              <img
+                src="/ShopItemJPEGs/bread copy.png"
+                style="height: 5rem; transform: rotate(90deg)"
+                alt="food"
+              />
+            </meterBox>
           </div>
         </div>
       </vertContainer>
     </flexContainer>
-    <script src="firebase.js" type="module"></script>
-    <script src="loadManager.js"></script>
-    <script src="main.js"></script>
-    <script src="shop.js"></script>
-    <script src="inventory.js"></script>
-    <script src="savings.js"></script>
+    <script src="/JS/firebase.js" type="module"></script>
+    <script src="/JS/loadManager.js"></script>
+    <script src="/JS/main.js"></script>
+    <script src="/JS/shop.js"></script>
+    <script src="/JS/inventory.js"></script>
+    <script src="/JS/savings.js"></script>
+    <script src="/JS/finance.js"></script>
+    <script src="/JS/todolist.js"></script>
   </body>
 </html>

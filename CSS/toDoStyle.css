@@ -27,7 +27,7 @@ input[type="checkbox"]:checked{
     margin-left: 7px;
 }
 
-button{
+.todobutton{
     height: 100px;
     width: 100px;
     margin-left: 5px;
@@ -36,7 +36,7 @@ button{
     border-radius: 15px;
     /* font-family: cheri; */
 }
-button:hover{
+.todobutton:hover{
     background-color: #9bf0e4;
     border: 3px solid #4bb8b2;
 }
