@@ -194,12 +194,11 @@ imageContainer {
 
 /*#region Sidebar*/
 sidebar {
-  width: 7vw;
-  min-width: 110px;
-  height: 10vh;
-  /* background-color: #0a3e4c; */
   display: flex;
   flex-direction: column;
+  /*height: 10vh;*/
+  /*width: 7vw;*/
+  /*min-width: 110px;*/
 }
 sidebar.option {
   margin: 5px;
@@ -243,6 +242,19 @@ sidebar.option.active {
   margin-left: 20px;
   border: 0px;
 }
+#option1 {
+  background-color: var(--shopBlue);
+}
+#option2 {
+  background-color: var(--inventoryPink);
+}
+#option3 {
+  background-color: var(--financeGreen);
+}
+#option4 {
+  background-color: var(--todoPurple);
+}
+
 /*#endregion*/
 
 /*#region Shop*/
