@@ -244,7 +244,11 @@ sidebar.option.active {
   margin: 0 auto;
   padding: 20px;
 }
-
+.Lizzy-grid {
+  width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
 /* Individual shop item style */
 .shop-item {
   text-align: center;
