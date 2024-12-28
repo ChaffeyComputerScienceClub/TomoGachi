@@ -242,6 +242,7 @@ sidebar.option.active {
   margin-left: 20px;
   border: 0px;
 }
+/*Sidebar Colors*/
 #option1 {
   background-color: var(--shopBlue);
 }
@@ -254,7 +255,6 @@ sidebar.option.active {
 #option4 {
   background-color: var(--todoPurple);
 }
-
 /*#endregion*/
 
 /*#region Shop*/
