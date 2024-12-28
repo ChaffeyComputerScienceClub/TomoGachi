@@ -5,29 +5,34 @@
 
 body{
     background-color: #add373;
+    
+}
+.signupBox{
     border: 10px solid #7dc363;
     border-radius: 5px;
     font-family: cheri;
-    width: 15%;
-    
-    padding-bottom: 30px;
-    
+    width: 11%;
+    padding-bottom: 1.88rem;
+    margin-left: 70rem;
+    margin-top: 30rem;
+    scale:2;
 }
 
 h1,
-div{
+html{
     font-family: cheri;
 }
 
-button{
-    margin-left: 50px;
+.signupbutton{
+    margin-left: 3.13rem;
     background-color: #f2e4e7;
     border: 3px solid #db9fbd;
     border-radius: 5px;
     font-family: cheri;
     
+    
 }
-button:hover{
+.signupbutton:hover{
     background-color: #db9fbd;
     border: 3px solid #cf3f8e;
 }
