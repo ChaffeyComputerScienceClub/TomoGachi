@@ -1,17 +1,16 @@
 function financeLoadPage() {
     const shopGrid = document.getElementById("shop-grid");
     shopGrid.innerHTML = `
-    <h2 style="display:inline-block; margin-left:420px">$</h2>
-      <input type="number" placeholder="0" id="monthlyIncome" class="incomeInput">
-    </div>
-    <div>
-      <h2 id="month" class="monthName"></h2>
+    <div style="height:150px;">
+        <h2 style="display:inline-block; margin-left:410px">$</h2>
+        <input type="number" placeholder="0" id="monthlyIncome" class="incomeInput">
+        <h2 id="month" class="monthName"></h2>
     </div>
 
 
-    <div style="margin-left:8%; margin-top: 20px;">
+    <div style="margin-left:8%; height:50px">
       <label style="margin-left: 0px; ">Spendings</label>
-      <label style="margin-left: 407px; ">Budgeted</label>
+      <label style="margin-left: 400px; ">Budgeted</label>
     </div>
     
     <div style="margin-left: 7%;">
@@ -37,7 +36,7 @@ function financeLoadPage() {
     </div>
 
     <!-- add button which opens modal -->
-    <button type="submit" class="button" style="margin-left:25%; margin-top:12px;" id="add">Add</button>
+    <button type="submit" class="popupButton" style="margin-left:45%;" id="add">Add</button>
 
       <div class="popUp" id="popup">
         <button id="exit" style="border-radius: 50%; margin-left: 90%; ">X</button>
@@ -56,7 +55,7 @@ function financeLoadPage() {
       <label for="spent" style="margin-left: 10px; margin-top: 15px;">Amount Spent:</label>
       <input class="inputBox "type="number" id="amountAdded">
       <br>
-      <button style="margin-left: 40%; margin-top: 20px;" type="submit" id="save">Save!</button>`;
+      <button style="margin-left: 40%; class="popupButton" margin-top: 20px;" type="submit" id="save">Save!</button>`;
     var user = auth.currentUser;
 
     //popup buttons and elements

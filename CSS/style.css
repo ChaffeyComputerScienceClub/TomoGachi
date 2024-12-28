@@ -78,17 +78,17 @@ meterContainer {
   justify-items: center;
 }
 /* The meter itself */
-meter {
+.homemeter{
   width: 500%;
   padding-left: 110px;
   height: 7rem; /* Set your desired height */
   transform: rotate(-90deg);
 }
-meter::-webkit-meter-bar {
+.homemeter::-webkit-meter-bar {
   background: #fce8f1;
   border: 3px solid #c64189;
 }
-meter::-webkit-meter-optimum-value {
+.homemeter::-webkit-meter-optimum-value {
   background: #db9fbd;
 }
 
@@ -153,6 +153,12 @@ meter::-webkit-meter-optimum-value {
 .shop-grid {
   display: grid;
   gap: 20px;
+  width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.Lizzy-grid {
   width: 800px;
   margin: 0 auto;
   padding: 20px;
