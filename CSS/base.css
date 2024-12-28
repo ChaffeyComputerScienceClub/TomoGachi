@@ -139,6 +139,11 @@ imageContainer {
   flex-direction: column;
   align-items: center;
 }
+.gridTomo{
+  display: grid;
+  grid-template-areas: "stack";
+  grid-area: stack;
+}
 /*#endregion*/
 
 /*#region Tamagotchi pet side bar*/
