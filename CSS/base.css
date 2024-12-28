@@ -39,8 +39,11 @@ body {
 /*#endregion*/
 
 /*#region Media Queries*/
-@media (max-width: 768px) {
-  
+@media screen and (max-width: 600px) {
+  .column.side,
+  .column.main{
+    width: 100%;
+  }
 }
 /*#endregion*/
 
@@ -103,6 +106,21 @@ meter::-webkit-meter-optimum-value {
 /*#endregion*/
 
 /*#region Containers*/
+row::after{
+  content: "";
+  clear: both;
+  display: table;
+}
+column{
+  float: left;
+}
+/*left and right columns*/
+column.side{
+  width: 25%;
+}
+column.main{
+  width: 50%;
+}
 flexContainer {
   display: flex;
 }
