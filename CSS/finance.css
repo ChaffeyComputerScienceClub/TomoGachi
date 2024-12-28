@@ -1,4 +1,4 @@
-.meter,
+.meter1,
 .meter2,
 .meter3,
 .meter4,
@@ -6,7 +6,7 @@
     width: 400px;
     height: 110px;
   }
-  .meter::after{
+  .meter1::after{
     content: "Rent";
     position: relative;
     top:-65px;
@@ -42,7 +42,7 @@
   }
   
   
-  .meter::-webkit-meter-bar,
+  .meter1::-webkit-meter-bar,
   .meter2::-webkit-meter-bar,
   .meter3::-webkit-meter-bar,
   .meter4::-webkit-meter-bar,
@@ -55,7 +55,7 @@
     background: rgb(150, 96, 96);
   }  */
   
-  .meter::-webkit-meter-optimum-value,
+  .meter1::-webkit-meter-optimum-value,
   .meter2::-webkit-meter-optimum-value,
   .meter3::-webkit-meter-optimum-value,
   .meter4::-webkit-meter-optimum-value,
