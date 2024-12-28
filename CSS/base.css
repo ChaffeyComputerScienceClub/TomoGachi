@@ -231,7 +231,7 @@ sidebar.option.active {
 #mini-sidebar {
   /*min-width: 200px;*/
   height: fit-content;
-  background-color: rgba(0, 0, 0, 0.2);
+  /*background-color: rgba(0, 0, 0, 0.2);*/
   transition: all 0.3s ease;
   display: flex;
   flex-direction: column;
