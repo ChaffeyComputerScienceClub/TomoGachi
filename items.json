@@ -5,7 +5,6 @@
         "price": 100,
         "img": "/images/milk.png",
         "gif": "/ShopItemJPEGs/hahaha-haha.gif",
-        "bgimg": "/ShopItemJPEGs/blue_square.jpg",
         "description": "Replenishes some hunger",
         "value": 20,
         "filter": "Food"
@@ -26,10 +25,9 @@
         "price": 500,
         "img": "/images/syringe.png",
         "gif": "/ShopItemJPEGs/szitinpantsachqwerasd.gif",
-        "bgimg": "/ShopItemJPEGs/red_square.jpg",
         "description": "Improves pet's health",
         "value": 50,
-        "filter": "Cosmetic"
+        "filter": "Food"
     },
     {
         "id": "004",
@@ -39,7 +37,6 @@
         "gif": "/ShopItemJPEGs/funny-lol.gif",
         "bgimg": "/ShopItemJPEGs/white_square.jpg",
         "description": "Used to change case design",
-        "value": 10,
         "filter": "Cosmetic"
     },
     {
@@ -48,8 +45,8 @@
         "price": 1000,
         "img": "/ShopItemJPEGs/godot_tiled.jpg",
         "gif": "/ShopItemJPEGs/hahaha-haha.gif",
+        "bgimg": "/ShopItemJPEGs/red_square.jpg",
         "description": "Used to change room design",
-        "value": 5,
         "filter": "Cosmetic"
     }
   ]

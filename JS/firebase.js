@@ -16,18 +16,28 @@ const app = initializeApp(firebaseConfig);
 const db=getDatabase();
 const auth=getAuth();
 const provider=new GoogleAuthProvider();
+// Retrieve and deserialize the 'user' query parameter
+const urlParams = new URLSearchParams(window.location.search);
+const userParam = urlParams.get('user');
+const user = userParam ? JSON.parse(decodeURIComponent(userParam)) : null;
 
-const testUser = "TestUserSam";
+if (user) {
+    // Now you can access the 'user' object
+    console.log(user);
+    let bank = await get(ref(db, "User/" + user.displayName + "/Bank/"));
+} else {
+    console.error("User not found in URL");
+}
+
+//const user = null;
 let inventory = null;
-let bank = await get(ref(db, testUser + "/Bank/"));
+let bank = await get(ref(db, "User/" + user.displayName + "/Bank/"));
 let bankAmount = bank.child("Money").val();
-//export {getDatabase, set, get, update, remove, ref, child, push};
 
-//import {getDatabase, set, get, update, remove, ref, child, push} from './firebase.js'; add to other non-module files
-
+window.user = user;
 window.bank = bank;
 window.bankAmount = bankAmount;
-window.testUser = testUser;
+//window.user = user;
 window.inventory = inventory;
 
 window.app = app;
