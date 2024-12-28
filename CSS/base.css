@@ -117,7 +117,7 @@ flexContainer {
 }
 vertContainer {
   display: flex;
-  width: 40%;
+  /*width: 40%;*/
   height: 100%;
   flex-direction: column;
 }
@@ -178,6 +178,10 @@ imageContainer {
   align-items: center;
   justify-content: center;
 }
+.tamagotchi img {
+  width: 70%;
+  height: auto;
+}
 .stats-container {
   display: flex;
   width: 100%;
@@ -206,8 +210,9 @@ sidebar.option {
   color: white;
   cursor: pointer;
   transition: all 0.3s ease;
-  background-color: #34495e;
+  /*background-color: #34495e;*/
   border: 4px solid #2c3e50;
+  border-radius: 25px;
 }
 sidebar.option:hover {
   border-color: #babbbb;
@@ -219,7 +224,7 @@ sidebar.option.active {
   border-color: rgb(124, 54, 51);
 }
 #mini-sidebar {
-  min-width: 200px;
+  /*min-width: 200px;*/
   height: fit-content;
   background-color: rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
@@ -233,6 +238,7 @@ sidebar.option.active {
   transition: all 0.3s ease;
   background-color: rgba(52, 73, 94, 0.2);
   border: 4px solid #2c3e50;
+  border-radius: 25px;
 }
 .mini-option:hover {
   background-color: #000000;
@@ -262,7 +268,7 @@ sidebar.option.active {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
-  width: 800px;
+  /*width: 800px;*/
   margin: 0 auto;
   padding: 20px;
 }
