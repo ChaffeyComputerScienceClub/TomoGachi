@@ -38,15 +38,6 @@ body {
 
 /*#endregion*/
 
-/*#region Media Queries*/
-@media screen and (max-width: 600px) {
-  .column.side,
-  .column.main{
-    width: 100%;
-  }
-}
-/*#endregion*/
-
 /*#region Header*/
 .header {
   margin: 0;
@@ -511,4 +502,12 @@ input[type="text"]:focus{
   .meter5::-webkit-meter-optimum-value{
     background: #db9fbd;
   }
+/*#endregion*/
+
+/*#region Media Queries*/
+@media only screen and (max-width: 600px) {
+  column.side, column.main {
+    width: 100%;
+  }
+}
 /*#endregion*/
