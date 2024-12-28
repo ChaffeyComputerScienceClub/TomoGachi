@@ -42,7 +42,7 @@ meter::-webkit-meter-optimum-value {
 }
 /*#endregion*/
 
-/*Css For Containers*/
+/*#region Containers*/
 flexContainer {
   display: flex;
 }
@@ -62,8 +62,9 @@ vertContainer {
   height: 100%;
   flex-direction: column;
 }
+/*#endregion*/
 
-/*Css For Classes*/
+/*#region Classes*/
 .tamagotchi {
   margin: auto;
   position: relative;
@@ -110,6 +111,7 @@ vertContainer {
   flex-direction: column;
   align-items: center;
 }
+/*#endregion*/
 
 /*#region Sidebar*/
 sidebar {
@@ -167,7 +169,7 @@ sidebar.option.active {
 }
 /*#endregion*/
 
-/*Css For Shop*/
+/*#region Shop*/
 .shop-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -214,3 +216,4 @@ sidebar.option.active {
 .buttonBought {
   background-color: red !important;
 }
+/*#endregion*/
