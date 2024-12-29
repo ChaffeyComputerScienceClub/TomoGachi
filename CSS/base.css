@@ -80,11 +80,11 @@ meterBox {
 meterBox img {
   height: 85%; 
 }
-meter {
+/* meter {
   width: 500%;
   height: 8vw;
   transform: rotate(-90deg);
-}
+} */
 .mobile meter {
   width: 20vh;
   height: 20vw;
