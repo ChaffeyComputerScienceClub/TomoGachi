@@ -5,7 +5,7 @@ var items = [];
 
 
 function generateItems(text, id) {
-  const container = document.getElementById("shop-grid");
+  const container = document.getElementById("toDoList");
   const toDoDiv = document.createElement('div');
   toDoDiv.style = "display: flex; margin-left: 1rem;";
   if (text == null) {
@@ -144,11 +144,16 @@ function todoPageLoad() {
   const container = document.getElementById("shop-grid");
   const addButton = document.createElement('button'); 
   addButton.className = "toDoButton";
+  addButton.innerHTML = "Add Item";
   addButton.addEventListener('click', () => {
     generateItems(null, items.length + 1);
     items.push(items.length + 1);
   });
   container.append(addButton);
+  const listContainer = document.createElement('div');
+  listContainer.id = "toDoList";
+  listContainer.className = "shop-grid";
+  container.append(listContainer);
   get(ref(db, "User/" + user.displayName + "/toDoList/"))
     .then((snapshot) => {
       if (snapshot.exists()) {

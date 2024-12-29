@@ -370,7 +370,11 @@ input[type="text"]:focus{
   background-color: #4bb8b2;
   border: 3px solid #336d6f;
   border-radius: 15px;
-  /* font-family: cheri; */
+  font-family: cheri;
+  font-size: 100%;
+}
+#toDoList{
+  font-size: 120%;
 }
 .toDoButton:hover{
   background-color: #9bf0e4;
