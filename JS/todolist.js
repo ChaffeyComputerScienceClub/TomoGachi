@@ -245,12 +245,3 @@ function todoPageLoad() {
 
 }
 
-
-onAuthStateChanged(auth, (user) => {
-  if (user) {
-    console.log(user);
-    PageLoad();
-  } else {
-    console.log("error")
-  }
-})

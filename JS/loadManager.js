@@ -42,7 +42,6 @@ options.forEach(option => {
         if (currentScreen != this.id){
             currentScreen = this.id;
             switchScreen = true;
-            console.log(currentScreen);
         }
         if (this.id == 'option1'){
             clearSideBar();

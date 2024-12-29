@@ -8,7 +8,6 @@ async function invLoadInventory(filter) {
         items.forEach(async item => {
           if ((item.filter == filter) || (filter == "All")) {
           let hasItem = await invFindData(item);
-          console.log(hasItem);
           if (hasItem){
           const productDiv = document.createElement('div');
           productDiv.className = 'shop-item';
@@ -34,14 +33,12 @@ async function invLoadInventory(filter) {
     button.id = "button" + item.id.toString();
     button.innerText = "Use Item";
     button.onclick = () => invUseItem(button, item);
-    console.log(button.id);
     return button;
   }
 
 
 
   function invFindData(item) {
-    console.log(item);
     const dbref = ref(db);
   
     return get(child(dbref, "User/" + user.uid + "/Inventory/" + item.name))

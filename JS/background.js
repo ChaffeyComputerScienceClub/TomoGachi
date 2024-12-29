@@ -18,7 +18,6 @@ chrome.action.onClicked.addListener(() => {
             func: () => {
               const script = document.createElement("script");
               script.src = "https://apis.google.com/js/api.js";
-              script.onload = () => console.log("Google API loaded");
               document.head.appendChild(script);
             },
           });

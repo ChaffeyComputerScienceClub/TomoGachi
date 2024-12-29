@@ -5,7 +5,6 @@ var userName=document.getElementById("userName");
 
 function CreateItem(){
     var user=auth.currentUser;
-    console.log(user);
     generate(amountInput.value, titleInput.value, dateInput.value);
     set(ref(db, "User/" + user.uid + "/GoalSavings/" + titleInput.value),{
     GoalDate: dateInput.value,
@@ -41,11 +40,3 @@ addButton.addEventListener('click', CreateItem);*/
 
 //update(ref(db, "User/" + user.uid + "/GoalSavings/" + category.value),{ })
 
-
-onAuthStateChanged(auth, (user)=>{
-    if(user){
-    console.log(user);
-    }else{
-    console.log("error")
-    }
-})

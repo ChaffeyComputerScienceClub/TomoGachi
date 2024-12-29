@@ -30,7 +30,7 @@ const auth=getAuth();
             createUserWithEmailAndPassword(auth, signUpEmail, signUpPassword)
             .then((userCredential) => {
                 user = userCredential.user;
-                console.log(user);
+
                 alert("Your account has been created!");
                 set(ref(db, "User/" + user.uid + "/Bank/" ),{
                     Money: 0
@@ -54,7 +54,7 @@ const auth=getAuth();
                     Money: 0
                 })
                 NextPage();
-                console.log(user);
+   
             })
             .catch((error) => {
                 const errorCode = error.code;

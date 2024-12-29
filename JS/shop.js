@@ -29,26 +29,24 @@ function shopCreateProductButton(item) {
   button.id = "button" + item.id.toString();
   button.innerText = "Buy";
   button.onclick = () => shopCheckCanBuy(item);
-  console.log(button.id);
+
   return button;
 }
 
 
 async function shopCheckCanBuy(unparsedItem) {
-  console.log(unparsedItem);
+
   let potentialItem = unparsedItem;
   let itemExists = await shopFindItem(potentialItem);
   let temp = "button" + potentialItem.id.toString();
   let button = document.getElementById(temp);
-  console.log(button);
-  console.log(bankAmount);
+
   if ((bankAmount >= potentialItem.price) && !itemExists){
     shopUpdateButton(button, potentialItem);
     shopCreateItem(potentialItem);
     shopUpdateBankSub(potentialItem.price);
     shopUpdateItem(bankAmount - potentialItem.price);
     
-    console.log('bought');
   }
   else{
     console.log("item exists already: ", itemExists);
@@ -109,7 +107,6 @@ function shopUpdateItem(value) {
 function shopRemoveItem() {
   remove(ref(db, "Groups/" + enterID.value))
   .then(() => {
-    console.log("Data Removed");
   })
   .catch((error) => {
     console.log(error);

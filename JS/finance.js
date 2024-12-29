@@ -103,7 +103,6 @@ function financeLoadPage() {
     function MonthlyIncome() {
         var user = auth.currentUser;
         var val = Number(event.target.value);
-        console.log(val);
         set(ref(db, "User/" + user.uid + "/Finance/" + "/monthlyIncome/"), {
             MonthlyIncome: val
         })
@@ -117,7 +116,6 @@ function financeLoadPage() {
                 var rentMax = Number(rentBudget.value);
                 rentMeter.setAttribute('max', rentMax)
                 rentButton.style.visibility = "hidden";
-                console.log(rentMax);
                 update(ref(db, "User/" + user.uid + "/Finance/" + "/Rent"), {
                     RentMax: rentMax
                 })
@@ -217,7 +215,6 @@ function financeLoadPage() {
         get(ref(db, "User/" + user.uid + "/Finance/" + category))
             .then((snapshot) => {
                 if (snapshot.exists()) {
-                    console.log(snapshot.val());
                     if (category == "Rent") {
                         budget.value = snapshot.val().RentMax;
                         meter.max = snapshot.val().RentMax;
@@ -249,7 +246,6 @@ function financeLoadPage() {
                 }
             })
             .catch((error) => {
-                console.log(error);
                 return false;
             });
     }
@@ -373,7 +369,6 @@ function financeLoadPage() {
 
     onAuthStateChanged(auth, (user) => {
         if (user) {
-            console.log(user);
             work();
         } else {
             console.log("error")
