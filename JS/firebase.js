@@ -24,14 +24,14 @@ const user = userParam ? JSON.parse(decodeURIComponent(userParam)) : null;
 if (user) {
     // Now you can access the 'user' object
     console.log(user);
-    let bank = await get(ref(db, "User/" + user.displayName + "/Bank/"));
+    let bank = await get(ref(db, "User/" + user.email + "/Bank/"));
 } else {
     console.error("User not found in URL");
 }
 
 //const user = null;
 let inventory = null;
-let bank = await get(ref(db, "User/" + user.displayName + "/Bank/"));
+let bank = await get(ref(db, "User/" + user.email + "/Bank/"));
 let bankAmount = bank.child("Money").val();
 
 window.user = user;

@@ -44,7 +44,7 @@ async function invLoadInventory(filter) {
     console.log(item);
     const dbref = ref(db);
   
-    return get(child(dbref, "User/" + user.displayName + "/Inventory/" + item.name))
+    return get(child(dbref, "User/" + user.email + "/Inventory/" + item.name))
       .then((snapshot) => {
         //console.log(temp);
         if (snapshot.exists()){

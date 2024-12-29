@@ -101,7 +101,7 @@ function financeLoadPage() {
         var user = auth.currentUser;
         var val = Number(event.target.value);
         console.log(val);
-        set(ref(db, "User/" + user.displayName + "/Finance/" + "/monthlyIncome/"), {
+        set(ref(db, "User/" + user.email + "/Finance/" + "/monthlyIncome/"), {
             MonthlyIncome: val
         })
     }
@@ -115,7 +115,7 @@ function financeLoadPage() {
                 rentMeter.setAttribute('max', rentMax)
                 rentButton.style.visibility = "hidden";
                 console.log(rentMax);
-                update(ref(db, "User/" + user.displayName + "/Finance/" + "/Rent"), {
+                update(ref(db, "User/" + user.email + "/Finance/" + "/Rent"), {
                     RentMax: rentMax
                 })
             }
@@ -133,7 +133,7 @@ function financeLoadPage() {
                 var shoppingMax = Number(shoppingBudget.value);
                 shoppingMeter.setAttribute('max', shoppingMax)
                 shoppingButton.style.visibility = "hidden";
-                update(ref(db, "User/" + user.displayName + "/Finance/" + "/Shopping"), {
+                update(ref(db, "User/" + user.email + "/Finance/" + "/Shopping"), {
                     ShoppingMax: shoppingMax
                 })
             }
@@ -151,7 +151,7 @@ function financeLoadPage() {
                 var insuranceMax = Number(insuranceBudget.value);
                 insuranceMeter.setAttribute('max', insuranceMax)
                 insuranceButton.style.visibility = "hidden";
-                update(ref(db, "User/" + user.displayName + "/Finance/" + "/Insurance"), {
+                update(ref(db, "User/" + user.email + "/Finance/" + "/Insurance"), {
                     InsuranceMax: insuranceMax
                 })
             }
@@ -169,7 +169,7 @@ function financeLoadPage() {
                 var foodMax = Number(foodBudget.value);
                 foodMeter.setAttribute('max', foodMax)
                 foodButton.style.visibility = "hidden";
-                update(ref(db, "User/" + user.displayName + "/Finance/" + "/Food"), {
+                update(ref(db, "User/" + user.email + "/Finance/" + "/Food"), {
                     FoodMax: foodMax
                 })
             }
@@ -187,7 +187,7 @@ function financeLoadPage() {
                 var otherMax = Number(otherBudget.value);
                 otherMeter.setAttribute('max', otherMax)
                 otherButton.style.visibility = "hidden";
-                update(ref(db, "User/" + user.displayName + "/Finance/" + "/Other"), {
+                update(ref(db, "User/" + user.email + "/Finance/" + "/Other"), {
                     OtherMax: otherMax
                 })
             }
@@ -201,7 +201,7 @@ function financeLoadPage() {
     function financeInvFindData(inputBox, meter, category, user) {
         var budget = document.getElementById(inputBox);
         var meter = document.getElementById(meter);
-        get(ref(db, "User/" + user.displayName + "/Finance/" + "/monthlyIncome/"))
+        get(ref(db, "User/" + user.email + "/Finance/" + "/monthlyIncome/"))
             .then((snapshot) => {
                 if (snapshot.exists()) {
                     monthlyIncome.value = snapshot.val().MonthlyIncome;
@@ -211,7 +211,7 @@ function financeLoadPage() {
                 }
             })
 
-        get(ref(db, "User/" + user.displayName + "/Finance/" + category))
+        get(ref(db, "User/" + user.email + "/Finance/" + category))
             .then((snapshot) => {
                 if (snapshot.exists()) {
                     console.log(snapshot.val());
@@ -289,13 +289,13 @@ function financeLoadPage() {
     function updateMeter(category, amount, user) {
         var newmonthlyIncome = +monthlyIncome.value - +amount;
         monthlyIncome.value = newmonthlyIncome;
-        update(ref(db, "User/" + user.displayName + "/Finance/" + "/monthlyIncome/"), {
+        update(ref(db, "User/" + user.email + "/Finance/" + "/monthlyIncome/"), {
             MonthlyIncome: newmonthlyIncome
         })
         if (category == 1) {
             var newVal1 = +rentMeter.value + +amount;
             rentMeter.value = newVal1;
-            update(ref(db, "User/" + user.displayName + "/Finance/" + "/Rent"), {
+            update(ref(db, "User/" + user.email + "/Finance/" + "/Rent"), {
                 Rent: newVal1
             })
         }
@@ -303,7 +303,7 @@ function financeLoadPage() {
         else if (category == 2) {
             var newVal2 = +shoppingMeter.value + +amount;
             shoppingMeter.value = newVal2;
-            update(ref(db, "User/" + user.displayName + "/Finance/" + "/Shopping"), {
+            update(ref(db, "User/" + user.email + "/Finance/" + "/Shopping"), {
                 Shopping: newVal2
             })
         }
@@ -311,7 +311,7 @@ function financeLoadPage() {
         else if (category == 3) {
             var newVal3 = +insuranceMeter.value + +amount;
             insuranceMeter.value = newVal3;
-            update(ref(db, "User/" + user.displayName + "/Finance/" + "/Insurance"), {
+            update(ref(db, "User/" + user.email + "/Finance/" + "/Insurance"), {
                 Insurance: newVal3
             })
         }
@@ -319,7 +319,7 @@ function financeLoadPage() {
         else if (category == 4) {
             var newVal4 = +foodMeter.value + +amount;
             foodMeter.value = newVal4;
-            update(ref(db, "User/" + user.displayName + "/Finance/" + "/Food"), {
+            update(ref(db, "User/" + user.email + "/Finance/" + "/Food"), {
                 Food: newVal4
             })
         }
@@ -327,7 +327,7 @@ function financeLoadPage() {
         else if (category == 5) {
             var newVal5 = +otherMeter.value + +amount;
             otherMeter.value = newVal5;
-            update(ref(db, "User/" + user.displayName + "/Finance/" + "/Other"), {
+            update(ref(db, "User/" + user.email + "/Finance/" + "/Other"), {
                 Other: newVal5
             })
         }
@@ -341,23 +341,23 @@ function financeLoadPage() {
     //resets everything on the first of every month
     let day = d.getDate();
     if (day == 1) {
-        update(ref(db, "User/" + user.displayName + "/Finance/" + "/Rent"), {
+        update(ref(db, "User/" + user.email + "/Finance/" + "/Rent"), {
             Rent: 0,
             RentMax: 0
         })
-        update(ref(db, "User/" + user.displayName + "/Finance/" + "/Shopping"), {
+        update(ref(db, "User/" + user.email + "/Finance/" + "/Shopping"), {
             Shopping: 0,
             ShoppingMax: 0
         })
-        update(ref(db, "User/" + user.displayName + "/Finance/" + "/Insurance"), {
+        update(ref(db, "User/" + user.email + "/Finance/" + "/Insurance"), {
             Insurance: 0,
             InsuranceMax: 0
         })
-        update(ref(db, "User/" + user.displayName + "/Finance/" + "/Food"), {
+        update(ref(db, "User/" + user.email + "/Finance/" + "/Food"), {
             Food: 0,
             FoodMax: 0
         })
-        update(ref(db, "User/" + user.displayName + "/Finance/" + "/Other"), {
+        update(ref(db, "User/" + user.email + "/Finance/" + "/Other"), {
             Other: 0,
             OtherMax: 0
         })
