@@ -1,0 +1,537 @@
+/*Made By Luna with help from Lizzy and Sam*/
+
+/*#region Variables/Colors*/
+:root {
+  --shopBlue: #77d3f9;
+  --financePopupBackground: #77d3f9;
+  --budgetInputBorder: #77d3f9;
+  --inventoryPink: #db9fbd;
+  --financeGreen: #52b7a9;
+  --budgetInputBackground: #52b7a9;
+  --todoPurple: #b391c4;
+  --meterBackground: #FCE8F1;
+  --buttonBackground: #FCE8F1;
+  --buttonBorder: #db9fbd;
+  --filledmeterBackground: #db9fbd;
+  --hoverButtonBackground: #db9fbd;
+  --meterBorder: #C64189;
+  --hoverButtonBorder: #C64189;
+  --black: rgba(52, 73, 94, 0.2);
+}
+/*#endregion*/
+
+/*#region Main*/
+@font-face {
+  font-family: cheri;
+  src: url(../ShopItemJPEGs/CHERI.REGULAR.TTF);
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: cheri;
+  background-color: #9169ff;
+}
+* {
+  box-sizing: border-box;
+}
+.shop-non-grid {
+  padding: 20px;
+}
+/*#endregion*/
+
+/*#region Header*/
+.header {
+  margin: 0;
+  width: 100%;
+  height: 70px;
+  text-align: center;
+  padding-top: 30px;
+  background-color: var(--black);
+ 
+}
+/*#endregion*/
+
+/*#region footer*/
+
+/*#endregion*/
+
+/*#region Meter stuff*/
+meterBox {
+  display: grid; 
+  justify-content: space-evenly;
+  align-items: center;
+  justify-items: center;
+  grid-template-columns: 30% 30% 30%;
+  grid-template-rows: 20% 60%;
+  gap: 5px;
+  height: 40vw;
+}
+.mobile meterBox {
+  display: grid; 
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  grid-template-columns: 15% 45%;
+  grid-template-rows: 30% 30% 30%;
+  gap: 5px;
+  height: 50vw;
+}
+meterBox img {
+  height: 85%; 
+}
+meterBox meter {
+  width: 450%;
+  height: 8vw;
+  transform: rotate(-90deg);
+}
+.mobile meter {
+  width: 20vh;
+  height: 20vw;
+  transform: rotate(0deg);
+}
+meter::-webkit-meter-bar {
+  background: #fce8f1;
+  border: 3px solid #c64189;
+}
+meter::-webkit-meter-optimum-value {
+  background: #db9fbd;
+}
+/*#endregion*/
+
+/*#region Containers*/
+flexContainer {
+  display: flex;
+}
+vertContainer {
+  display: flex;
+  /*width: 40%;*/
+  height: 80vh;
+  flex-direction: column;
+}
+containerFH {
+  display: flex;
+  height: 100vh;
+}
+imageContainer {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+}
+.gridTomo{
+  display: grid;
+  grid-template-areas: "stack";
+}
+
+/*#endregion*/
+
+/*#region Tamagotchi pet side bar*/
+.tamagotchi {
+  /*display: flex;
+  margin: auto;*/
+  flex-direction: column;
+  /*position: relative;*/
+  width: 100%;
+  /*height: 100%;*/
+  background-color: rgba(52, 73, 94, 0.2);
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+}
+.tamagotchi img {
+  width: 100%;
+  height: auto;
+  margin: auto;
+  grid-area: stack;
+}
+#tamaBG {
+  z-index: 1;
+  border: solid 10px black;
+  border-radius: 5px;
+}
+#tamaGif {
+  z-index: 2;
+  width: 80%;
+  margin-top: 17%;
+  margin-left: 6%;
+}
+/*#endregion*/
+
+/*#region Sidebar*/
+sidebar {
+  display: flex;
+  flex-direction: column;
+  /*height: 10vh;*/
+  /*width: 7vw;*/
+  /*min-width: 110px;*/
+}
+.mobile sidebar {
+  flex-direction: row;
+}
+sidebar.option {
+  margin: 5px;
+  padding: 15px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  /*background-color: #34495e;*/
+  border: 4px solid #2c3e50;
+  border-radius: 25px;
+}
+sidebar.option:hover {
+  border-color: #babbbb;
+  min-width: 110px;
+}
+.mobile sidebar.option:hover {
+  min-width: 0px;
+}
+sidebar.option.active {
+  /* margin-left: 20px; */
+  border: 4px;
+  border-color: rgb(124, 54, 51);
+}
+#mini-sidebar {
+  /*min-width: 200px;*/
+  height: fit-content;
+  /*background-color: rgba(0, 0, 0, 0.2);*/
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+.mobile #mini-sidebar {
+  flex-direction: row;
+}
+.mini-option {
+  padding: 10px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: rgba(52, 73, 94, 0.2);
+  border: 4px solid #2c3e50;
+  border-radius: 25px;
+  margin: 2px;
+}
+.mini-option:hover {
+  background-color: #000000;
+  border-color: #c7c7c7;
+}
+.mini-option.active {
+  margin-left: 20px;
+  border: 0px;
+}
+/*Sidebar Colors*/
+#option1 {
+  background-color: var(--shopBlue);
+}
+#option2 {
+  background-color: var(--inventoryPink);
+}
+#option3 {
+  background-color: var(--financeGreen);
+}
+#option4 {
+  background-color: var(--todoPurple);
+}
+/*#endregion*/
+
+/*#region Shop*/
+.shop-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  /*width: 800px;*/
+  margin: 0 auto;
+  padding: 20px;
+}
+.Lizzy-grid {
+  width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+/* Individual shop item style */
+.shop-item {
+  text-align: center;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 8px;
+}
+.shop-grid.grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+/* Placeholder image style */
+.shop-item img {
+  width: 100%;
+  height: auto;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+/* Buy button style */
+.shop-item button {
+  margin-top: 10px;
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.shop-item button:hover {
+  background-color: #0056b3;
+}
+.buttonBought {
+  background-color: red !important;
+}
+/*#endregion*/
+
+/*#region Input - Placeholder*/
+[placeholder]:empty:before{
+  content: attr(placeholder);
+  color: black;
+  opacity: 0.5;
+  cursor: text;
+  background-color: transparent;
+  font-family: cheri;
+}
+/*#endregion*/
+
+/*#region Input - Finance*/
+.incomeInput,
+.incomeInput:focus{
+    outline: 0px solid transparent;
+    background-color: transparent;
+    border: transparent;
+    margin-left: .5rem;
+    font-family: cheri;
+    height: 2rem;
+    width: 3rem;
+    margin-top: 1rem;
+}
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+/*#endregion*/
+
+/*#region Input - To-do list*/
+input[type="checkbox"]{
+  border:3px solid #336d6f;
+  background-color: #9bf0e4;
+  height:20px;
+  width:20px;
+  -webkit-appearance: none;
+  appearance: none;
+  margin-left: 7px;
+}
+input[type="checkbox"]:hover{
+  border:3px solid #9bf0e4;
+  background-color: #b390c4;
+  height:20px;
+  width:20px;
+  position: relative;
+  margin-left: 7px;
+}
+input[type="checkbox"]:checked{
+  border:3px solid #336d6f;
+  background-color: #336d6f;
+  height:20px;
+  width:20px;
+  position: relative;
+  margin-left: 7px;
+}
+input[type="text"],
+input[type="text"]:focus{
+    outline: 0px solid transparent;
+    background-color: transparent;
+    border: transparent;
+    margin-left: .7rem;
+    font-family: cheri;
+}
+/*#endregion*/
+
+/*#region To-do list*/
+.toDoButton{
+  height: 300%;
+  width: 10%;
+  margin-left: 5px;
+  background-color: #4bb8b2;
+  border: 3px solid #336d6f;
+  border-radius: 15px;
+  font-family: cheri;
+  font-size: 100%;
+}
+#toDoList{
+  font-size: 120%;
+}
+.toDoButton:hover{
+  background-color: #9bf0e4;
+  border: 3px solid #4bb8b2;
+}
+/*#endregion*/
+
+/*#region finance*/
+.financeDisplay{
+  display: block;
+  font-size: 120%;
+}
+.popupButton{
+  margin-left: 50px;
+  background-color: #FCE8F1;
+  border: 3px solid #db9fbd;
+  border-radius: 5px;
+  font-family: cheri;
+  height:50px;
+  width:70px;
+  
+}
+.popupButton:hover{
+  background-color: #db9fbd;
+  border: 3px solid #cf3f8e;
+}
+.budgetInput{
+  /* float: right;  */
+  margin-left: 85px;
+  width:60px;
+  height: 30px;
+  border-radius: 5px;
+  border: 3px solid #ABE1F9;
+  background-color: #52B7A9;
+  outline:none;
+  font-family: cheri;
+  transform: translate(0%,-160%);
+}
+.saveButton{
+  width:50px;
+  height: 30px;
+  border-radius: 5px;
+  background-color: #FCE8F1;
+  border: 3px solid #db9fbd;
+  transform: translate(0%,-200%);
+  font-family: cheri;
+  visibility: hidden;
+}
+.monthName{
+  background-color: #ABE1F9;
+  border-radius: 5px;
+  width:200px;
+  margin-left:320px;
+  text-align: center;
+  border-radius: 5px;
+}
+.headerForPopup{
+  text-align: center;
+  margin-top: 7px;
+}
+.popUp{
+  background-color: #ABE1F9;
+  height:200px;
+  width:240px;
+  position: fixed;
+  top: 50%;
+  left: 20%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  border: 5px solid #cf3f8e;
+  border-radius: 8px;
+  display:none;
+
+}
+.inputBox{
+  width:80px;
+  margin-top: 15px;
+  /* inputbox for amount spent */
+}
+/*#endregion*/
+
+/*#region Finance Meters*/
+.meter1,
+.meter2,
+.meter3,
+.meter4,
+.meter5{
+    width: 400px;
+    height: 110px;
+  }
+  .meter1::after{
+    content: "Rent";
+    position: relative;
+    top:-65px;
+    left:10px;
+  }
+  .meter2::after{
+    content: "Shopping";
+    position: relative;
+    top:-65px;
+    left:10px;
+  }
+  .meter3::after{
+    content: "Insurance";
+    position: relative;
+    top:-65px;
+    left:10px;
+  }
+  .meter4::after{
+    content: "Food";
+    position: relative;
+    top:-65px;
+    left:10px;
+  }
+  .meter5::after{
+    content: "Other";
+    position: relative;
+    top:-65px;
+    left:10px;
+  }
+  .meter1::-webkit-meter-bar,
+  .meter2::-webkit-meter-bar,
+  .meter3::-webkit-meter-bar,
+  .meter4::-webkit-meter-bar,
+  .meter5::-webkit-meter-bar{
+    background: #FCE8F1;
+    border: 3px solid #C64189;
+  }
+  /* .meter::-moz-meter-bar {
+    background: rgb(150, 96, 96);
+  }  */
+  .meter1::-webkit-meter-optimum-value,
+  .meter2::-webkit-meter-optimum-value,
+  .meter3::-webkit-meter-optimum-value,
+  .meter4::-webkit-meter-optimum-value,
+  .meter5::-webkit-meter-optimum-value{
+    background: #db9fbd;
+  }
+/*#endregion*/
+
+/*#region Media Queries*/
+row::after{
+  content: "";
+  clear: both;
+  display: table;
+}
+/* For mobile phones: */
+[class*="col-"] {
+  float: left;
+  width: 100%;
+}
+@media only screen and (max-width: 768px) {
+  .mobile {display: block;}
+  .desktop {display: none;}
+}
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+  .mobile {display: none;}
+  .desktop {display: block;}
+  .col-1 {width: 8.33%;}
+  .col-2 {width: 16.66%;}
+  .col-3 {width: 25%;}
+  .col-4 {width: 33.33%;}
+  .col-5 {width: 41.66%;}
+  .col-6 {width: 50%;}
+  .col-7 {width: 58.33%;}
+  .col-8 {width: 66.66%;}
+  .col-9 {width: 75%;}
+  .col-10 {width: 83.33%;}
+  .col-11 {width: 91.66%;}
+  .col-12 {width: 100%;}
+}
+/*#endregion*/

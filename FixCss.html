@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SamsShop</title>
+    <link rel="stylesheet" href="/CSS/base.css" />
+    <!--
+    <link rel="stylesheet" href="/CSS/style.css" />
+    -->
+    <link rel="stylesheet" href="/CSS/toDoStyle.css" />
+    <link rel="stylesheet" href="/CSS/finance.css" />
+  </head>
+  <header>
+    <h1 class="header">Tammy's Tamowatches</h1>
+  </header>
+
+  <body>
+    <flexContainer>
+      <!--Left Sidebar Options-->
+      <flexContainer style="width: 50vw;">
+        <sidebar style="width: 10vw; min-width: 146px;max-width: 200px;">
+          <sidebar class="option" id="option1" style="background-color: #77d3f9"
+            >Option1</sidebar
+          >
+          <sidebar class="option" id="option2" style="background-color: #eb93bd"
+            >Option2</sidebar
+          >
+          <sidebar class="option" id="option3" style="background-color: #52b7a9"
+            >Option3</sidebar
+          >
+          <sidebar class="option" id="option4" style="background-color: #b391c4"
+            >Option4</sidebar
+          >
+        </sidebar>
+        <!--Sub Options-->
+        <sidebar id="mini-sidebar"></sidebar>
+      </flexContainer>
+      <!--Main Section-->
+      <!--Shop grid-->
+      <div id="shop-grid" class="shop-grid"></div>
+
+      <!--Right Side Bar-->
+      <vertContainer style="background-color: rgba(52, 73, 94, 0.2)">
+        <!--Tamagotchi-->
+        <div class="tamagotchi">
+          <div style="left: 50%; transform: translate(10%, 0%);">
+          <img
+            id="tamaBG"
+            class="tamagotchi-img"
+            src="/ShopItemJPEGs/blue_square.jpg"
+            style="z-index: 1;"
+          />
+          <img
+            id="tamaGif"
+            class="tamagotchi-img"
+            src="/ShopItemJPEGs/donald-trump-potus.gif"
+            style="z-index: 2;"
+          />
+        </div>
+        </div>
+        <!--Stats-->
+        <div style="height: 65vh">
+          <div class="meter-container" style="margin-top: 4rem">
+            <!--  meter 1 -->
+            <meterBox>
+              <meter id="friendship-meter" max="100" value="70"></meter>
+              <img
+                src="/ShopItemJPEGs/bread copy.png"
+                style="height: 5rem; transform: rotate(90deg)"
+                alt="food"
+              />
+            </meterBox>
+            <!--  meter 2 -->
+            <meterBox>
+              <meter id="happiness-meter" max="100" value="70"></meter>
+              <img
+                src="/ShopItemJPEGs/bread copy.png"
+                style="height: 5rem; transform: rotate(90deg)"
+                alt="food"
+              />
+            </meterBox>
+            <!--  meter 3 -->
+            <meterBox>
+              <meter id="hunger-meter" max="100" value="70"></meter>
+              <img
+                src="/ShopItemJPEGs/bread copy.png"
+                style="height: 5rem; transform: rotate(90deg)"
+                alt="food"
+              />
+            </meterBox>
+          </div>
+        </div>
+      </vertContainer>
+    </flexContainer>
+    <script src="/JS/firebase.js" type="module"></script>
+    <script src="/JS/loadManager.js"></script>
+    <script src="/JS/main.js"></script>
+    <script src="/JS/shop.js"></script>
+    <script src="/JS/inventory.js"></script>
+    <script src="/JS/savings.js"></script>
+    <script src="/JS/finance.js"></script>
+    <script src="/JS/todolist.js"></script>
+  </body>
+</html>

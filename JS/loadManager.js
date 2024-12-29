@@ -1,4 +1,4 @@
-const options = document.querySelectorAll('.sidebar-option');
+const options = document.querySelectorAll('.option');
 let activeOption = null;
 let currentScreen = null;
 let switchScreen = false;
@@ -49,7 +49,7 @@ options.forEach(option => {
             appendMiniSidebar(this.id);
             if (switchScreen) {
                 clearScreen();
-                shopGrid.classList.add('grid');
+                shopGrid.className = "shop-grid";
                 shopLoadProducts('All');
             }
         }
@@ -58,7 +58,7 @@ options.forEach(option => {
             appendMiniSidebar(this.id);
             if (switchScreen) {
                 clearScreen();
-                shopGrid.classList.add('grid');
+                shopGrid.className = "shop-grid";
                 invLoadInventory('All');
             }
         }
@@ -67,7 +67,7 @@ options.forEach(option => {
             appendMiniSidebar(this.id);
             if (switchScreen) {
                 clearScreen();
-                shopGrid.classList.remove('grid');
+                shopGrid.className = "shop-non-grid";
                 financeLoadPage();
             }
         }
@@ -76,7 +76,7 @@ options.forEach(option => {
             appendMiniSidebar(this.id);
             if (switchScreen) {
                 clearScreen();
-                shopGrid.classList.remove('grid');
+                shopGrid.className = "shop-non-grid";
                 todoPageLoad();
             }
         }   

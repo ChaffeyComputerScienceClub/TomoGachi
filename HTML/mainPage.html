@@ -1,59 +1,166 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>SamsShop</title>
-    <h1 class="header">Tomo Taru</h1>
+    <title>Tammys Tamowatches</title>
+
+    <!--To be deleted-->
+    <!--
     <link rel="stylesheet" href="/CSS/style.css" />
-    <link rel="stylesheet" href="/CSS/toDoStyle.css"/>
-    <link rel="stylesheet" href="/CSS/finance.css"/>
+    
+    <link rel="stylesheet" href="/CSS/toDoStyle.css" />
+    <link rel="stylesheet" href="/CSS/finance.css" />
+  -->
+    <link rel="stylesheet" href="/CSS/base.css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
   </head>
+  <header>
+    <h1 class="header">Tammy's Tamowatches</h1>
+  </header>
+
   <body>
-    <div class="container">
-      <div class="sidebar">
-        <div class="sidebar-option" id="option1">Shop</div>
-        <div class="sidebar-option" id="option2">Inventory</div>
-        <div class="sidebar-option" id="option3">Finance</div>
-        <div class="sidebar-option" id="option4">To-do List</div>
-      </div>
-      <div class="sidebar" id="mini-sidebar"></div>
-      <div id="shop-grid" class="shop-grid"></div>
-      <div class="vert-container">
-        <div class="tamagotchi">
-          <img id="tamaBG" src="/images/Room.png" style="z-index: 1; position: relative; margin: auto; border:solid 10px black; border-radius: 5px;"/>
-          <img id="tamaGif" src="/images\tomoIdle.gif" style="z-index: 2; position: relative; bottom: 50%; scale: 80%; margin-left: -1.5rem;"/>
-        </div>
-        <div class="stats-container">
-          <div class="meter-container" style="overflow:hidden;max-width: 100%;">
-                <meterContainer>
-                  <!--  meter 1 -->
-                  <img
-                    src="/images/heart.png"
-                    style="height: 5rem;padding-bottom: 5rem;"
-                    alt="food"
-                  />
-                  <meter id="friendship-meter" class="homemeter" max="100" value="90"></meter>
-                </meterContainer>
-                <meterContainer>
-                  <!--  meter 2 -->
-                  <img
-                    src="/images/aid.png"
-                    style="width: 5rem;padding-bottom: 5rem;"
-                    alt="food"
-                  />
-                  <meter id="health-meter" class="homemeter" max="100" value="90"></meter>
-                </meterContainer>
-                <meterContainer>
-                  <!--  meter 3 -->
-                  <img
-                    src="/images/uten.png"
-                    style="width: 5rem;padding-bottom: 5rem;"
-                    alt="food"
-                  />
-                  <meter id="hunger-meter" class="homemeter" max="100" value="90"></meter>
-                </meterContainer>
-        </div>
-      </div>
-    </div>
+    <row>
+      <column class="col-3 desktop">
+        <!--#region Left Sidebar Options-->
+        <flexContainer>
+          <sidebar style="width: 10vw; min-width: 146px; max-width: 200px">
+            <sidebar
+              class="option"
+              id="option1"
+              style="background-color: var(--shopBlue)"
+              >Shop
+            </sidebar>
+            <sidebar
+              class="option"
+              id="option2"
+              style="background-color: var(--inventoryPink)"
+              >Inventory
+            </sidebar>
+            <sidebar
+              class="option"
+              id="option3"
+              style="background-color: var(--financeGreen)"
+              >Finance
+            </sidebar>
+            <sidebar
+              class="option"
+              id="option4"
+              style="background-color: var(--todoPurple)"
+              >To-do List
+            </sidebar>
+          </sidebar>
+          <!--Sub Options-->
+          <sidebar id="mini-sidebar"></sidebar>
+        </flexContainer>
+        <!--#endregion-->
+      </column>
+      <!--Mobile Right Side Bar-->
+      <column class="col-2 mobile">
+        <!--Right Side Bar-->
+        <flexContainer
+          style="
+            background-color: rgba(52, 73, 94, 0.2);
+            flex-direction: column;
+          "
+        >
+          <!--#region Tamagotchi-->
+          <div class="tamagotchi">
+            <div class="gridTomo">
+              <img id="tamaBG" src="/images/Room.png" />
+              <img id="tamaGif" src="/images\tomoIdle.gif" />
+            </div>
+          </div>
+          <!--#endregion-->
+          <!--#region Stats-->
+          <!--#region meter Mobile-->
+          <meterBox>
+            <img src="/ShopItemJPEGs/bread copy.png" alt="food" />
+            <!--  meter 1 -->
+            <meter id="friendship-meter" max="100" value="70"></meter>
+            <img src="/ShopItemJPEGs/bread copy.png" alt="food" />
+            <!--  meter 2 -->
+            <meter id="happiness-meter" max="100" value="70"></meter>
+            <img src="/ShopItemJPEGs/bread copy.png" alt="food" />
+            <!--  meter 3 -->
+            <meter id="hunger-meter" max="100" value="70"></meter>
+          </meterBox>
+          <!--#endregion-->
+          <!--#endregion-->
+        </flexContainer>
+      </column>
+      <!--Mobile Left Sidebar Options-->
+      <column class="col-2 mobile">
+        <!--#region Left Sidebar Options-->
+        <flexContainer style="flex-direction: column">
+          <sidebar>
+            <sidebar
+              class="option"
+              id="option1"
+              style="background-color: var(--shopBlue)"
+              >Shop
+            </sidebar>
+            <sidebar
+              class="option"
+              id="option2"
+              style="background-color: var(--inventoryPink)"
+              >Inventory
+            </sidebar>
+            <sidebar
+              class="option"
+              id="option3"
+              style="background-color: var(--financeGreen)"
+              >Finance
+            </sidebar>
+            <sidebar
+              class="option"
+              id="option4"
+              style="background-color: var(--todoPurple)"
+              >To-do List
+            </sidebar>
+          </sidebar>
+          <!--Sub Options-->
+          <sidebar id="mini-sidebar"></sidebar>
+        </flexContainer>
+        <!--#endregion-->
+      </column>
+      <column class="col-7">
+        <!--#region Shop grid-->
+        <div id="shop-grid" class="shop-grid"></div>
+        <!--#endregion-->
+      </column>
+      <column class="col-2 desktop">
+        <!--Right Side Bar-->
+        <vertContainer style="background-color: rgba(52, 73, 94, 0.2)">
+          <!--#region Tamagotchi-->
+          <div class="tamagotchi">
+            <div class="gridTomo">
+              <img id="tamaBG" src="/images/Room.png" />
+              <img id="tamaGif" src="/images\tomoIdle.gif" />
+            </div>
+          </div>
+          <!--#endregion-->
+          <!--#region Stats-->
+          <div style="height: 65%">
+            <meterContainer>
+              <!--#region meter test2-->
+              <meterBox>
+                <img src="/ShopItemJPEGs/bread copy.png" alt="food" />
+                <img src="/ShopItemJPEGs/bread copy.png" alt="food" />
+                <img src="/ShopItemJPEGs/bread copy.png" alt="food" />
+                <!--  meter 1 -->
+                <meter id="friendship-meter" max="100" value="70"></meter>
+                <!--  meter 2 -->
+                <meter id="happiness-meter" max="100" value="70"></meter>
+                <!--  meter 3 -->
+                <meter id="hunger-meter" max="100" value="70"></meter>
+              </meterBox>
+              <!--#endregion-->
+            </meterContainer>
+          </div>
+          <!--#endregion-->
+        </vertContainer>
+      </column>
+    </row>
     <script src="/JS/firebase.js" type="module"></script>
     <script src="/JS/loadManager.js"></script>
     <script src="/JS/main.js"></script>
@@ -63,5 +170,4 @@
     <script src="/JS/finance.js"></script>
     <script src="/JS/todolist.js"></script>
   </body>
-  
 </html>

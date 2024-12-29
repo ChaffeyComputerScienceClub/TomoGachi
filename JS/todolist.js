@@ -5,7 +5,7 @@ var items = [];
 
 
 function generateItems(text, id) {
-  const container = document.getElementById("shop-grid");
+  const container = document.getElementById("toDoList");
   const toDoDiv = document.createElement('div');
   toDoDiv.style = "display: flex; margin-left: 1rem;";
   if (text == null) {
@@ -37,7 +37,7 @@ function deleteItem(element, id) {
   var user = auth.currentUser;
 
   console.log("deleted");
-  remove(ref(db, "User/" + user.email + "/toDoList/" + id));
+  remove(ref(db, "User/" + user.displayName + "/toDoList/" + id));
 
   reorderDB(element, id);
 }
@@ -74,7 +74,7 @@ function save(text, id) {
   var user = auth.currentUser;
   id = (id).toString();
 
-  set(ref(db, "User/" + user.email + "/toDoList/" + id), {
+  set(ref(db, "User/" + user.displayName + "/toDoList/" + id), {
     Item: text
   });
   updateFirebase();
@@ -86,7 +86,7 @@ function updateFirebase() {
   let lower = 0;
   let higher = 0;
 
-  get(ref(db, "User/" + user.email + "/toDoList/"))
+  get(ref(db, "User/" + user.displayName + "/toDoList/"))
     .then((snapshot) => {
       if (snapshot.exists()) {
         let newPosition = 1; // Start storing at position 1
@@ -112,7 +112,7 @@ function updateFirebase() {
             oldKeys.push(key);
           }
         });
-        return update(ref(db, "User/" + user.email + "/toDoList/"), updates).then(() => {
+        return update(ref(db, "User/" + user.displayName + "/toDoList/"), updates).then(() => {
           return oldKeys
         });
       }
@@ -127,7 +127,7 @@ function updateFirebase() {
 
         if (oldKeys.length > 0) {
           const removalPromises = oldKeys.map((key) =>
-            remove(ref(db, "User/" + user.email + "/toDoList/" + key))
+            remove(ref(db, "User/" + user.displayName + "/toDoList/" + key))
           );
           return Promise.all(removalPromises);
         }
@@ -143,12 +143,18 @@ function todoPageLoad() {
   let higher = 0;
   const container = document.getElementById("shop-grid");
   const addButton = document.createElement('button'); 
+  addButton.className = "toDoButton";
+  addButton.innerHTML = "Add Item";
   addButton.addEventListener('click', () => {
     generateItems(null, items.length + 1);
     items.push(items.length + 1);
   });
   container.append(addButton);
-  get(ref(db, "User/" + user.email + "/toDoList/"))
+  const listContainer = document.createElement('div');
+  listContainer.id = "toDoList";
+  listContainer.className = "shop-grid";
+  container.append(listContainer);
+  get(ref(db, "User/" + user.displayName + "/toDoList/"))
     .then((snapshot) => {
       if (snapshot.exists()) {
         let newPosition = 1; // Start storing at position 1
@@ -176,7 +182,7 @@ function todoPageLoad() {
         });
 
         // Apply all updates in one  go
-        return update(ref(db, "User/" + user.email + "/toDoList/"), updates).then(() => {
+        return update(ref(db, "User/" + user.displayName + "/toDoList/"), updates).then(() => {
           return oldKeys
         });
       } else {
@@ -194,7 +200,7 @@ function todoPageLoad() {
 
         if (oldKeys.length > 0) {
           const removalPromises = oldKeys.map((key) =>
-            remove(ref(db, "User/" + user.email + "/toDoList/" + key))
+            remove(ref(db, "User/" + user.displayName + "/toDoList/" + key))
           );
           return Promise.all(removalPromises);
         }
@@ -202,7 +208,7 @@ function todoPageLoad() {
       }
     })
     .then(() => {
-      get(ref(db, "User/" + user.email + "/toDoList/"))
+      get(ref(db, "User/" + user.displayName + "/toDoList/"))
         .then((snapshot) => {
           if (snapshot) {
             console.log("Repositioning and cleanup complete!");
