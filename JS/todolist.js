@@ -143,6 +143,7 @@ function todoPageLoad() {
   let higher = 0;
   const container = document.getElementById("shop-grid");
   const addButton = document.createElement('button'); 
+  addButton.className = "toDoButton";
   addButton.addEventListener('click', () => {
     generateItems(null, items.length + 1);
     items.push(items.length + 1);
