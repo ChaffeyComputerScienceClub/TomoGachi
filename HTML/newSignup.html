@@ -5,13 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/CSS/signUpStyle.css">
     <title>Document</title>
+    
 </head>
 <body>
-    <div id="authForm"></div>
-    <h2>Sign Up Or Sign In</h2>
-    <input type="email" placeholder="email" id="userEmail"> 
-    <input type="password" placeholder="password" id="userPassword"> <br><br>
-    <button id="signUpButton">Sign Up</button>
-    <button id="signInButton">Sign In</button>
+    <div class="signupBox">
+        <div id="authForm"></div>
+        <h2 style="text-align: center;">Tomo Taru</h2>
+        <input type="email" placeholder="User Name" id="userEmail" class="signInInput"> 
+        <input type="password" placeholder="password" id="userPassword" class="signInInput"> <br><br>
+        <button id="signUpButton" class="signupbutton">Create Account/Sign Up</button>
+        <button id="signInButton" style="margin-left: 6rem;" class="signupbutton">Sign In</button>
+
+    </div>
+    <script src="/JS/signup2.js" type="module"></script>
 </body>
 </html>
