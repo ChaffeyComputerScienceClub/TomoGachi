@@ -195,6 +195,9 @@ imageContainer {
 }
 #tamaGif {
   z-index: 2;
+  width: 50%;
+  margin-top: 17%;
+  margin-left: 22%;
 }
 /*
 .stats-container {
