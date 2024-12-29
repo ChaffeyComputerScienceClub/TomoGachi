@@ -63,7 +63,7 @@ meterBox {
   align-items: center;
   justify-items: center;
   grid-template-columns: 30% 30% 30%;
-  grid-template-rows: 20% 65%;
+  grid-template-rows: 20% 60%;
   gap: 5px;
   height: 40vw;
 }
@@ -80,8 +80,8 @@ meterBox {
 meterBox img {
   height: 85%; 
 }
-meter {
-  width: 500%;
+meterBox meter {
+  width: 450%;
   height: 8vw;
   transform: rotate(-90deg);
 }
@@ -372,6 +372,7 @@ input[type="text"]:focus{
 /*#region finance*/
 .financeDisplay{
   display: block;
+  font-size: 120%;
 }
 .popupButton{
   margin-left: 50px;
