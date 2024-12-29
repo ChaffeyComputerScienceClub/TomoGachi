@@ -32,6 +32,9 @@ const auth=getAuth();
                 user = userCredential.user;
                 console.log(user);
                 alert("Your account has been created!");
+                set(ref(db, "User/" + user.uid + "/Bank/" ),{
+                    Money: 0
+                })
             })
             .catch((error) => {
                 const errorCode = error.code;
@@ -47,6 +50,9 @@ const auth=getAuth();
             .then((userCredential) => {
                 user = userCredential.user;
                 alert("You have signed in successfully!");
+                set(ref(db, "User/" + user.uid + "/Bank/" ),{
+                    Money: 0
+                })
                 NextPage();
                 console.log(user);
             })

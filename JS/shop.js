@@ -60,7 +60,7 @@ async function shopCheckCanBuy(unparsedItem) {
 function shopCreateItem(addedItem){
   //console.log(addedItem);
 
-set(ref(db, "User/" + user.email + "/Inventory/" + addedItem.name), {
+set(ref(db, "User/" + user.uid + "/Inventory/" + addedItem.name), {
     Item: addedItem.name
 })
 .then(() => {
@@ -76,7 +76,7 @@ function shopFindItem(item) {
   let temp = "#button" + item.id.toString();
   let button = document.querySelector(temp);
 
-  return get(child(dbref, "User/" + user.email + "/Inventory/" + item.name))
+  return get(child(dbref, "User/" + user.uid + "/Inventory/" + item.name))
     .then((snapshot) => {
       //console.log(temp);
       if (snapshot.exists()){
@@ -95,7 +95,7 @@ function shopFindItem(item) {
 
 function shopUpdateItem(value) {
   bankAmount = value;
-  update(ref(db, "User/" + user.email + "/Bank/"), {
+  update(ref(db, "User/" + user.uid + "/Bank/"), {
     Money: value
   })
   .then(() => {

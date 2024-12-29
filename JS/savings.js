@@ -7,7 +7,7 @@ function CreateItem(){
     var user=auth.currentUser;
     console.log(user);
     generate(amountInput.value, titleInput.value, dateInput.value);
-    set(ref(db, "User/" + user.email + "/GoalSavings/" + titleInput.value),{
+    set(ref(db, "User/" + user.uid + "/GoalSavings/" + titleInput.value),{
     GoalDate: dateInput.value,
     GoalAmount: amountInput.value
 })

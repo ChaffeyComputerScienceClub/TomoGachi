@@ -49,7 +49,7 @@ setInterval (() => {
     // if (hungerMeter.value <= 10) {
     //     console.log("hung");
     // }
-    set(ref(db, testUser + "/Clock/"), {
+    set(ref(db, "User/" + user.uid + "/Clock/"), {
         Time: currentTime
     })
     
@@ -60,7 +60,7 @@ setInterval (() => {
   document.addEventListener('DOMContentLoaded', async function () {
     const checkInterval = setInterval(() => {
         if (typeof window.get === "function") {
-            get(ref(db, user.email + "/Clock/"))
+            get(ref(db, "User/" + user.uid + "/Clock/"))
                 .then((snapshot) => {
                     if (snapshot.exists()) {
                         startTime = snapshot.child("Time").val();
