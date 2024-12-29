@@ -2,7 +2,7 @@ function financeLoadPage() {
     const shopGrid = document.getElementById("shop-grid");
     shopGrid.innerHTML = `
     <div style="height:150px;">
-        <h2 style="display:inline-block; margin-left:410px">$</h2>
+        <h2 style="display:inline-block; margin-left:50%">$</h2>
         <input type="number" placeholder="0" id="monthlyIncome" class="incomeInput">
         <h2 id="month" class="monthName"></h2>
     </div>
@@ -13,7 +13,7 @@ function financeLoadPage() {
       <label style="margin-left: 400px; ">Budgeted</label>
     </div>
     
-    <div style="margin-left: 7%;">
+    <div style="margin-left: 0%;">
       <meter id="rentMeter" class="meter" class="rent" max="100"></meter>
       <input type="number" id="rentBudget" class="budgetInput">
       <button id="rentButton" class="saveButton">Save</button>
