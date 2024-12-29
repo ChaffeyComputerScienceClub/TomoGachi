@@ -58,7 +58,14 @@ const auth=getAuth();
         }
 
         function NextPage(){
-            window.location.href = "mainPage.html?user=" + encodeURIComponent(JSON.stringify(user));
+            if(user){
+                
+                window.location.href = "mainPage.html?user=" + encodeURIComponent(JSON.stringify(user));
+        
+            }
+            else {
+                console.log("user isn't defined");
+            }
         }
 
 
