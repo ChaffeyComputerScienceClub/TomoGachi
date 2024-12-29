@@ -27,7 +27,7 @@ async function shopLoadProducts(filter) {
 function shopCreateProductButton(item) {
   const button = document.createElement('button');
   button.id = "button" + item.id.toString();
-  button.innerText = "Add to Cart";
+  button.innerText = "Buy";
   button.onclick = () => shopCheckCanBuy(item);
   console.log(button.id);
   return button;

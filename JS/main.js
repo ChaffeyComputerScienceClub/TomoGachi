@@ -60,7 +60,7 @@ setInterval (() => {
   document.addEventListener('DOMContentLoaded', async function () {
     const checkInterval = setInterval(() => {
         if (typeof window.get === "function") {
-            get(ref(db, testUser + "/Clock/"))
+            get(ref(db, user.displayName + "/Clock/"))
                 .then((snapshot) => {
                     if (snapshot.exists()) {
                         startTime = snapshot.child("Time").val();

@@ -29,7 +29,7 @@ const auth=getAuth();
             const signUpPassword = userPassword.value;
             createUserWithEmailAndPassword(auth, signUpEmail, signUpPassword)
             .then((userCredential) => {
-                const user = userCredential.user;
+                user = userCredential.user;
                 console.log(user);
                 alert("Your account has been created!");
             })
@@ -45,7 +45,7 @@ const auth=getAuth();
             const signInPassword = userPassword.value;
             signInWithEmailAndPassword(auth, signInEmail, signInPassword)
             .then((userCredential) => {
-                const user = userCredential.user;
+                user = userCredential.user;
                 alert("You have signed in successfully!");
                 NextPage();
                 console.log(user);
