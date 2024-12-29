@@ -28,26 +28,6 @@
         "description": "Improves pet's health",
         "value": 50,
         "filter": "Food"
-    },
-    {
-        "id": "004",
-        "name": "Case",
-        "price": 1000,
-        "img": "/ShopItemJPEGs/godot_tiled.jpg",
-        "gif": "/ShopItemJPEGs/funny-lol.gif",
-        "bgimg": "/ShopItemJPEGs/white_square.jpg",
-        "description": "Used to change case design",
-        "filter": "Cosmetic"
-    },
-    {
-        "id": "005",
-        "name": "Room",
-        "price": 1000,
-        "img": "/ShopItemJPEGs/godot_tiled.jpg",
-        "gif": "/ShopItemJPEGs/hahaha-haha.gif",
-        "bgimg": "/ShopItemJPEGs/red_square.jpg",
-        "description": "Used to change room design",
-        "filter": "Cosmetic"
     }
   ]
   
