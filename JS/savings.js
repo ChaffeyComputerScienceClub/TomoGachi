@@ -39,7 +39,7 @@ document.body.appendChild(meter);
 addButton.addEventListener('click', CreateItem);*/
 
 
-//update(ref(db, "User/" + user.displayName + "/GoalSavings/" + category.value),{ })
+//update(ref(db, "User/" + user.uid + "/GoalSavings/" + category.value),{ })
 
 
 onAuthStateChanged(auth, (user)=>{

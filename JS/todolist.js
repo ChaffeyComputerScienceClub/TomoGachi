@@ -37,7 +37,7 @@ function deleteItem(element, id) {
   var user = auth.currentUser;
 
   console.log("deleted");
-  remove(ref(db, "User/" + user.displayName + "/toDoList/" + id));
+  remove(ref(db, "User/" + user.uid + "/toDoList/" + id));
 
   reorderDB(element, id);
 }
@@ -74,7 +74,7 @@ function save(text, id) {
   var user = auth.currentUser;
   id = (id).toString();
 
-  set(ref(db, "User/" + user.displayName + "/toDoList/" + id), {
+  set(ref(db, "User/" + user.uid + "/toDoList/" + id), {
     Item: text
   });
   updateFirebase();
@@ -86,7 +86,7 @@ function updateFirebase() {
   let lower = 0;
   let higher = 0;
 
-  get(ref(db, "User/" + user.displayName + "/toDoList/"))
+  get(ref(db, "User/" + user.uid + "/toDoList/"))
     .then((snapshot) => {
       if (snapshot.exists()) {
         let newPosition = 1; // Start storing at position 1
@@ -112,7 +112,7 @@ function updateFirebase() {
             oldKeys.push(key);
           }
         });
-        return update(ref(db, "User/" + user.displayName + "/toDoList/"), updates).then(() => {
+        return update(ref(db, "User/" + user.uid + "/toDoList/"), updates).then(() => {
           return oldKeys
         });
       }
@@ -127,7 +127,7 @@ function updateFirebase() {
 
         if (oldKeys.length > 0) {
           const removalPromises = oldKeys.map((key) =>
-            remove(ref(db, "User/" + user.displayName + "/toDoList/" + key))
+            remove(ref(db, "User/" + user.uid + "/toDoList/" + key))
           );
           return Promise.all(removalPromises);
         }
@@ -154,7 +154,7 @@ function todoPageLoad() {
   listContainer.id = "toDoList";
   listContainer.className = "shop-grid";
   container.append(listContainer);
-  get(ref(db, "User/" + user.displayName + "/toDoList/"))
+  get(ref(db, "User/" + user.uid + "/toDoList/"))
     .then((snapshot) => {
       if (snapshot.exists()) {
         let newPosition = 1; // Start storing at position 1
@@ -182,7 +182,7 @@ function todoPageLoad() {
         });
 
         // Apply all updates in one  go
-        return update(ref(db, "User/" + user.displayName + "/toDoList/"), updates).then(() => {
+        return update(ref(db, "User/" + user.uid + "/toDoList/"), updates).then(() => {
           return oldKeys
         });
       } else {
@@ -200,7 +200,7 @@ function todoPageLoad() {
 
         if (oldKeys.length > 0) {
           const removalPromises = oldKeys.map((key) =>
-            remove(ref(db, "User/" + user.displayName + "/toDoList/" + key))
+            remove(ref(db, "User/" + user.uid + "/toDoList/" + key))
           );
           return Promise.all(removalPromises);
         }
@@ -208,7 +208,7 @@ function todoPageLoad() {
       }
     })
     .then(() => {
-      get(ref(db, "User/" + user.displayName + "/toDoList/"))
+      get(ref(db, "User/" + user.uid + "/toDoList/"))
         .then((snapshot) => {
           if (snapshot) {
             console.log("Repositioning and cleanup complete!");

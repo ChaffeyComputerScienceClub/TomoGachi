@@ -367,7 +367,7 @@ function financeLoadPage() {
     }
 
     //extra stuff
-    //update(ref(db, "User/" + user.displayName + "/GoalSavings/" + category.value),{ })
+    //update(ref(db, "User/" + user.uid + "/GoalSavings/" + category.value),{ })
     /*var addButton=document.querySelector("#addButton");
     addButton.addEventListener('click', CreateItem);*/
 

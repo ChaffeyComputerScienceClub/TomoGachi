@@ -52,10 +52,10 @@ const userSignOut=async()=>{
 onAuthStateChanged(auth, (newUser)=>{
     console.log("state changed");
     if(newUser){
-        console.log(newUser.displayName);
+        console.log(newuser.uid);
     signOutButton.style.display="block";
     message.style.display="block";
-    userName.innerHTML=newUser.displayName;
+    userName.innerHTML=newuser.uid;
     user = newUser;
     }else{
         console.log("no user");
@@ -65,8 +65,8 @@ onAuthStateChanged(auth, (newUser)=>{
 })
 
 function CreateUser(){
-set(ref(db, user.displayName),{
-    UserName: user.displayName
+set(ref(db, user.uid),{
+    UserName: user.uid
 }).catch((error)=>{
 
 })
