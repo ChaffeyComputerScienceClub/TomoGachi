@@ -131,46 +131,23 @@ imageContainer {
   height: 100%;
   flex-direction: column;
 }
-/*Don't know what this is for*/
-.icon-vert-container {
-  width: 100%; /* You can adjust this width to fit your layout */
-  height: 100%;
-  display: flex; /* Using flex to allow meter to be in rows */
-  flex-direction: column;
-  align-items: center;
-}
 .gridTomo{
   display: grid;
   grid-template-areas: "stack";
 }
+/*Don't know what this is for
+.icon-vert-container {
+  width: 100%;
+  height: 100%;
+  display: flex; 
+  flex-direction: column;
+  align-items: center;
+}
+*/
+
 /*#endregion*/
 
 /*#region Tamagotchi pet side bar*/
-/* Lunas old code
-.tamagotchi {
-  margin: auto;
-  position: relative;
-  width: 100%;
-  height: 45vh;
-  background-color: rgba(52, 73, 94, 0.2);
-  margin-inline: auto;
-}
-.stats-container {
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-  height: 50vh;
-  background-color: rgba(52, 73, 94, 0.2);
-  align-items: center;
-  justify-content: center;
-}  
-.tamagotchi-img {
-  width: 80%;
-  position: absolute;
-  top:0px;
-  left:0px;
-}
-*/
 .tamagotchi {
   /*display: flex;
   margin: auto;*/
@@ -181,6 +158,7 @@ imageContainer {
   background-color: rgba(52, 73, 94, 0.2);
   align-items: center;
   justify-content: center;
+  padding: 10px;
 }
 .tamagotchi img {
   width: 70%;
@@ -199,15 +177,6 @@ imageContainer {
   margin-top: 17%;
   margin-left: 22%;
 }
-/*
-.stats-container {
-  display: flex;
-  width: 100%;
-  height: 100vh;
-  background-color: rgba(52, 73, 94, 0.2);
-  align-items: center;
-  justify-content: center;
-}*/
 /*#endregion*/
 
 /*#region Sidebar*/
