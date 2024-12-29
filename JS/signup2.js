@@ -65,8 +65,8 @@ const auth=getAuth();
 
         function NextPage(){
             if(user){
-                
-                window.location.href = "mainPage.html?user=" + encodeURIComponent(JSON.stringify(user));
+                document.cookie = "user=" + encodeURIComponent(JSON.stringify(user)) + "; path=/";
+                window.location.href = "mainPage.html";
         
             }
             else {

@@ -16,10 +16,20 @@ const app = initializeApp(firebaseConfig);
 const db=getDatabase();
 const auth=getAuth();
 const provider=new GoogleAuthProvider();
+let user = null;
 // Retrieve and deserialize the 'user' query parameter
-const urlParams = new URLSearchParams(window.location.search);
-const userParam = urlParams.get('user');
-const user = userParam ? JSON.parse(decodeURIComponent(userParam)) : null;
+function getCookie(name) {
+  const value = `; ${document.cookie}`;
+  const parts = value.split(`; ${name}=`);
+  if (parts.length === 2) return parts.pop().split(';').shift();
+  return null;
+}
+
+const userCookie = getCookie("user");
+if (userCookie) {
+  user = JSON.parse(decodeURIComponent(userCookie));
+}
+
 
 //const user = null;
 let inventory = null;
