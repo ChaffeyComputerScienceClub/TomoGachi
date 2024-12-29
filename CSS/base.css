@@ -80,11 +80,11 @@ meterBox {
 meterBox img {
   height: 85%; 
 }
-/* meter {
+meter {
   width: 500%;
   height: 8vw;
   transform: rotate(-90deg);
-} */
+}
 .mobile meter {
   width: 20vh;
   height: 20vw;
@@ -95,19 +95,6 @@ meter::-webkit-meter-bar {
   border: 3px solid #c64189;
 }
 meter::-webkit-meter-optimum-value {
-  background: #db9fbd;
-}
-.homemeter{
-  width: 500%;
-  padding-left: 110px;
-  height: 7rem; /* Set your desired height */
-  transform: rotate(-90deg);
-}
-.homemeter::-webkit-meter-bar {
-  background: #fce8f1;
-  border: 3px solid #c64189;
-}
-.homemeter::-webkit-meter-optimum-value {
   background: #db9fbd;
 }
 /*#endregion*/
