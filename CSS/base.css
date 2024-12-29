@@ -60,10 +60,10 @@ meterBox {
   justify-content: space-evenly;
   align-items: center;
   justify-items: center;
-  grid-template-columns: 25% 25% 25%;
-  grid-template-rows: 5% 12%;
+  grid-template-columns: 30% 30% 30%;
+  grid-template-rows: 20% 65%;
   gap: 5px;
-  /*height: 10vw;*/
+  height: 40vw;
 }
 .mobile meterBox {
   display: grid; 
@@ -76,11 +76,11 @@ meterBox {
   height: 50vw;
 }
 meterBox img {
-  height: 80%; 
+  height: 85%; 
 }
 meter {
-  width: 20vh;
-  height: 20vw;
+  width: 500%;
+  height: 8vw;
   transform: rotate(-90deg);
 }
 .mobile meter {
@@ -159,7 +159,7 @@ imageContainer {
   padding: 25px;
 }
 .tamagotchi img {
-  width: 70%;
+  width: 100%;
   height: auto;
   margin: auto;
   grid-area: stack;
@@ -171,9 +171,9 @@ imageContainer {
 }
 #tamaGif {
   z-index: 2;
-  width: 50%;
+  width: 80%;
   margin-top: 17%;
-  margin-left: 22%;
+  margin-left: 6%;
 }
 /*#endregion*/
 
