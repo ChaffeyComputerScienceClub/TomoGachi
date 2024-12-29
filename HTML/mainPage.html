@@ -19,80 +19,10 @@
   </header>
 
   <body>
-    <row class="mobile">
-      <column class="col-2">
-        <!--Right Side Bar-->
-        <flexContainer style="background-color: rgba(52, 73, 94, 0.2); flex-direction: column;">
-          <!--#region Tamagotchi-->
-          <div class="tamagotchi">
-            <div class="gridTomo">
-              <img id="tamaBG" src="/images/Room.png" />
-              <img id="tamaGif" src="/images\tomoIdle.gif" />
-            </div>
-          </div>
-          <!--#endregion-->
-          <!--#region Stats-->
-              <!--#region meter Mobile-->
-              <meterBox>
-                <img src="/ShopItemJPEGs/bread copy.png" alt="food" />
-                <!--  meter 1 -->
-                <meter id="friendship-meter" max="100" value="70"></meter>
-                <img src="/ShopItemJPEGs/bread copy.png" alt="food" />
-                <!--  meter 2 -->
-                <meter id="happiness-meter" max="100" value="70"></meter>
-                <img src="/ShopItemJPEGs/bread copy.png" alt="food" />
-                <!--  meter 3 -->
-                <meter id="hunger-meter" max="100" value="70"></meter>
-              </meterBox>
-              <!--#endregion-->
-          <!--#endregion-->
-        </flexContainer>
-      </column>
-      <column class="col-2">
+    <row>
+      <column class="col-3 desktop">
         <!--#region Left Sidebar Options-->
-        <flexContainer style="flex-direction: column;">
-          <sidebar>
-            <sidebar
-              class="option"
-              id="option1"
-              style="background-color: var(--shopBlue)"
-              >Shop
-            </sidebar>
-            <sidebar
-              class="option"
-              id="option2"
-              style="background-color: var(--inventoryPink)"
-              >Inventory
-            </sidebar>
-            <sidebar
-              class="option"
-              id="option3"
-              style="background-color: var(--financeGreen)"
-              >Finance
-            </sidebar>
-            <sidebar
-              class="option"
-              id="option4"
-              style="background-color: var(--todoPurple)"
-              >To-do List
-            </sidebar>
-          </sidebar>
-          <!--Sub Options-->
-          <sidebar id="mini-sidebar"></sidebar>
-        </flexContainer>
-        <!--#endregion-->
-      </column>
-      <column class="col-8">
-        <!--#region Shop grid-->
-        <div id="shop-grid" class="shop-grid"></div>
-        <!--#endregion-->
-      </column>
-      
-    </row>
-    <row class="desktop">
-      <column class="col-2">
-        <!--#region Left Sidebar Options-->
-        <flexContainer style="width: 50vw">
+        <flexContainer>
           <sidebar style="width: 10vw; min-width: 146px; max-width: 200px">
             <sidebar
               class="option"
@@ -124,12 +54,81 @@
         </flexContainer>
         <!--#endregion-->
       </column>
-      <column class="col-8">
+      <!--Mobile Right Side Bar-->
+      <column class="col-2 mobile">
+        <!--Right Side Bar-->
+        <flexContainer
+          style="
+            background-color: rgba(52, 73, 94, 0.2);
+            flex-direction: column;
+          "
+        >
+          <!--#region Tamagotchi-->
+          <div class="tamagotchi">
+            <div class="gridTomo">
+              <img id="tamaBG" src="/images/Room.png" />
+              <img id="tamaGif" src="/images\tomoIdle.gif" />
+            </div>
+          </div>
+          <!--#endregion-->
+          <!--#region Stats-->
+          <!--#region meter Mobile-->
+          <meterBox>
+            <img src="/ShopItemJPEGs/bread copy.png" alt="food" />
+            <!--  meter 1 -->
+            <meter id="friendship-meter" max="100" value="70"></meter>
+            <img src="/ShopItemJPEGs/bread copy.png" alt="food" />
+            <!--  meter 2 -->
+            <meter id="happiness-meter" max="100" value="70"></meter>
+            <img src="/ShopItemJPEGs/bread copy.png" alt="food" />
+            <!--  meter 3 -->
+            <meter id="hunger-meter" max="100" value="70"></meter>
+          </meterBox>
+          <!--#endregion-->
+          <!--#endregion-->
+        </flexContainer>
+      </column>
+      <!--Mobile Left Sidebar Options-->
+      <column class="col-2 mobile">
+        <!--#region Left Sidebar Options-->
+        <flexContainer style="flex-direction: column">
+          <sidebar>
+            <sidebar
+              class="option"
+              id="option1"
+              style="background-color: var(--shopBlue)"
+              >Shop
+            </sidebar>
+            <sidebar
+              class="option"
+              id="option2"
+              style="background-color: var(--inventoryPink)"
+              >Inventory
+            </sidebar>
+            <sidebar
+              class="option"
+              id="option3"
+              style="background-color: var(--financeGreen)"
+              >Finance
+            </sidebar>
+            <sidebar
+              class="option"
+              id="option4"
+              style="background-color: var(--todoPurple)"
+              >To-do List
+            </sidebar>
+          </sidebar>
+          <!--Sub Options-->
+          <sidebar id="mini-sidebar"></sidebar>
+        </flexContainer>
+        <!--#endregion-->
+      </column>
+      <column class="col-7">
         <!--#region Shop grid-->
         <div id="shop-grid" class="shop-grid"></div>
         <!--#endregion-->
       </column>
-      <column class="col-2">
+      <column class="col-2 desktop">
         <!--Right Side Bar-->
         <vertContainer style="background-color: rgba(52, 73, 94, 0.2)">
           <!--#region Tamagotchi-->
