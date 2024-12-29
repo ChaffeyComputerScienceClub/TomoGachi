@@ -36,7 +36,7 @@ function generateItems(text, id) {
 function deleteItem(element, id) {
   var user = auth.currentUser;
 
-  console.log("deleted");
+
   remove(ref(db, "User/" + user.uid + "/toDoList/" + id));
 
   reorderDB(element, id);
@@ -44,12 +44,10 @@ function deleteItem(element, id) {
 
 
 function reorderDB(element, id) {
-  console.log("reordered");
-  console.log(items);
+
   let num = items.length;
   items.splice(id, 1);
-  console.log(id);
-  console.log(items.length);
+
 
   for (let i = id; i <= num; i++) {
     let thing1 = document.getElementById(`cb-${i}`);
@@ -61,7 +59,7 @@ function reorderDB(element, id) {
       items[i] -= 1;
     }
   }
-  console.log(items);
+
   element.parentElement.remove();
   updateFirebase();
 
@@ -69,8 +67,7 @@ function reorderDB(element, id) {
 
 
 function save(text, id) {
-  console.log("saving");
-  console.log(id);
+
   var user = auth.currentUser;
   id = (id).toString();
 
@@ -78,7 +75,7 @@ function save(text, id) {
     Item: text
   });
   updateFirebase();
-  console.log(items);
+
 }
 
 
@@ -100,15 +97,15 @@ function updateFirebase() {
           if (value && value.Item !== null && value.Item !== "") {
             updates[newPosition] = { Item: value.Item }; // New position data
             if (parseInt(key) !== newPosition) {
-              console.log("here");
+
               oldKeys.push(key); // Track the key only if it needs to be replaced
             }
-            console.log(`Moved item from ${key} to ${newPosition}`);
+
             lower++;
             newPosition++;
           } else {
             // If the item is invalid or empty, add it to the oldKeys for removal
-            console.log("there");
+
             oldKeys.push(key);
           }
         });
@@ -122,7 +119,7 @@ function updateFirebase() {
       if (oldKeys) {
         if ((oldKeys.length != 1) && (oldKeys[higher - lower] != lower)) {
           oldKeys.shift();
-          console.log("shifted");
+
         }
 
         if (oldKeys.length > 0) {
@@ -142,7 +139,7 @@ function todoPageLoad() {
   let lower = 0;
   let higher = 0;
   const container = document.getElementById("shop-grid");
-  const addButton = document.createElement('button'); 
+  const addButton = document.createElement('button');
   addButton.className = "toDoButton";
   addButton.innerHTML = "Add Item";
   addButton.addEventListener('click', () => {
@@ -168,15 +165,15 @@ function todoPageLoad() {
           if (value && value.Item !== null && value.Item !== "") {
             updates[newPosition] = { Item: value.Item }; // New position data
             if (parseInt(key) !== newPosition) {
-              console.log("here");
+
               oldKeys.push(key); // Track the key only if it needs to be replaced
             }
-            console.log(`Moved item from ${key} to ${newPosition}`);
+
             lower++;
             newPosition++;
           } else {
             // If the item is invalid or empty, add it to the oldKeys for removal
-            console.log("there");
+
             oldKeys.push(key);
           }
         });
@@ -186,7 +183,7 @@ function todoPageLoad() {
           return oldKeys
         });
       } else {
-        console.log("No data available to reposition.");
+
         return Promise.resolve([]); // Return empty array if no data
       }
     })
@@ -195,7 +192,7 @@ function todoPageLoad() {
       if (oldKeys) {
         if ((oldKeys.length != 1) && (oldKeys[higher - lower] != lower)) {
           oldKeys.shift();
-          console.log("shifted");
+
         }
 
         if (oldKeys.length > 0) {
@@ -211,29 +208,22 @@ function todoPageLoad() {
       get(ref(db, "User/" + user.uid + "/toDoList/"))
         .then((snapshot) => {
           if (snapshot) {
-            console.log("Repositioning and cleanup complete!");
             let offset = 0;
             Object.keys(snapshot.val()).forEach((i) => {
               if (snapshot.child(i.toString()).val().Item !== "") {
-                console.log(i);
+
                 generateItems(snapshot.child(i.toString()).val().Item, i);
                 items.push(i - offset);
-                console.log(items);
+
                 if (offset > 0) { offset--; };
 
               }
               else {
-                console.log("probelmmmmmmmmmmmmmm");
-                console.log(i);
-                console.log(items);
                 offset++;
               }
-              console.log("offset: " + offset);
             })
           }
-          else {
-            console.log("how am i printing??");
-          }
+
         }).catch((error) => {
           console.error(error);
         });
