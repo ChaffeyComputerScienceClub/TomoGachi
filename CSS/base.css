@@ -35,7 +35,9 @@ body {
 * {
   box-sizing: border-box;
 }
-
+.shop-non-grid {
+  padding: 20px;
+}
 /*#endregion*/
 
 /*#region Header*/
@@ -134,15 +136,7 @@ imageContainer {
   display: grid;
   grid-template-areas: "stack";
 }
-/*Don't know what this is for
-.icon-vert-container {
-  width: 100%;
-  height: 100%;
-  display: flex; 
-  flex-direction: column;
-  align-items: center;
-}
-*/
+
 /*#endregion*/
 
 /*#region Tamagotchi pet side bar*/
